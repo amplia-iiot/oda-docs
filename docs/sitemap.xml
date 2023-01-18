@@ -1,195 +1,195 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/infrastructure/core/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/core/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/guides/faqs/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/infrastructure/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/updatesoftware/bundles/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/bundles/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/recollectdata/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/recollectdata/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/infrastructure/comms/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/comms/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/guides/configfiles/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/configfiles/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/updatesoftware/rules/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/rules/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/publishdata/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/publishdata/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/applyrules/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/guides/folders/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/folders/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/infrastructure/services/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/services/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/guides/dependency-table/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/dependency-table/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/guides/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/scenarios/updatesoftware/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/infrastructure/subsystems/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/subsystems/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/develop/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/develop/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/adc/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/adc/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/atserver/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/atserver/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/develop/bundleconfiguration/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/develop/bundleconfiguration/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/categories/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/categories/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/coap/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/coap/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/comms/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/comms/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/develop/datastreamgetter/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/develop/datastreamgetter/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/deviceinfo/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/deviceinfo/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/diozero/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/diozero/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/discover/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/discover/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/dnp3/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/dnp3/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/eventdispatcher/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/eventdispatcher/events/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/events/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/getdeviceparameters/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/getdeviceparameters/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/gpio/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/gpio/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/http/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/http/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/i2c/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/i2c/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/i2c/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/iec104/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/iec104/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/statemanager/inmemory/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/jdkdio/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/jdkdio/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/hardware/modbus/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/modbus/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/modbus/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/modbus/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/mqtt/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/mqtt/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/mqtt/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/mqtt/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/ruleengine/nashorn/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/nashorn/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/develop/customoperation/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/develop/customoperation/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operationdispatcher/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/statemanager/realtime/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/statemanager/realtime/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/refreshinfo/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/refreshinfo/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/ruleengine/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/setclock/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/setclock/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/setdeviceparameters/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/setdeviceparameters/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/datastreams/simulator/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/simulator/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/statemanager/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/synchronizeclock/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/synchronizeclock/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/tags/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/tags/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/operations/update/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/update/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/ruleengine/utils/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/utils/index.html</loc>
   </url>
   <url>
-    <loc>http://example.org/layers/connectors/websocket/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/websocket/index.html</loc>
   </url>
 </urlset>

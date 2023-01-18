@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scenarios on ODA Documentation Site</title>
-    <link>http://example.org/scenarios/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/scenarios/index.html</link>
     <description>Recent content in Scenarios on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/scenarios/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/scenarios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New Software</title>
-      <link>http://example.org/scenarios/updatesoftware/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/updatesoftware/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</guid>
       <description>ODA has an update operation that allows to install or update software, rules or configuration in ODA from a third system.
 We must configure the parameters needed for this operation in file es.amplia.oda.operation.update.cfg. It will take five parameters:
 rulesPath - path of the folder where rules will be installed (rules/)
@@ -19,18 +19,18 @@ deployPath - path of the folder where bundles will be deployed (deploy/)</descri
     </item>
     <item>
       <title>Recollect Data</title>
-      <link>http://example.org/scenarios/recollectdata/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/recollectdata/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/recollectdata/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/recollectdata/index.html</guid>
       <description>Request data periodically from devices Using ODA capabilities we can request data periodically from a device using one of the interfaces defined in ODA.
 Configure the hardware connection to the device. This is done in the corresponding configuration file of that hardware interface es.amplia.oda.hardware.*.cfg. To know the parameters needed to configure the hardware interface we want to use, check the Layers/Hardware section in this guide.
 Configure the datastream that will contain the data retrieved by the hardware layer.</description>
     </item>
     <item>
       <title>Publish Data</title>
-      <link>http://example.org/scenarios/publishdata/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/publishdata/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/publishdata/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/publishdata/index.html</guid>
       <description>Publish data recollected from devices Once we have recollected data from the device, we must publish that data to OpenGate or another external system. There are two modes in which ODA can work to publish data:
 Real time - datastreams are published as soon as they are recollected from the poller
 In memory - datastreams are stored in a database awaiting to be published
@@ -38,9 +38,9 @@ In real time mode, there is no configuration to be done.</description>
     </item>
     <item>
       <title>Apply Rules</title>
-      <link>http://example.org/scenarios/applyrules/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/applyrules/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</guid>
       <description>Apply rules to the collected data ODA allows to configure custom rules to be applied after the data is collected from the device. Rules are only applied if we are using in memory state manager.
 To be able to apply rules we must first configure ODA to tell it the directory where the rules to apply will be stored.
 To do this, we create a configuration file with the name es.</description>

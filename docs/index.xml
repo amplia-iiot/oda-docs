@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ODA official documentation on ODA Documentation Site</title>
-    <link>http://example.org/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/index.html</link>
     <description>Recent content in ODA official documentation on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Infrastructure</title>
-      <link>http://example.org/infrastructure/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/infrastructure/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/infrastructure/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/infrastructure/index.html</guid>
       <description>ODA provides a common infrastructure to be used from any module:
 Core: Core modules with common features. Comms: Communication modules used by different modules of the system. Services: Services to be used by any module (e.g. serialization services). Subsystems: General subsystems. </description>
     </item>
     <item>
       <title>Layers</title>
-      <link>http://example.org/layers/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/index.html</guid>
       <description>ODA is composed of the following layers:
 Connectors: Send and received data to/from the Internet at a low level of abstraction (byte array). Operation Dispatcher: Converts from low level data into high level representation to process operations and send the responses. Event Dispatcher: Converts data events into a low level data representation to send it through the connectors. Operations: Implements a specific operation inside the device. State Manager: Stores the device data state in the current moment.</description>
     </item>
     <item>
       <title>Scenarios</title>
-      <link>http://example.org/scenarios/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/index.html</guid>
       <description>Here we are going to see some examples of things we can do with ODA as it is.
 Recollect data from devices
 Publish data recollected from devices
@@ -35,9 +35,9 @@ Install bundle from OpenGate</description>
     </item>
     <item>
       <title>Guides</title>
-      <link>http://example.org/guides/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/guides/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/index.html</guid>
       <description>Introduction This section will include guides to execute common tasks in ODA development.
 Dependencies Some bundles need others to work correctly, because those bundles implements a common api and implements some functions that the first bundles need to use in its operation.
 It is important to handle the dependencies, including those bundles that need the modules we will use.
@@ -45,9 +45,9 @@ If you need to know what dependencies have a module that you want to use, you ca
     </item>
     <item>
       <title>Develop</title>
-      <link>http://example.org/develop/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/develop/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/develop/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/develop/index.html</guid>
       <description>Here we are going to see how we can develop new features for ODA.
 Recollect data from new devices
 Bundle configuration

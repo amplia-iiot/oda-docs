@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>New Software on ODA Documentation Site</title>
-    <link>http://example.org/scenarios/updatesoftware/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</link>
     <description>Recent content in New Software on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/scenarios/updatesoftware/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install bundles</title>
-      <link>http://example.org/scenarios/updatesoftware/bundles/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/bundles/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/updatesoftware/bundles/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/bundles/index.html</guid>
       <description>Load bundle in OpenGate To be able to install a bundle in ODA, first we must load the bundle in OpenGate.
 We go to the option Create new bundle and follow the wizard instructions. There are some considerations when filling the wizard fields:
 The name of the bundle must be equal to the symbolic name of the bundle defined in pom file.
@@ -18,9 +18,9 @@ The hardware and workgroup assigned to the bundle must be the same as the fields
     </item>
     <item>
       <title>Install rules</title>
-      <link>http://example.org/scenarios/updatesoftware/rules/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/rules/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/scenarios/updatesoftware/rules/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/rules/index.html</guid>
       <description>Load rule in OpenGate To be able to install a new rule in ODA, first we must load the rule in OpenGate.
 We go to the option Create new bundle and follow the wizard instructions. There are some considerations when filling the wizard fields:
 The name and version fields in bundle configuration tab are not important since rules doesn&amp;rsquo;t have versions and the name will be the one indicated when uploading file in deploy elements tab.</description>

@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Develop on ODA Documentation Site</title>
-    <link>http://example.org/develop/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/develop/index.html</link>
     <description>Recent content in Develop on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/develop/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/develop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bundle configuration</title>
-      <link>http://example.org/develop/bundleconfiguration/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/develop/bundleconfiguration/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/develop/bundleconfiguration/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/develop/bundleconfiguration/index.html</guid>
       <description>Get bundle configuration from file Like ODA bundles, we can make our bundle to get its configuration from a file and to react to changes in this configuration file.
 The configuration file must have the same name as the java package of our bundle.
 To achieve this we must create two classes in our code.
@@ -18,9 +18,9 @@ One class will be the one containing the parameters our bundle needs. In this ex
     </item>
     <item>
       <title>DataStream Getter</title>
-      <link>http://example.org/develop/datastreamgetter/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/develop/datastreamgetter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/develop/datastreamgetter/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/develop/datastreamgetter/index.html</guid>
       <description>Request data periodically from devices not supported Using ODA capabilities we can easily implement our solution to retrieve data from a device.
 Implement DatastreamGetter Using ODA capabilities we can easily make a bundle to request data periodically from a device.
 For our bundle to implement this functionaility we must create a class that implements DatastreamsGetter. It will have three public methods:
@@ -29,9 +29,9 @@ returns the id of the datastream that will be associated with the data collected
     </item>
     <item>
       <title>New operation</title>
-      <link>http://example.org/develop/customoperation/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/develop/customoperation/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/develop/customoperation/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/develop/customoperation/index.html</guid>
       <description>Implement new operation To implement an operation in our bundle we must create a class that implements the interface CustomOperation.
 This interface has two methods:
 getOperationSatisfied - returns the Id of the operation

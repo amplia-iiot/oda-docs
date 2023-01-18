@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>State Manager on ODA Documentation Site</title>
-    <link>http://example.org/layers/statemanager/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</link>
     <description>Recent content in State Manager on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/layers/statemanager/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>In Memory State Manager</title>
-      <link>http://example.org/layers/statemanager/inmemory/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/statemanager/inmemory/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</guid>
       <description>In Memory State Manager This State Manager stores the data of a event to provide the actual value of a datastream quickly when the third system send a get request. This means, that the State Manager have a internal State that it refreshes every time that an event arrives and the engine method is called and, use it to send a response of the get operation instead of search the datastream and do the engine with that value through all the rules.</description>
     </item>
     <item>
       <title>Real Time State Manager</title>
-      <link>http://example.org/layers/statemanager/realtime/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/realtime/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/statemanager/realtime/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/realtime/index.html</guid>
       <description>Real Time State Manager This State Manager will process directly any operation or event that arrives to it. This means, that the incoming value isn&amp;rsquo;t processed in the state manager and the rule engine is not used.
 When a event arrives, the state manager will send it directly to the third system, and the sent the value as it comes.
 When a get operation arrives, the state manager will get the value from the datastream source.</description>

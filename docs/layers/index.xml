@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Layers on ODA Documentation Site</title>
-    <link>http://example.org/layers/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/layers/index.html</link>
     <description>Recent content in Layers on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/layers/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/layers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Connectors</title>
-      <link>http://example.org/layers/connectors/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/index.html</guid>
       <description>Connectors The connectors layer handle data at low level to send it and receive it to/from the Internet.
 The action of sending data to the Internet is called uplink and all connectors must be able to implement it.
 Some connectors are able to receive operations from third systems (usually OpenGate) and answer with the operation response. This feature is implemented in a message received callback. Available operations are defined in operations section</description>
     </item>
     <item>
       <title>Datastreams</title>
-      <link>http://example.org/layers/datastreams/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/datastreams/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/datastreams/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/datastreams/index.html</guid>
       <description>Datastreams Getters, Setters and Events The datastreams are the basic entity to model data inside a device. Datastreams are divided in:
 Datastreams Getters: Datastreams modelling data with read access. public interface DatastreamsGetter { String getDatastreamIdSatisfied(); List&amp;lt;String&amp;gt; getDevicesIdManaged(); CompletableFuture&amp;lt;CollectedValue&amp;gt; get(String device); } Datastreams Setters: Datastreams modelling data with write access. public interface DatastreamsSetter { String getDatastreamIdSatisfied(); Type getDatastreamType(); List&amp;lt;String&amp;gt; getDevicesIdManaged(); CompletableFuture&amp;lt;Void&amp;gt; set(String device, Object value); } Datastreams Events: Datastreams modelling data that trigger data events.</description>
     </item>
     <item>
       <title>Event Dispatcher</title>
-      <link>http://example.org/layers/eventdispatcher/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/eventdispatcher/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</guid>
       <description>Event Dispatcher The event dispatcher is responsible for receiving the events generated in the device and sending them through the available connectors.
 The interface defining the service is the EventDispatcher interface and the main method is the publish method that receives an event:
 public interface EventDispatcher { void publish(Event event); } Events objects are explained in the Events page.
@@ -35,9 +35,9 @@ OpenGate Event Dispatcher The OpenGate Event Dispatcher publishes the received e
     </item>
     <item>
       <title>Hardware</title>
-      <link>http://example.org/layers/hardware/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/index.html</guid>
       <description>Hardware The Hardware layer abstract hardware and LAN protocols details decoupling the hardware access and use from the device details.
 Anytime you need to access a specific hardware, abstract the access and actions in a new API and implement the concrete behavior in a new implementation module registered in OSGi.
 Available abstractions Below are the hardware abstractions currently implemented
@@ -46,18 +46,18 @@ Implement the following interface:</description>
     </item>
     <item>
       <title>Operation Dispatchers</title>
-      <link>http://example.org/layers/operationdispatcher/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/operationdispatcher/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</guid>
       <description>Operation Dispatchers The operation dispatchers are responsible for getting the high level operation requests from the low level representation, pass them to the proper operation processor and send back the responses to the connector as low level representation also.
 This components should also take care of the operation error handling: serialization errors, error in operation params, not supported operations&amp;hellip;
 The entry point is the process method getting the requests and returning the response.</description>
     </item>
     <item>
       <title>Operations</title>
-      <link>http://example.org/layers/operations/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/operations/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/operations/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/operations/index.html</guid>
       <description>Operations The operation layer contains operations that can be executed by the device.
 This operations have to be sent to the device by the third system.
 The API module has the basic operation definitions and the custom operations interface.
@@ -66,18 +66,18 @@ Refresh Info: Send the values of the datastreams at the moment the operation is 
     </item>
     <item>
       <title>Rule Engine</title>
-      <link>http://example.org/layers/ruleengine/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/ruleengine/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</guid>
       <description>Rule Engine The rule engine executes custom business rules dependent on the device data. The rules may be deployed from our OpenGate IOT Platform and are loaded at runtime.
 The rules are based in a when -&amp;gt; then paradigm:
 when: Predicates defining when the rule should be executed then: Actions to execute when the predicates evaluates to true. The scope available inside this functions includes the state of the device (all the values of the datastreams in the current moment) and the new value that has triggered the rules evaluation.</description>
     </item>
     <item>
       <title>State Manager</title>
-      <link>http://example.org/layers/statemanager/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/statemanager/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</guid>
       <description>State Manager The State Manager stores the device data state in the current moment to ease the data access from operations and increase the system performance (at a expense of possible outdated data).
 Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables Edge Computing features.
 There are different State Managers implementations depending on project needs.</description>

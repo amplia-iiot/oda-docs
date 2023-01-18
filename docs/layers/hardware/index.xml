@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on ODA Documentation Site</title>
-    <link>http://example.org/layers/hardware/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/index.html</link>
     <description>Recent content in Hardware on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/layers/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/layers/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AT Server</title>
-      <link>http://example.org/layers/hardware/atserver/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/atserver/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/atserver/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/atserver/index.html</guid>
       <description>AT Server This Hardware module allows to mount an AT Server to send AT Commands to an AT client.
 This module requires of add to the application the AT Manager and AT Server to make it work properly.
 To access source code of AT Server click here.
@@ -20,18 +20,18 @@ Commons: Provide the basic APIs to register the service.</description>
     </item>
     <item>
       <title>Comms</title>
-      <link>http://example.org/layers/hardware/comms/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/comms/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/comms/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/comms/index.html</guid>
       <description>Comms This Hardware module allow ODA to connect to the Internet with a GSM connection. This connection requires of a device with a SIM card connect to it. This module is currently only made to work in Sierra Wireless FX30/FX30S devices. To extend this module is as easy as create new scripts that works for the desired device.
 To access source code click here.
 Dependencies Commons: Provide the basic APIs to register the service.</description>
     </item>
     <item>
       <title>DIOZero</title>
-      <link>http://example.org/layers/hardware/diozero/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/diozero/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/diozero/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/diozero/index.html</guid>
       <description>DIOZero Implementation of the library DIOZero to give an access to analog in/outputs. This is the hardware module that give support to ADC Datastreams.
 To access source code click here.
 Dependencies This module requires the following modules:
@@ -39,9 +39,9 @@ Commons: Provide the ADC APIs, exceptions and types and the basic APIs to regist
     </item>
     <item>
       <title>I2C</title>
-      <link>http://example.org/layers/hardware/i2c/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/i2c/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/index.html</guid>
       <description>I2C This Hardware module allows to use the in/outputs provided by I2C bus.
 This datastreams corresponds to the I2C devices connected to the device.
 To access source code click here.
@@ -50,9 +50,9 @@ Commons: Provide API&amp;rsquo;s of I2C and the basic APIs to register the servi
     </item>
     <item>
       <title>JDK DIO</title>
-      <link>http://example.org/layers/hardware/jdkdio/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/jdkdio/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/jdkdio/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/jdkdio/index.html</guid>
       <description>JDK DIO Implementation of the library JDK DIO to give an access to digital in/outputs. This is the hardware module that give support to GPIO Datastreams.
 To access source code click here.
 Dependencies This module requires the following modules:
@@ -60,9 +60,9 @@ Commons: Provide the GPIO APIs, exceptions and types and the basic APIs to regis
     </item>
     <item>
       <title>ModBus</title>
-      <link>http://example.org/layers/hardware/modbus/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/modbus/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/hardware/modbus/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/modbus/index.html</guid>
       <description>ModBus Implementation of the library j2mod to give an access to devices connected through modbus. This is the hardware module that give support to Modbus Datastreams.
 To access source code click here.
 Dependencies This module requires the following modules:

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rule Engine on ODA Documentation Site</title>
-    <link>http://example.org/layers/ruleengine/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</link>
     <description>Recent content in Rule Engine on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/layers/ruleengine/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nashorn</title>
-      <link>http://example.org/layers/ruleengine/nashorn/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/nashorn/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/ruleengine/nashorn/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/nashorn/index.html</guid>
       <description>Nashorn With this implementation, the rules written in JavaScript have to be deployed into a directory specified by configuration.
 Nashorn implementation will refresh its internal register of the current rules if a rule is deployed during runtime. To do this, rules related to a datastream have to be deployed into a directory with the name of the datastream into the deploy directory specified by configuration.
 If no rule is refreshing the data of a datastream, a basic rule will refresh its value with the received value.</description>
     </item>
     <item>
       <title>Utils</title>
-      <link>http://example.org/layers/ruleengine/utils/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/utils/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/ruleengine/utils/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/utils/index.html</guid>
       <description>Functions of Utils.js Here they are collected all the functions that utils.js provide to use in the rules.
 Control Getting values getDatastreamValue
 Function: Get the last value from the historic of a datastream in DatastreamValue object format.

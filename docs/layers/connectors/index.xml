@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Connectors on ODA Documentation Site</title>
-    <link>http://example.org/layers/connectors/index.html</link>
+    <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/index.html</link>
     <description>Recent content in Connectors on ODA Documentation Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/layers/connectors/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/layers/connectors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>COAP</title>
-      <link>http://example.org/layers/connectors/coap/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/coap/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/coap/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/coap/index.html</guid>
       <description>This connector enables communication via CoAP Protocol.
 Only allows to send data to the OpenGate platform. Operations can&amp;rsquo;t be received.
 Dependencies This module requires the following modules:
@@ -18,9 +18,9 @@ Core Commons: Provides many interfaces that this module will use. Device Info Pr
     </item>
     <item>
       <title>DNP3</title>
-      <link>http://example.org/layers/connectors/dnp3/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/dnp3/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/dnp3/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/dnp3/index.html</guid>
       <description>This connector enables communication via DNP3 Protocol.
 Allow the transfer of data and operations with an SCADA third-system that implements an DNP3 master (client).
 Dependencies This module requires the following modules:
@@ -28,9 +28,9 @@ Scada Table Info: Needed to serve to the connector the information of inputs, ou
     </item>
     <item>
       <title>HTTP</title>
-      <link>http://example.org/layers/connectors/http/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/http/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/http/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/http/index.html</guid>
       <description>HTTP This connector enable communication via HTTP Protocol.
 Only allows to send data to the OpenGate platform. Operations can&amp;rsquo;t be received.
 Dependencies This module requires the following modules:
@@ -38,9 +38,9 @@ Core Commons: Provides many interfaces that this module will use. Device Info Pr
     </item>
     <item>
       <title>IEC 104</title>
-      <link>http://example.org/layers/connectors/iec104/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/iec104/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/iec104/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/iec104/index.html</guid>
       <description>IEC 104 This connector enable communication via IEC 104 Protocol.
 Allow the transfer of data and operations with a SCADA third-system that implements an IEC 104 master (client).
 Dependencies This module requires the following modules:
@@ -48,9 +48,9 @@ Core Commons: Provides many interfaces that this module will use. Scada Dispatch
     </item>
     <item>
       <title>MQTT</title>
-      <link>http://example.org/layers/connectors/mqtt/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/mqtt/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/mqtt/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/mqtt/index.html</guid>
       <description>MQTT This connector enable communication via MQTT Protocol.
 Allows to send data to the OpenGate platform and receive operations from it.
 Dependencies This module requires the following modules:
@@ -58,9 +58,9 @@ Core commons: Provides many interfaces that this module will use Mqtt Communicat
     </item>
     <item>
       <title>WebSocket</title>
-      <link>http://example.org/layers/connectors/websocket/index.html</link>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/connectors/websocket/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/layers/connectors/websocket/index.html</guid>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/connectors/websocket/index.html</guid>
       <description>WebSocket This connector enable communication via WebSocket Protocol.
 Allows to send data to the OpenGate platform and receive operations from it.
 Dependencies This module requires the following modules:
