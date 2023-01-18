@@ -6,7 +6,7 @@ This repository holds the public documentation for ODA.
 
 ## Generation
 
-The ODA documentation uses [Hugo](https://gohugo.io/) static site generator. Don't forget to run this command before pushing the new documentation to the repository:
+The ODA documentation uses Hugo's static site generator. Don't forget to run this command before pushing the new documentation to the repository:
 
 ```bash
 hugo -d docs
