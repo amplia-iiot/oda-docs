@@ -1,4 +1,6 @@
 baseURL = 'https://amplia-iiot.github.io/oda-docs/'
+canonifyURLs = true
+relativeURLs = true
 languageCode = 'en-us'
 title = 'ODA Documentation Site'
 theme = 'relearn'
