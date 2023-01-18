@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Event Dispatcher on ODA Documentation Site</title>
+    <link>http://example.org/layers/eventdispatcher/index.html</link>
+    <description>Recent content in Event Dispatcher on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/layers/eventdispatcher/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Events</title>
+      <link>http://example.org/layers/eventdispatcher/events/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/eventdispatcher/events/index.html</guid>
+      <description>Events ODA internal events are objects created with the value tag of Lombok.
+This internal objects are created to notify a new value to the state manager and are handled by the state manager or the rule engine, depending on the state manager implementation that we will use.
+The event object will have the next parameters to specify the information of the event.
+The Event is defined as:
+public class Event { private String datastreamId; private String deviceId; private String[] path; private Long at; private Object value; } Datastream ID is the id of the datastream which has changed and created an event to notify that change to the state manager.</description>
+    </item>
+  </channel>
+</rss>

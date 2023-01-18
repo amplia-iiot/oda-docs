@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Datastreams on ODA Documentation Site</title>
+    <link>http://example.org/layers/datastreams/index.html</link>
+    <description>Recent content in Datastreams on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/layers/datastreams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ADC</title>
+      <link>http://example.org/layers/datastreams/adc/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/adc/index.html</guid>
+      <description>ADC This Datastream module enable to register the datastreams of Diozero Hardware module.
+This datastreams corresponds to the Analog Input Pins of the device.
+To access source code click here.
+Dependencies This module requires the following modules:
+Dio Zero: Provide an implementation of ADC Service that the datastream module need to provide information of each datastream. Event Publisher: Used to handle the incoming events and send it. Configuration To configure ADC Datastream module, a file named es.</description>
+    </item>
+    <item>
+      <title>Device Info</title>
+      <link>http://example.org/layers/datastreams/deviceinfo/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/deviceinfo/index.html</guid>
+      <description>Device Info This Datastream module enable to register the datastreams to provide the information of the device. This means that each device will have its own module Device Info.
+There are this devices info modules for now:
+x86_64 System devices: Devices with a x86_64 Linux system FX30: Sierra Wireles FX30/FX30S devices OWA450: Owasys OWA450 devices Dependencies This module have no dependencies.
+Configuration To configure Device Info module, a file named es.</description>
+    </item>
+    <item>
+      <title>GPIO</title>
+      <link>http://example.org/layers/datastreams/gpio/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/gpio/index.html</guid>
+      <description>GPIO This Datastream module enable to register the datastreams of JDK DIO Hardware module.
+This datastreams corresponds to the Digital Input Pins of the device. This implementation requires the use of the sysfs interface. This means that this module is not supported by kernels older than the version 4.4.
+To access source code click here.
+Dependencies This module requires the following modules:
+JDK DIO: Provide an implementation of GPIO Service that the datastream module need to provide information of each datastream.</description>
+    </item>
+    <item>
+      <title>I2C</title>
+      <link>http://example.org/layers/datastreams/i2c/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/i2c/index.html</guid>
+      <description>I2C This Datastream module enable to register the datastreams of I2C Hardware module.
+This datastreams corresponds to the I2C devices connected to the device.
+To access source code click here.
+Dependencies This module requires the following modules:
+I2C Hardware: Provide an implementation of I2C Service that the datastream module need to provide information of each datastream. Configuration To configure I2C Datastream module, a file named es.amplia.oda.datastreams.i2c.cfg must be created with the next parameters for each input channel that you want to register:</description>
+    </item>
+    <item>
+      <title>MODBUS</title>
+      <link>http://example.org/layers/datastreams/modbus/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/modbus/index.html</guid>
+      <description>MODBUS This Datastream module enable to register the datastreams of Modbus Hardware module.
+This datastreams corresponds to the inputs/outputs obtained through modbus protocol.
+To access source code click here.
+Dependencies This module requires the following modules:
+ModBus Hardware: Provide an implementation of ModBus Master that the datastream module need to connect to the bus and collect the information of each datastream. Configuration To configure I2C Datastream module, a file named es.</description>
+    </item>
+    <item>
+      <title>MQTT</title>
+      <link>http://example.org/layers/datastreams/mqtt/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/mqtt/index.html</guid>
+      <description>MQTT This datastreams corresponds to the enabling/disabling, writing and reading of datastreams allocated into another application that communicates with the ODA through MQTT protocol.
+Unlike the other datastreams, this doesn&amp;rsquo;t register the datastreams handled by configuration. This datastream configuration contains various topics in which the mqtt communication is made and where the module will subscribe when connection is achieved, having a topic for each function. To register a datastream, a message have to be sent to the enable datastream topic with the device id and the datastream id, i.</description>
+    </item>
+    <item>
+      <title>Simulator</title>
+      <link>http://example.org/layers/datastreams/simulator/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/datastreams/simulator/index.html</guid>
+      <description>Simulator This Datastream module enable to register datastreams with a constant value or a random value between two numbers specified by parameters.
+To access source code click here.
+Dependencies This module have no dependencies
+Configuration To configure ADC Datastream module, a file named es.amplia.oda.datastreams.simulator.cfg must be created with the next parameters for each input channel that you want to register:
+In case of want to register a constant value:
+datastreamId: Required parameter.</description>
+    </item>
+  </channel>
+</rss>

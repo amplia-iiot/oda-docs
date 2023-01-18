@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operations on ODA Documentation Site</title>
+    <link>http://example.org/layers/operations/index.html</link>
+    <description>Recent content in Operations on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/layers/operations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Discover</title>
+      <link>http://example.org/layers/operations/discover/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/discover/index.html</guid>
+      <description>Discover This operation is used to send to another MQTT client a request to enable all datastreams provided by the device that owns that client. When the request was processed by the remote device, ODA expects that a message enabling all the datastreams was send by the remote device.
+This operations will send the request message serialized in CBOR format to a specific topic selected by configuration.
+Dependencies Commons: Required to provide the commons utils, the Operation Discover API and the basic APIs to register the service.</description>
+    </item>
+    <item>
+      <title>Get Device Parameters</title>
+      <link>http://example.org/layers/operations/getdeviceparameters/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/getdeviceparameters/index.html</guid>
+      <description>Get Device Parameters This operation is used to get the actual value of a datastream of the device.
+The value getted by the operation will be passed to the state manager, which handle it according its implementation.
+Dependencies Operation API: Provides the api of the operation and the enums of the result code. State Manager: Provides the API of the State Manager that will handle the returned value by the operation.</description>
+    </item>
+    <item>
+      <title>Refresh Info</title>
+      <link>http://example.org/layers/operations/refreshinfo/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/refreshinfo/index.html</guid>
+      <description>Get Device Parameters This operation is used to get all the actual values of the datastreams registered by the ODA. This operation can take a while, depending on the number of registered datastreams (is like do a get of any datastream).
+Values getted by the operation will be passed to the state manager, which handle them according its implementation.
+Dependencies Operation API: Provides the api of the operation and the enums of the result code.</description>
+    </item>
+    <item>
+      <title>Set Clock</title>
+      <link>http://example.org/layers/operations/setclock/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/setclock/index.html</guid>
+      <description>Set Clock This operation is used to set the local clock datastream (which is used to change the hour of the device) value to a value provided from the third system on the operation request itself. This value will be a long with a date in timestamp format.
+Dependencies Commons: Required to provide the commons utils. Operation API: Provides the api of the operation and the enums of the result code.</description>
+    </item>
+    <item>
+      <title>Set Device Parameters</title>
+      <link>http://example.org/layers/operations/setdeviceparameters/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/setdeviceparameters/index.html</guid>
+      <description>Set Device Parameters This operation is used to set the actual value of a datastream of the device, it means, to change the actual value.
+The value setted by the operation will pass thrugh the State Manager and, depending of its implementation, will set the value of the datastream in some way.
+Dependencies Operation API: Provides the api of the operation and the enums of the result code. State Manager: Provides the API of the State Manager that will handle the returned value by the operation.</description>
+    </item>
+    <item>
+      <title>Synchronize Clock</title>
+      <link>http://example.org/layers/operations/synchronizeclock/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/synchronizeclock/index.html</guid>
+      <description>Synchronize Clock This operation is used to synchronize the local clock datastream (which is used to change the hour of the device) value to the value obtained doing a System.currentTimeMillis(). This value will be a long with a date in timestamp format.
+Dependencies Commons: Required to provide the commons utils. Operation API: Provides the api of the operation and the enums of the result code. State Manager: Provides the API of the State Manager that will handle the returned value by the operation.</description>
+    </item>
+    <item>
+      <title>Update</title>
+      <link>http://example.org/layers/operations/update/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/operations/update/index.html</guid>
+      <description>Update This operation is used to install/change/delete a local file of the application by the third system.
+The operation will specifies the steps that ODA have to do and the url where the new files can be download to change the actuals or create news.
+This means that his operation can extend the actual Agent already installed into the device at runtime.
+Dependencies Commons: Required to provide the commons utils. Operation API: Provides the api of the operation and the enums of the result code.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on ODA Documentation Site</title>
+    <link>http://example.org/infrastructure/index.html</link>
+    <description>Recent content in Infrastructure on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Core</title>
+      <link>http://example.org/infrastructure/core/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/infrastructure/core/index.html</guid>
+      <description>The Core multi-module contains general interfaces, services and utils that may be used by the rest of the ODA modules.
+Commons The Commons module contains the APIs of global services and entities used by the whole system. It also contains utils to ease the development of new features in ODA.
+Global APIs The commons module contains the APIs for:
+Connectors Dispatchers Data streams SCADA services Serializers ADC GPIO I2C Modbus Proxies A set of proxies is provided to facilitate the ODA services consumption.</description>
+    </item>
+    <item>
+      <title>Communications</title>
+      <link>http://example.org/infrastructure/comms/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/infrastructure/comms/index.html</guid>
+      <description>The communications multi-module contains communication protocols that are used as LAN and WAN.
+When the same protocol is used to connect with the Internet, with OpenGate or other third services, and to connect with local devices, is better to create and abstraction of the protocol to reuse code in both sides. Usually this abstraction is a service providing a factory to create clients and servers of the protocol.
+Protocols MQTT The MQTT protocol is used to connect to OpenGate and also to connect with a MQTT broker in the local network to integrate devices in the local area.</description>
+    </item>
+    <item>
+      <title>Services</title>
+      <link>http://example.org/infrastructure/services/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/infrastructure/services/index.html</guid>
+      <description>This multi-module contains services used widely across the ODA system (e.g. serialization services).
+Implemented services Serialization Serialization is a common feature to communicate to other local or global systems where different serialization formats may be required.
+A common serialization API has been created to call these services, independently of the required format:
+public interface Serializer { byte[] serialize(Object value) throws IOException; &amp;lt;T&amp;gt; T deserialize(byte[] value, Class&amp;lt;T&amp;gt; type) throws IOException; } Currently, two serialization implementations are provided:</description>
+    </item>
+    <item>
+      <title>Subsystems</title>
+      <link>http://example.org/infrastructure/subsystems/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/infrastructure/subsystems/index.html</guid>
+      <description>The Subsystems multi-module contains modules providing complete features that were needed and runs independently of the rest of the system.
+Poller The Poller subsystem is responsible for polling datastream getters to update the State Manager, preventing outdated data.
+Configuration The Poller subsystem configuration is provided in a configuration file with the following line format:
+datastreamId;deviceId=firstPollingInSeconds;nextPollingInSeconds The configuration fields are:
+datastreamId: Datastream identifier to poll deviceId: Device identifier to poll. If no one is provided all devices are polled.</description>
+    </item>
+  </channel>
+</rss>

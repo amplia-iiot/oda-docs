@@ -1,0 +1,18 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'ODA Documentation Site'
+theme = 'relearn'
+sectionPagesMenu = "main"
+
+# For search functionality
+[outputs]
+    home = [ "HTML", "RSS", "JSON"]
+
+[params]
+    description = "ODA Documentation Site"
+    author = "amplía)))' Development Team"
+    alwaysopen = false
+    collapsibleMenu = true
+    themeVariant = [ "oda" ]
+
+    

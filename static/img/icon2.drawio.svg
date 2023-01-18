@@ -1,0 +1,49 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="681px" height="541px" viewBox="-0.5 -0.5 681 541" content="&lt;mxfile&gt;&lt;diagram id=&quot;__PnWcR8PoIsHdKQngl9&quot; name=&quot;Página-1&quot;&gt;5VjbctpIEP0aHqOa++URMHZSlc26yqnd5wENoIqkUcQQ8H79ttCAJCRissbZVAUoPDpz6+k+fXrMiE6z/UNpivUfLrbpiKB4P6J3I0K01PBdAc81IImqgVWZxDWEG+Ap+ccGEAV0m8R20xnonUt9UnTBhctzu/AdzJSl23WHLV3a3bUwK9sDnhYm7aN/J7Ff16gissHf22S1Pu6MRThwZo6Dw0k2axO7XQuisxGdls75upXtpzatfHf0Sz3v/kLvybDS5v6aCaSe8M2k23C2EREpTJ0sHawABvrncGrxdeuOHe82h5iMYYBAxb7phNYq/L39KguXurKzyojQ5VJrStvQK3YzWQGNfL4p6pWug/58nH06mgqurq29/gTzw/sWJ3gYf569YMgFeF7+Pxbfzf76MAWb0fhh9unzj9pOOhsTb/cVvvZZCgCG5saX7oudhjPkLreVYUmankEmTVY5PC4gbSzgk2+29Akk/Dh0ZEkcV9tMduvE26fCLKo9d6BugJVum8e2yigUzh0kq8rnST8lQ5ZWe9h9Cwop+mBdZn35DENCL2FBLoJeUhqed436MBmwdUt5ThNNULzVae1GFKARdGFYI+iARpx5/uiuj2Zu00e3SXziKrfNnfcuG/Cnd8VZpNamqBbL9quqZERzs0kWkSkXhyia0o/z1WE3FEmmqCaMKK0YA9mFETaPm37CFFFKVi4RQig1HPI4KaE01GZu3LZy46SwZQLuqRhwBz6AcmIfGwji7E2YgU7kOhYAgnp8g0y5v59QIW7DAq4izTs8YH0aYIEjxPtMwOIGTMDyl6OCUFhSwhnTHFPRowIHFDyHJAVGUP1WVFjCgPcdzfl5tDjThiFOcBph8UacIOxlTqxAIYvrj3q6uJn5cQX0XRdAgLv6yHjPCVpHVKLmRfv+0Ldwx9CN6swdgU8XqkkrE9pcBdYIEDQlu+yjPJSc1rjl4XWp/PXjcArh9VKEIo2oEopSKrkSXVkCoZIcCyUgPbWSWvSLFYP5mmEuhCQCLgcD5ESRQMBmLajinAGJXx8cccPYmE1R/2uxTPZV7e/UffadoFwK6psFS8qIiRbzcSdYgkdsIC9awSI40njgbtHAr4kJ/y1jQljElZZYSMGYQpJ3M4hAfklNteSQZgIzNZBCKkIMYQIfuA9xMRChC0NeJW/45XD91BsA41IjDsWUEwGSws9vACBQCuofpZXYyENQf/UbwA+wqV3fZEQGOPAfaho8Nj9AHPpav+LQ2b8=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="210" y="300" width="470" height="240" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 468px; height: 1px; padding-top: 420px; margin-left: 211px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <font style="font-size: 60px">
+                                    <font style="font-size: 60px">
+                                        <font color="#ff9933" style="font-size: 60px">
+                                            OPEN
+                                        </font>
+                                        <font color="#b3b3b3" style="font-size: 60px">
+                                            GATE
+                                        </font>
+                                    </font>
+                                    <br/>
+                                    <font color="#b3b3b3" style="font-size: 60px">
+                                        DEVICE AGENT
+                                    </font>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="445" y="427" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="22px" text-anchor="middle">
+                    OPENGATE...
+                </text>
+            </switch>
+        </g>
+        <path d="M 29.48 90.81 C 29.03 46.35 64.47 9.94 108.64 9.48 C 152.81 9.02 189 44.67 189.47 89.13" fill="none" stroke="#ffb366" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,109.48,90)" pointer-events="all"/>
+        <path d="M 6.6 91.53 C 6.01 63.7 21.26 37.76 46.4 23.78 C 71.55 9.8 102.64 9.98 127.6 24.25 C 152.57 38.53 167.48 64.65 166.54 92.47" fill="none" stroke="#ffb366" stroke-width="20" stroke-miterlimit="10" transform="translate(0,90)scale(1,-1)translate(0,-90)rotate(-90,86.58,90)" pointer-events="all"/>
+        <ellipse cx="293.36" cy="379.05" rx="22.45470783363103" ry="5.301204819277108" fill="#647687" stroke="none" transform="rotate(35,293.36,379.05)" pointer-events="none"/>
+        <ellipse cx="308.41" cy="391.42" rx="10.955" ry="10.955" fill="#647687" stroke="none" pointer-events="none"/>
+        <ellipse cx="268.61" cy="360" rx="24.020060062417805" ry="24.020060062417805" fill="#647687" stroke="none" pointer-events="none"/>
+        <path d="M 280.37 406.91 C 259.62 412.98 237.8 402.36 228.27 381.55 C 218.74 360.74 224.16 335.56 241.22 321.43 C 258.27 307.31 282.19 308.17 298.33 323.51 C 314.47 338.84 318.31 364.36 307.51 384.43" fill="none" stroke="#ffb366" stroke-width="20" stroke-miterlimit="10" transform="translate(0,360)scale(1,-1)translate(0,-360)rotate(-90,268.61,360)" pointer-events="none"/>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

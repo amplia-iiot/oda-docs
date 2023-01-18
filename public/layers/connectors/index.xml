@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Connectors on ODA Documentation Site</title>
+    <link>http://example.org/layers/connectors/index.html</link>
+    <description>Recent content in Connectors on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/layers/connectors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COAP</title>
+      <link>http://example.org/layers/connectors/coap/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/coap/index.html</guid>
+      <description>This connector enables communication via CoAP Protocol.
+Only allows to send data to the OpenGate platform. Operations can&amp;rsquo;t be received.
+Dependencies This module requires the following modules:
+Core Commons: Provides many interfaces that this module will use. Device Info Provider: Needed to know the Device Id of the device that are running the Agent, and the API Key to access to OpenGate. Both data are required to achieve a connection with OpenGate and transferred data will have the deviceId in its metadata.</description>
+    </item>
+    <item>
+      <title>DNP3</title>
+      <link>http://example.org/layers/connectors/dnp3/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/dnp3/index.html</guid>
+      <description>This connector enables communication via DNP3 Protocol.
+Allow the transfer of data and operations with an SCADA third-system that implements an DNP3 master (client).
+Dependencies This module requires the following modules:
+Scada Table Info: Needed to serve to the connector the information of inputs, outputs and counters and can create a DB with them. Scada Dispatcher: Needed to process the payloads and de/serialize its content. Core Commons: Provides many interfaces that this module will use.</description>
+    </item>
+    <item>
+      <title>HTTP</title>
+      <link>http://example.org/layers/connectors/http/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/http/index.html</guid>
+      <description>HTTP This connector enable communication via HTTP Protocol.
+Only allows to send data to the OpenGate platform. Operations can&amp;rsquo;t be received.
+Dependencies This module requires the following modules:
+Core Commons: Provides many interfaces that this module will use. Device Info Provider: Needed to know the Device Id of the device that are running the Agent and the API Key to access to OpenGate. Both data are required to achieve a connection with OpenGate and transferred data will have the deviceId in its metadata.</description>
+    </item>
+    <item>
+      <title>IEC 104</title>
+      <link>http://example.org/layers/connectors/iec104/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/iec104/index.html</guid>
+      <description>IEC 104 This connector enable communication via IEC 104 Protocol.
+Allow the transfer of data and operations with a SCADA third-system that implements an IEC 104 master (client).
+Dependencies This module requires the following modules:
+Core Commons: Provides many interfaces that this module will use. Scada Dispatcher: Needed to process the payloads and de/serialize its content. Configuration To configure IEC 104 connector, a file named es.amplia.oda.connector.iec104.cfg must be created with the next parameters:</description>
+    </item>
+    <item>
+      <title>MQTT</title>
+      <link>http://example.org/layers/connectors/mqtt/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/mqtt/index.html</guid>
+      <description>MQTT This connector enable communication via MQTT Protocol.
+Allows to send data to the OpenGate platform and receive operations from it.
+Dependencies This module requires the following modules:
+Core commons: Provides many interfaces that this module will use Mqtt Communications Module: Needed to create the MQTT client that will connects to the MQTT broker of the third system. Dispatcher: Needed to process the payloads and de/serialize its content. Device Info Provider: Needed to know the Device Id of the device that are running the Agent, and the API Key to access to OpenGate.</description>
+    </item>
+    <item>
+      <title>WebSocket</title>
+      <link>http://example.org/layers/connectors/websocket/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/layers/connectors/websocket/index.html</guid>
+      <description>WebSocket This connector enable communication via WebSocket Protocol.
+Allows to send data to the OpenGate platform and receive operations from it.
+Dependencies This module requires the following modules:
+Core commons: Provides many interfaces that this module will use Device Info Provider: Needed to know the Device Id of the device that are running the Agent and the API Key to access to OpenGate. Both data are required to achieve a connection with OpenGate and transferred data will have the deviceId in its metadata.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on ODA Documentation Site</title>
+    <link>http://example.org/guides/index.html</link>
+    <description>Recent content in Guides on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FAQs</title>
+      <link>http://example.org/guides/faqs/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/guides/faqs/index.html</guid>
+      <description>Datastream format We can see the format of the datastreams used by ODA in this link
+OpenGate IOT JSON
+Definition of state The State is the collection of datastreams managed in a moment by ODA.
+Change state manager mode To change the way state manager works we must change the state manager bundles deployed.
+To work in real time mode, use the bundles statemanager.api y statemanager.realtime
+To work in memory mode, use the bundles statemanager.</description>
+    </item>
+    <item>
+      <title>Configuration files</title>
+      <link>http://example.org/guides/configfiles/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/guides/configfiles/index.html</guid>
+      <description>ODA uses configuration files to configure its bundles.
+The name of the configuration file is the name of the java package where the code implementation that uses the properties is located.
+ODA has these default configuration files:
+es.amplia.oda.harware.* - define properties of connectors used by ODA to connect with devices (south interface)
+es.amplia.oda.datastreams.* - define the characteristics of the datastreams that ODA creates when connecting with devices (south interface)
+es.amplia.oda.connector.* - define properties of connectors used by ODA to connect with internet (north interface)</description>
+    </item>
+    <item>
+      <title>Folders</title>
+      <link>http://example.org/guides/folders/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/guides/folders/index.html</guid>
+      <description>We explain here the different folders that compose ODA:
+Configuration
+Stores all configuration files used by ODA bundles. If ODA is running, changes made in these configuration files are loaded instantly.
+Deploy
+Stores all ODA bundles that are installed in the framework.
+If we add a new bundle in this folder, the framework will install and start it.
+If we remove a bundle from this bundle, the framework will stop and uninstall it.</description>
+    </item>
+    <item>
+      <title>Depedency table</title>
+      <link>http://example.org/guides/dependency-table/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/guides/dependency-table/index.html</guid>
+      <description> Module Group Module / Bundle Dependencies Comms MQTT Core Commons Connectors Coap Core Commons AT Server Connectors DNP3 Core Commons Connectors HTTP Core Commons Connectors IEC104 Core Commons Connectors MQTT Core Commons MQTT Comms Connectors Websocket Core Commons Core Commons Datastream ADC Core Commons Datastream Device Info Core Commons Datastream Device Info FX30 Core Commons Datastream GPIO Core Commons Datastream I2C Core Commons Event API Datastream ModBus Core Commons Datastream MQTT Core Commons MQTT Comms Datastream Simulador Core Commons Dispatchers OpenGate Core Commons Operation API Event API Dispatchers SCADA Core Commons Events Events API Core Commons Hardware AT Server Core Commons Hardware Comms Core Commons Hardware DioZero Core Commons Hardware I2C Core Commons Hardware JDKDIO Core Commons Hardware ModBus Core Commons Operations API Core Commons Operations Get State Manager API Operation API Operations Discovery Core Commons Operation API MQTT Comms Operations Refresh Info State Manager API Operation API Operations Set State Manager API Operation API Operations Set Clock Core Commons Operation API State Manager API Operations Sync Clock Core Commons Operation API State Manager API Operations Update Core Commons Operation API Rule Engine API Core Commons Event API Rule Engine Nashorn Core Commons Event API State Manager API Rule Engine API Services CBOR Serializer Core Commons Services JSON Serializer Core Commons State Manager API Core Commons Event API State Manager In Memory Core Commons Event API State Manager API Rule Engine API State Manager Real Time Core Commons Event API State Manager API Subsystem Collector Core Commons Event API State Manager API Subsystem Poller Core Commons Subsystem SSH Server Core Commons </description>
+    </item>
+  </channel>
+</rss>
