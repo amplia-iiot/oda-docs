@@ -43,6 +43,8 @@ New implementations may be added in the future implementing the [RuleEngine inte
 
 ```java
 public interface RuleEngine { 
+    void createDatastreamDirectory(String nameRule);
+    void deleteDatastreamDirectory(String nameRule);
     void createRule(String nameRule);
     void deleteRule(String nameRule);
     State engine(State state, DatastreamValue value);

@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.108.0">
+    <meta name="generator" content="Hugo 0.111.2">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Install rules :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1674045289" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1674045289" rel="stylesheet">
-    <link href="../../../css/fonts.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1674045289" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1674045289" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1674045289" rel="stylesheet">
-    <link href="../../../css/variant.css?1674045289" rel="stylesheet">
-    <link href="../../../css/print.css?1674045289" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1674045289"></script>
-    <script src="../../../js/variant.js?1674045289"></script>
+    <link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1678380684" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1678380684" rel="stylesheet">
+    <link href="../../../css/fonts.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1678380684" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1678380684" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1678380684" rel="stylesheet">
+    <link href="../../../css/variant.css?1678380684" rel="stylesheet">
+    <link href="../../../css/print.css?1678380684" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1678380684"></script>
+    <script src="../../../js/variant.js?1678380684"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1674045289" defer></script>
+    <script src="../../../js/jquery.min.js?1678380684" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../scenarios/updatesoftware/rules/index.html">
     <div id="body" class="default-animation">
@@ -72,6 +72,7 @@
     <li><a href="#load-rule-in-opengate">Load rule in OpenGate</a></li>
     <li><a href="#rule-installation-in-oda">Rule installation in ODA</a></li>
     <li><a href="#update-existing-rule">Update existing rule</a></li>
+    <li><a href="#update-rules-utils-files">Update rules utils files</a></li>
   </ul>
 </nav>
             </div>
@@ -96,22 +97,29 @@
 <p>The hardware and workgroup assigned to the rule must be the same as the fields Model and Organization of the entity in which we want to install the rule.</p>
 </li>
 <li>
-<p>Choose operation INSTALL, type SOFTWARE and the file corresponding to the rule we want to deploy. The name defined in this tab will be the name of the rule created. For it to be detected by ODA, the name must be the same as the data stream we want the rule to apply.</p>
+<p>Choose operation INSTALL, type SOFTWARE and the file corresponding to the rule we want to deploy. The name defined in this tab will be the name of the javascript file containing the rule code created.</p>
 </li>
 <li>
-<p>The route parameter must be the same value as the folder in which the rule must be installed (rulesPath/datastreamId). Rules path is the one defined in configuration file <em>es.amplia.oda.ruleengine.nashorn.cfg</em>.</p>
+<p>The route parameter must be the same value as the folder in which the rule must be installed (rulesPath/datastreamIds). Rules path is the one defined in configuration file <em>es.amplia.oda.ruleengine.nashorn.cfg</em>.
+The folder name must be composed of the datastreamIds we want the rule to apply, separated by the character &lsquo;:&rsquo;.
+If this folder doesn&rsquo;t exist in ODA, it will be created.</p>
 </li>
 </ul>
 <p>When the wizard is finished, the rule has been uploaded to OpenGate. We must check that the rule is activated before we can launch the UPDATE operation against ODA. If it is not activated (there is an option to activate the rule when we upload it to OpenGate), we can activate from the bundle list widget, clicking in the three dots at the side of the rule.</p>
 <p>Once this is done, we launch the execute operation wizard, select the <em>Device Update</em> operation and fill the name of the rule we want to install and its version (must be the same values we registered the rule with).</p>
 <h2 id="rule-installation-in-oda">Rule installation in ODA</h2>
 <p>When ODA receives the UPDATE operation, it will download the rule into the folder specified in <em>downloadsPath</em> parameter in configuration file (this parameter must end with &lsquo;/&rsquo;).</p>
-<p>For ODA to be able to load the rule, the file <em>utils.js</em> (located in oda-ruleengine/api/src/main/resources/utils.js) must be copied in <em>rulesPath</em> folder as the rule downloaded will load it.</p>
-<p>Once the rule is downloaded it will try to install it. If everything was right, we will see the message <em>Created rule rulesPath/datastreamID/ruleName.js</em> in the log file.</p>
+<p>For ODA to be able to load the rule, the file <em>utils.js</em> (located in oda-ruleengine/api/src/main/resources/utils.js) must be copied in <em>rulesUtilsPath</em> folder as the rule downloaded will load it. Other javascript files the rule must load to be executed must be in these folder too.</p>
+<p>Once the rule is downloaded it will try to install it. If everything was right, we will see the message <em>Created rule rulesPath/datastreamIDs/ruleName.js</em> in the log file.</p>
 <p>If there is an error while installing the bundle, ODA will try to do a rollback to return to previous state.</p>
 <h2 id="update-existing-rule">Update existing rule</h2>
 <p>If we want to load a new version of a rule already installed in ODA, the process is the same, we upload the new rule to OpenGate but in the deploy elements tab, we choose <em>UPGRADE</em> as operation, we fill parameters as old name (must be the same as new name), old version (doesn&rsquo;t matter in this case) and old route (must be the same as new route). We fill the rest of the parameters as if it is a new rule and launch the <em>Device Update</em> operation.</p>
-<p>When the operation reaches ODA the process is the same as installing a new rule. If everything was right, we will see the message <em>Created rule rulesPath/datastreamID/ruleName.js</em> in the log file.</p>
+<p>When the operation reaches ODA the process is the same as installing a new rule. If everything was right, we will see the message <em>Created rule rulesPath/datastreamIDs/ruleName.js</em> in the log file.</p>
+<h2 id="update-rules-utils-files">Update rules utils files</h2>
+<p>Rules utils files are javascript files whose methods are invoked by rules.
+ODA has a main utils file called utils.js but we can create our own utils file apart from this one and save there methods used by rules to avoid writing the same method in every rule.</p>
+<p>These files can also be updated through OpenGate. The method to install and update these files is the same as any rule. We deploy these elements in OpenGate as if it is a rule.</p>
+<p>When ODA installs or update any of these files, all existing rules in ODA will be reloaded to apply these new methods.</p>
 
             <footer class="footline">
             </footer>
@@ -135,12 +143,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1674045289" defer></script>
-        <script src="../../../js/lunr.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.en.min.js?1674045289" defer></script>
-        <script src="../../../js/search.js?1674045289" defer></script>
+        <script src="../../../js/auto-complete.js?1678380685" defer></script>
+        <script src="../../../js/lunr.min.js?1678380685" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1678380685" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1678380685" defer></script>
+        <script src="../../../js/lunr.en.min.js?1678380685" defer></script>
+        <script src="../../../js/search.js?1678380685" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -248,9 +256,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1674045289" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1674045289" defer></script>
-    <script src="../../../js/featherlight.min.js?1674045289" defer></script>
-    <script src="../../../js/theme.js?1674045289" defer></script>
+    <script src="../../../js/clipboard.min.js?1678380685" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1678380685" defer></script>
+    <script src="../../../js/featherlight.min.js?1678380685" defer></script>
+    <script src="../../../js/theme.js?1678380685" defer></script>
   </body>
 </html>

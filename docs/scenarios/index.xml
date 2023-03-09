@@ -14,8 +14,8 @@
       <description>ODA has an update operation that allows to install or update software, rules or configuration in ODA from a third system.
 We must configure the parameters needed for this operation in file es.amplia.oda.operation.update.cfg. It will take five parameters:
 rulesPath - path of the folder where rules will be installed (rules/)
-backupPath - path of the folder where backups will be made (backup/)
-deployPath - path of the folder where bundles will be deployed (deploy/)</description>
+rulesUtilsPath - path of the folder where auxiliary javascript files to use with rules will be installed (jslib/)
+backupPath - path of the folder where backups will be made (backup/)</description>
     </item>
     <item>
       <title>Recollect Data</title>
@@ -42,8 +42,8 @@ In real time mode, there is no configuration to be done.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</guid>
       <description>Apply rules to the collected data ODA allows to configure custom rules to be applied after the data is collected from the device. Rules are only applied if we are using in memory state manager.
-To be able to apply rules we must first configure ODA to tell it the directory where the rules to apply will be stored.
-To do this, we create a configuration file with the name es.</description>
+Rules are javascript files composed of two methods:
+when - this method defines the conditions that must be met for the rule to apply. Returns boolean indicating if the result is true or false. then - this method defines the changes we want to apply to the datastream.</description>
     </item>
   </channel>
 </rss>

@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.108.0">
+    <meta name="generator" content="Hugo 0.111.2">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Nashorn :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1674045289" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1674045289" rel="stylesheet">
-    <link href="../../../css/fonts.css?1674045289" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1674045289" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1674045289" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1674045289" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1674045289" rel="stylesheet">
-    <link href="../../../css/variant.css?1674045289" rel="stylesheet">
-    <link href="../../../css/print.css?1674045289" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1674045289"></script>
-    <script src="../../../js/variant.js?1674045289"></script>
+    <link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1678380684" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1678380684" rel="stylesheet">
+    <link href="../../../css/fonts.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1678380684" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1678380684" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1678380684" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1678380684" rel="stylesheet">
+    <link href="../../../css/variant.css?1678380684" rel="stylesheet">
+    <link href="../../../css/print.css?1678380684" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1678380684"></script>
+    <script src="../../../js/variant.js?1678380684"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1674045289" defer></script>
+    <script src="../../../js/jquery.min.js?1678380684" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/ruleengine/nashorn/index.html">
     <div id="body" class="default-animation">
@@ -102,6 +102,12 @@ system when all the rules have finished.</li>
 </ul>
 <p>It&rsquo;s important to know that the rules can have conflicts if them overwrite a data that a previous rule has changed in the
 current state. The rules have not established order, so it&rsquo;s impossible create the rules with an order in mind.</p>
+<p>The same rule can be applied to different datastreams. To achieve this we must name the directory where the rule to apply is stored, with the different datastreamIds we want to affect, separated by the character &lsquo;:&rsquo;</p>
+<p>Example:</p>
+<p>We want to apply rule.js to the datastreamIds Id1 and Id2. To do this, we must create a folder named Id1:Id2 and put the file rule.js in this directory.</p>
+<p>We can also apply more than one rule to the same datastream. We can have more than one javascript file inside the folders. If a datastream is contained in the folder name, all javascript files inside that folder are going to be applied to that datastream.</p>
+<p>There is a series of common methods that we can apply in rules that are preloaded for every rule. These methods are stored in the file utils.js that is stored in folder defined by parameter utilsPath.
+We can load another javascript file from within a rule with the instruction load(&ldquo;javascript.js&rdquo;) in the rule. The file javascript.js must be stored in the folder defined by parameter utilsPath. This allows us to define a javascript file with methods that are used in different rules.</p>
 <h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Core Commmons</a>: Provide the basic API of the configurable bundle.</li>
@@ -110,12 +116,14 @@ current state. The rules have not established order, so it&rsquo;s impossible cr
 <li><a href="https://amplia-iiot.github.io/oda-docs/layers/ruleengine/">Rule Manager API</a>: Provide the API of the Rule Engines that this module will implement.</li>
 </ul>
 <h4 id="configuration">Configuration</h4>
-<p>To configure Nashorn Rule Engine module, a file named <em>es.amplia.oda.ruleengine.nashorn.cfg</em> must be created with the next parameter:</p>
+<p>To configure Nashorn Rule Engine module, a file named <em>es.amplia.oda.ruleengine.nashorn.cfg</em> must be created with the next parameters:</p>
 <ul>
 <li><strong>path</strong>: <em>Required parameter</em>. Path from the main directory of the ODA to the directory of the rules.</li>
+<li><strong>utilsPath</strong>: <em>Required parameter</em>. Path from the main directory of the ODA to the directory where javascript files with utils for rules are stored.</li>
 </ul>
 <p>An example of the <em>es.amplia.oda.ruleengine.nashorn.cfg</em> file would be:</p>
 <pre tabindex="0"><code>path=rules/
+utilsPath=jslib/
 </code></pre><p>In this example, the ODA directory would be: <em>/path/to/the/oda/directory</em>. And the directory to the rules (inside the ODA
 directory) would be: <em>/path/to/the/oda/directory/rules</em>. This means, the path that the ODA would need is only <em>path/</em>.</p>
 <p>:::tip
@@ -145,12 +153,12 @@ This is because the internal implementation wait that bar to append it to the sp
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1674045289" defer></script>
-        <script src="../../../js/lunr.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1674045289" defer></script>
-        <script src="../../../js/lunr.en.min.js?1674045289" defer></script>
-        <script src="../../../js/search.js?1674045289" defer></script>
+        <script src="../../../js/auto-complete.js?1678380684" defer></script>
+        <script src="../../../js/lunr.min.js?1678380684" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1678380684" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1678380684" defer></script>
+        <script src="../../../js/lunr.en.min.js?1678380684" defer></script>
+        <script src="../../../js/search.js?1678380684" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -258,9 +266,9 @@ This is because the internal implementation wait that bar to append it to the sp
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1674045289" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1674045289" defer></script>
-    <script src="../../../js/featherlight.min.js?1674045289" defer></script>
-    <script src="../../../js/theme.js?1674045289" defer></script>
+    <script src="../../../js/clipboard.min.js?1678380684" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1678380684" defer></script>
+    <script src="../../../js/featherlight.min.js?1678380684" defer></script>
+    <script src="../../../js/theme.js?1678380684" defer></script>
   </body>
 </html>

@@ -66,7 +66,7 @@ Commons: Provide the GPIO APIs, exceptions and types and the basic APIs to regis
       <description>ModBus Implementation of the library j2mod to give an access to devices connected through modbus. This is the hardware module that give support to Modbus Datastreams.
 To access source code click here.
 Dependencies This module requires the following modules:
-Commons: Provide the ModBus APIs, exceptions and types and the basic APIs to register the service. Configuration To configure Mod Bus Hardware module, a file named es.amplia.oda.hardware.modbus.cfg must be created with the next parameters:</description>
+Commons: Provide the ModBus APIs, exceptions and types and the basic APIs to register the service. Configuration To configure ModBus Hardware module, a file named es.amplia.oda.hardware.modbus.cfg must be created with the next parameters:</description>
     </item>
   </channel>
 </rss>

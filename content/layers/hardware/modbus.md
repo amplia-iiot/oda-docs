@@ -17,14 +17,14 @@ This module requires the following modules:
 
 #### Configuration
 
-To configure Mod Bus Hardware module, a file named _es.amplia.oda.hardware.modbus.cfg_ must be created with the next parameters:
+To configure ModBus Hardware module, a file named _es.amplia.oda.hardware.modbus.cfg_ must be created with the next parameters:
 
 * __type__: _Required data_. Type of modbus connection. Allowed modbus types are TCP, UDP, Serial.
-* __address__: _Required data for UDP and TCP_. Address where the modbus will connect.
-* __port__: _Required data for UDP and TCP_. Address where the modbus will connect.
+* __connections__: _Required data for UDP and TCP_. Indicates the devices and the data needed to connect with them.
+Allows multiple devices with the format : deviceId1,ipAddress1,port1;deviceId2,ipAddress2,port2;etc
 * __timeout__: _Required data for UDP and TCP_. Time in seconds that the modbus hardware will wait until do a timeout if the master slave doesn't respond.
 * __reconnect__: _Required data for TCP_. Enable the option to reconnect automatically if connection is dropped.
-* __portName__: _Required data for serial_. Name of the serial port (tty)
+* __ports__: _Required data for serial_. Indicates the name of the serial port (tty) and the deviceId associated. Allows multiple devices with the format : portName1,deviceId1;portName2,deviceId2;etc
 * __baudRate__: _Required data for serial_. Baud Rate of the connection. 9600, 38400 or 115200.
 * __flowControlIn__: _Required data for serial_. Flow Control of the input of connection.
 * __flowControlOut__: _Required data for serial_. Flow Control of the output of connection.
@@ -37,24 +37,22 @@ To configure Mod Bus Hardware module, a file named _es.amplia.oda.hardware.modbu
 
 _es.amplia.oda.hardware.modbus.cfg_ will have a similar format to:
 
-```
+```properties
 type=UDP
-address=localhost
-port=1234
 timeout=30
+connections=deviceId,localhost,30
 ```
 
-```
+```properties
 type=TCP
-address=localhost
-port=1234
 timeout=30
 reconnect=true
+connections=deviceId,localhost,30
 ```
 
-```
+```properties
 type=Serial
-portName=ttyUSB0
+ports=ttyUSB0,deviceId1
 baudRate=115200
 flowControlIn=1
 flowControlOut=1

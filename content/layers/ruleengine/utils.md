@@ -54,6 +54,13 @@ specifies the datastream id (datastreamId) and new DatastreamValue for that data
 specifies the datastream id (datastreamId) and new value for that datastream (value).  
 *Output*: Refreshed state with the new value set as last value of the datastream.  
 
+**setValueWithTime**  
+*Function*: Change the last value of a existing datastream, using a real value in simply format
+(boolean, string, integer, etc.) as input. It allows to specify the time of the datastream.
+*Input*: Actual state of the stateManager (state), a String that specified the device id (deviceId), a String that
+specifies the datastream id (datastreamId), the time to set in the datastream and new value for that datastream (value).  
+*Output*: Refreshed state with the new value and time set as last value of the datastream.  
+
 ___
 
 ## Filter

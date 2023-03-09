@@ -11,6 +11,8 @@ It will take five parameters:
 
 * rulesPath - path of the folder where rules will be installed (rules/)
 
+* rulesUtilsPath - path of the folder where auxiliary javascript files to  use with rules will be installed (jslib/)
+
 * backupPath - path of the folder where backups will be made (backup/)
 
 * deployPath - path of the folder where bundles will be deployed (deploy/)

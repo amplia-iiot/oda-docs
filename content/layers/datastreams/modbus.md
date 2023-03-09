@@ -19,11 +19,11 @@ bus and collect the information of each datastream.
 
 #### Configuration
 
-To configure I2C Datastream module, a file named _es.amplia.oda.datastreams.modbus.cfg_ must be created with the next parameters
+To configure ModBus Datastream module, a file named _es.amplia.oda.datastreams.modbus.cfg_ must be created with the next parameters
 for each input channel that you want to register:
 
 * __datastreamId__: _Required parameter_. The identifier name of the datastream.
-* __deviceId__: _Required parameter_. The device identifier name that contents the datastream.
+* __deviceId__: _Required parameter_. The device identifier name that contents the datastream. It also indicates the data needed to connect with device (defined in modbus hardware configuration file).
 * __datastreamType__: _Required parameter_. Name of the Java class that is the datastream. Allowed classes are: _Boolean,
 Byte[], Integer, Long, Short, Float, Double._
 * __slaveAddress__: _null if not present_. Direction of the device in modbus.
@@ -33,7 +33,7 @@ _INPUT_DISCRETE, COIL, INPUT_REGISTER, HOLDING_REGISTER_
 
 _es.amplia.oda.datastreams.modbus.cfg_ will have a similar format to:
 
-```
+```properties
 light=datastreamType:Long,slaveAddress:1,dataType:INPUT_DISCRETE,dataAddress:255
 temp,testPi=datastreamType:DOUBLE,slaveAddress:2,dataType:INPUT_REGISTER,dataAddress:100
 ```
