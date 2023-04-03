@@ -8,7 +8,7 @@ The State Manager stores the device data state in the current moment to ease the
 
 Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables [Edge Computing](https://en.wikipedia.org/wiki/Edge_computing) features.
 
-There are different State Managers implementations depending on project needs. New State Managers may be added implementing the [StateManager](https://github.com/amplia-iiot/oda/blob/master/oda-statemanagers/api/src/main/java/es/amplia/oda/statemanager/api/StateManager.java) interface:
+There are different State Managers implementations depending on project needs. New State Managers may be added implementing the [StateManager](https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/interfaces/StateManager.java) interface:
 
 ```java
 public interface StateManager {
@@ -19,9 +19,9 @@ public interface StateManager {
     CompletableFuture<Set<DatastreamValue>> getDeviceInformation(String deviceId);
     CompletableFuture<DatastreamValue> setDatastreamValue(String deviceId, String datastreamId, Object value);
     CompletableFuture<Set<DatastreamValue>> setDatastreamValues(String deviceId, Map<String, Object> datastreamValues);
-    void registerToEvents(EventHandler eventHandler);
-    void unregisterToEvents(EventHandler eventHandler);
-    void onReceivedEvent(Event event);
+    void onReceivedEvents(List<Event> events);
+    void publishValues(List<Event> event);
+    void close();
 }
 ```
 

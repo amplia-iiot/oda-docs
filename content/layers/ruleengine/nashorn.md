@@ -35,9 +35,8 @@ We can load another javascript file from within a rule with the instruction load
 
 #### Dependencies
 
-* [Core Commmons]({{< ref "infrastructure/core.md" >}}): Provide the basic API of the configurable bundle.
+* [Core Commmons]({{< ref "infrastructure/core.md" >}}): Provide the basic API of the configurable bundle and an interface of a generic State Manager that the Engine can use to handle the rules.
 * [Event API]({{< ref "layers/eventdispatcher/events.md" >}}): Provide the API of the internal events that use ODA to handle it.
-* [State Manager API]({{< ref "layers/statemanager/_index.md" >}}): Provide an interface of a generic State Manager that the Engine can use to handle the rules.
 * [Rule Manager API]({{< ref "_index.md" >}}): Provide the API of the Rule Engines that this module will implement.
 
 #### Configuration

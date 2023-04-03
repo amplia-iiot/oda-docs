@@ -11,7 +11,7 @@ rule engine, depending on the state manager implementation that we will use.
 
 The event object will have the next parameters to specify the information of the event.
 
-The [Event](https://github.com/amplia-iiot/oda/blob/master/oda-events/api/src/main/java/es/amplia/oda/event/api/Event.java) is defined as:
+The [Event](https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/utils/Event.java) is defined as:
 
 ```java
 public class Event {

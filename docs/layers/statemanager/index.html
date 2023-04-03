@@ -3,26 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.111.2">
+    <meta name="generator" content="Hugo 0.111.3">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>State Manager :: ODA Documentation Site</title>
     <link href="../../layers/statemanager/index.xml" rel="alternate" type="application/rss+xml" title="State Manager :: ODA Documentation Site">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1678380684" rel="stylesheet">
-    <link href="../../css/nucleus.css?1678380684" rel="stylesheet">
-    <link href="../../css/fonts.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1678380684" rel="stylesheet">
-    <link href="../../css/theme-oda.css?1678380684" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1678380684" rel="stylesheet">
-    <link href="../../css/variant.css?1678380684" rel="stylesheet">
-    <link href="../../css/print.css?1678380684" rel="stylesheet" media="print">
-    <script src="../../js/url.js?1678380684"></script>
-    <script src="../../js/variant.js?1678380684"></script>
+    <link href="../../css/fontawesome-all.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../css/featherlight.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1680542138" rel="stylesheet">
+    <link href="../../css/nucleus.css?1680542138" rel="stylesheet">
+    <link href="../../css/fonts.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1680542138" rel="stylesheet">
+    <link href="../../css/theme-oda.css?1680542138" rel="stylesheet" id="variant-style">
+    <link href="../../css/ie.css?1680542138" rel="stylesheet">
+    <link href="../../css/variant.css?1680542138" rel="stylesheet">
+    <link href="../../css/print.css?1680542138" rel="stylesheet" media="print">
+    <script src="../../js/url.js?1680542138"></script>
+    <script src="../../js/variant.js?1680542138"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -40,7 +40,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../js/jquery.min.js?1678380684" defer></script>
+    <script src="../../js/jquery.min.js?1680542138" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../layers/statemanager/index.html">
     <div id="body" class="default-animation">
@@ -90,7 +90,7 @@
 <h3 id="state-manager">State Manager</h3>
 <p>The State Manager stores the device data state in the current moment to ease the data access from operations and increase the system performance (at a expense of possible outdated data).</p>
 <p>Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables <a href="https://en.wikipedia.org/wiki/Edge_computing">Edge Computing</a> features.</p>
-<p>There are different State Managers implementations depending on project needs. New State Managers may be added implementing the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-statemanagers/api/src/main/java/es/amplia/oda/statemanager/api/StateManager.java">StateManager</a> interface:</p>
+<p>There are different State Managers implementations depending on project needs. New State Managers may be added implementing the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/interfaces/StateManager.java">StateManager</a> interface:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">StateManager</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getDatastreamInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> String datastreamId<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDatastreamsInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> datastreamIds<span style="color:#f92672">);</span>
@@ -99,9 +99,9 @@
 </span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDeviceInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">setDatastreamValue</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> String datastreamId<span style="color:#f92672">,</span> Object value<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">setDatastreamValues</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> datastreamValues<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">registerToEvents</span><span style="color:#f92672">(</span>EventHandler eventHandler<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">unregisterToEvents</span><span style="color:#f92672">(</span>EventHandler eventHandler<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onReceivedEvent</span><span style="color:#f92672">(</span>Event event<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onReceivedEvents</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;</span> events<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">publishValues</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;</span> event<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h4 id="state-manager-implementations">State Manager implementations</h4>
 <p>The currently implemented state managers are:</p>
@@ -133,12 +133,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1678380685" defer></script>
-        <script src="../../js/lunr.min.js?1678380685" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1678380685" defer></script>
-        <script src="../../js/lunr.multi.min.js?1678380685" defer></script>
-        <script src="../../js/lunr.en.min.js?1678380685" defer></script>
-        <script src="../../js/search.js?1678380685" defer></script>
+        <script src="../../js/auto-complete.js?1680542139" defer></script>
+        <script src="../../js/lunr.min.js?1680542139" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1680542139" defer></script>
+        <script src="../../js/lunr.multi.min.js?1680542139" defer></script>
+        <script src="../../js/lunr.en.min.js?1680542139" defer></script>
+        <script src="../../js/search.js?1680542139" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -246,9 +246,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1678380685" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1678380685" defer></script>
-    <script src="../../js/featherlight.min.js?1678380685" defer></script>
-    <script src="../../js/theme.js?1678380685" defer></script>
+    <script src="../../js/clipboard.min.js?1680542139" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1680542139" defer></script>
+    <script src="../../js/featherlight.min.js?1680542139" defer></script>
+    <script src="../../js/theme.js?1680542139" defer></script>
   </body>
 </html>

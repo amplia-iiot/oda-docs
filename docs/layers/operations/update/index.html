@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.111.2">
+    <meta name="generator" content="Hugo 0.111.3">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Update :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1678380684" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1678380684" rel="stylesheet">
-    <link href="../../../css/fonts.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1678380684" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1678380684" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1678380684" rel="stylesheet">
-    <link href="../../../css/variant.css?1678380684" rel="stylesheet">
-    <link href="../../../css/print.css?1678380684" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1678380684"></script>
-    <script src="../../../js/variant.js?1678380684"></script>
+    <link href="../../../css/fontawesome-all.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1680542138" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1680542138" rel="stylesheet">
+    <link href="../../../css/fonts.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1680542138" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1680542138" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1680542138" rel="stylesheet">
+    <link href="../../../css/variant.css?1680542138" rel="stylesheet">
+    <link href="../../../css/print.css?1680542138" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1680542138"></script>
+    <script src="../../../js/variant.js?1680542138"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1678380684" defer></script>
+    <script src="../../../js/jquery.min.js?1680542138" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/operations/update/index.html">
     <div id="body" class="default-animation">
@@ -96,6 +96,16 @@
 <li><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Commons</a>: Required to provide the commons utils.</li>
 <li><a href="https://amplia-iiot.github.io/oda-docs/layers/operations/">Operation API</a>: Provides the api of the operation and the enums of the result code.</li>
 </ul>
+<h4 id="configuration">Configuration</h4>
+<p>To configure Update Operation module, a file named <em>es.amplia.oda.operation.update.cfg</em> must be created with the next parameters:</p>
+<ul>
+<li><strong>rulesPath</strong>:<em>Required parameter</em>. Path where rules will be installed.</li>
+<li><strong>rulesUtilsPath</strong>:<em>Required parameter</em>. Path where rules utils files will be installed.</li>
+<li><strong>backupPath</strong>:<em>Required parameter</em>. Path where backups of files to update will be stored.</li>
+<li><strong>deployPath</strong>:<em>Required parameter</em>. Path where bundles will be deployed.</li>
+<li><strong>downloadsPath</strong>:<em>Required parameter</em>. Path where downloaded files will be stored.</li>
+<li><strong>configurationPath</strong>:<em>Required parameter</em>. Path where configuration files will be installed.</li>
+</ul>
 <h4 id="trace">Trace</h4>
 <p>The trace send by the third system (e.g. OpenGate) to the ODA to do this operation is like this:</p>
 <p>&lsquo;{&ldquo;operation&rdquo;:{&ldquo;request&rdquo;:{&ldquo;timestamp&rdquo;:1557395219834,&ldquo;name&rdquo;:&ldquo;UPDATE&rdquo;,&ldquo;parameters&rdquo;:[{&ldquo;name&rdquo;:&ldquo;bundleName&rdquo;,&ldquo;value&rdquo;:{&ldquo;string&rdquo;:&ldquo;rules-creation-test&rdquo;}},{&ldquo;name&rdquo;:&ldquo;bundleVersion&rdquo;,&ldquo;value&rdquo;:{&ldquo;string&rdquo;:&ldquo;2.0.0&rdquo;}},{&ldquo;name&rdquo;:&ldquo;deploymentElements&rdquo;,&ldquo;type&rdquo;:&ldquo;string&rdquo;,&ldquo;value&rdquo;:{&ldquo;array&rdquo;:[{&ldquo;name&rdquo;:&quot;&quot; + this.name + &ldquo;&rdquo;,&ldquo;version&rdquo;:&ldquo;2.0.0&rdquo;,&ldquo;type&rdquo;:&ldquo;SOFTWARE&rdquo;,&ldquo;downloadUrl&rdquo;:&ldquo;http://&rdquo; + jschData.getSSH_SERVER_IP() + &ldquo;:&rdquo; + PORT_HTTP_SERVER + &ldquo;/echoGet&rdquo;,&ldquo;path&rdquo;:&ldquo;rules/&rdquo; + this.datastreamId + &ldquo;&rdquo;,&ldquo;order&rdquo;:1,&ldquo;operation&rdquo;:&ldquo;INSTALL&rdquo;,&ldquo;validators&rdquo;:[],&ldquo;size&rdquo;:334,&ldquo;oldVersion&rdquo;:&ldquo;1.0.0&rdquo;}]}}],&ldquo;id&rdquo;:&ldquo;48589c6e-3d9f-4e59-a066-81f357fb6cf8&rdquo;}}}&rsquo;'</p>
@@ -122,12 +132,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1678380684" defer></script>
-        <script src="../../../js/lunr.min.js?1678380684" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1678380684" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1678380684" defer></script>
-        <script src="../../../js/lunr.en.min.js?1678380684" defer></script>
-        <script src="../../../js/search.js?1678380684" defer></script>
+        <script src="../../../js/auto-complete.js?1680542139" defer></script>
+        <script src="../../../js/lunr.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.en.min.js?1680542139" defer></script>
+        <script src="../../../js/search.js?1680542139" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -235,9 +245,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1678380684" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1678380684" defer></script>
-    <script src="../../../js/featherlight.min.js?1678380684" defer></script>
-    <script src="../../../js/theme.js?1678380684" defer></script>
+    <script src="../../../js/clipboard.min.js?1680542139" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1680542139" defer></script>
+    <script src="../../../js/featherlight.min.js?1680542139" defer></script>
+    <script src="../../../js/theme.js?1680542139" defer></script>
   </body>
 </html>

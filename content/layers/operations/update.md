@@ -15,6 +15,17 @@ This means that his operation can extend the actual Agent already installed into
 * [Commons]({{< ref "infrastructure/core.md" >}}): Required to provide the commons utils.
 * [Operation API]({{< ref "_index.md" >}}): Provides the api of the operation and the enums of the result code.
 
+#### Configuration
+
+ To configure Update Operation module, a file named _es.amplia.oda.operation.update.cfg_ must be created with the next parameters:
+
+* __rulesPath__:_Required parameter_. Path where rules will be installed.
+* __rulesUtilsPath__:_Required parameter_. Path where rules utils files will be installed.
+* __backupPath__:_Required parameter_. Path where backups of files to update will be stored.
+* __deployPath__:_Required parameter_. Path where bundles will be deployed.
+* __downloadsPath__:_Required parameter_. Path where downloaded files will be stored.
+* __configurationPath__:_Required parameter_. Path where configuration files will be installed.
+
 #### Trace
 
 The trace send by the third system (e.g. OpenGate) to the ODA to do this operation is like this:

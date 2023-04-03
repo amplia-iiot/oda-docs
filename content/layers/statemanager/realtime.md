@@ -17,7 +17,6 @@ without any affect over the state of the state manager.
 #### Dependencies
 
 * __[Core Commons]({{< ref "infrastructure/core.md" >}})__: Provides the API of the configurable Bundles, Datastreams handling API's and Device API's.
-* __[State Manager API]({{< ref "layers/statemanager/_index.md" >}})__: Provides the API that this module will implements.
 * __[Event API]({{< ref "layers/eventdispatcher/events.md" >}})__: Provides the event interface to handle the internal events of ODA.
 
 #### Configuration

@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.111.2">
+    <meta name="generator" content="Hugo 0.111.3">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>In Memory State Manager :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1678380684" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1678380684" rel="stylesheet">
-    <link href="../../../css/fonts.css?1678380684" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1678380684" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1678380684" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1678380684" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1678380684" rel="stylesheet">
-    <link href="../../../css/variant.css?1678380684" rel="stylesheet">
-    <link href="../../../css/print.css?1678380684" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1678380684"></script>
-    <script src="../../../js/variant.js?1678380684"></script>
+    <link href="../../../css/fontawesome-all.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1680542138" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1680542138" rel="stylesheet">
+    <link href="../../../css/fonts.css?1680542138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1680542138" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1680542138" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1680542138" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1680542138" rel="stylesheet">
+    <link href="../../../css/variant.css?1680542138" rel="stylesheet">
+    <link href="../../../css/print.css?1680542138" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1680542138"></script>
+    <script src="../../../js/variant.js?1680542138"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1678380684" defer></script>
+    <script src="../../../js/jquery.min.js?1680542138" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/statemanager/inmemory/index.html">
     <div id="body" class="default-animation">
@@ -88,31 +88,30 @@
 <h1 id="in-memory-state-manager">In Memory State Manager</h1>
 
 <h3 id="in-memory-state-manager">In Memory State Manager</h3>
-<p>This State Manager stores the data of a event to provide the actual value of a datastream
-quickly when the third system send a get request. This means, that the State Manager have a internal State that it refreshes
-every time that an event arrives and the engine method is called and,
-use it to send a response of the get operation instead of search the datastream and do the engine
-with that value through all the rules. In this way, the bundle saves time in processing of the operation.</p>
-<p>When a event arrives, the state manager always refresh the stored value. To do this, call the engine method using the value
-arrived value from the event. The rules can change the value or not. If they changes the value, store the returned state
-by the rule engine. If they doesn&rsquo;t change the value, the state manager will run a basic case to store the arrived value
-of the event into the itself state. The state manager only will send the new value of the datastream if the rule engine
-was checked this value as sendImmediately, in this case, the state manager will send the value of the datastreasm stored
-into the returned state to the send it to the third system.</p>
+<p>This State Manager stores the data of events to provide the actual value of a datastream quickly when the third system send a get request. This means, that the State Manager has an internal State that it refreshes
+every time that an event arrives.</p>
+<p>When an event arrives, the state manager applies the rules defined for that datastream and refreshes the stored value. The rules can change the value or not, either case the value is stored.</p>
+<p>The state manager will send immediately to the third system the new value of the datastream if the rule engine checks this value as sendImmediately.</p>
 <p>When a get operation arrives, the state manager won&rsquo;t get the value of the datastream directly. It will search if there is
 a value of that datastream into the state and will get it if exists. If the datastream doesn&rsquo;t exists into the state, the
 state manager will get the value from the datastream normally.</p>
-<p>When a set operation arrives, the arrived value from the operation will be setted into the datastream source directly,
+<p>When a set operation arrives, the arrived value from the operation will be set into the datastream source directly,
 without any affect over the state of the state manager.</p>
+<p>A database is used to store a backup of datastreams stored in state. This backup is used to recover the datastreams not sent in case ODA stops working due to external causes.</p>
 <h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><strong><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Core Commons</a></strong>: Provides the API of the configurable Bundles, Datastreams handling API&rsquo;s and Device API&rsquo;s.</li>
-<li><strong><a href="https://amplia-iiot.github.io/oda-docs/layers/statemanager/">State Manager API</a></strong>: Provides the API that this module will implements.</li>
 <li><strong><a href="https://amplia-iiot.github.io/oda-docs/layers/ruleengine/">Rule Engine API</a></strong>: Provides a generic Rule Engine to contain the ODA rule engine and use it.</li>
 <li><strong><a href="https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/events/">Event API</a></strong>: Provides the event interface to handle the internal events of ODA.</li>
 </ul>
 <h4 id="configuration">Configuration</h4>
-<p>This bundle doesn&rsquo;t requires any configuration.</p>
+<p>To configure State Manager InMemory, a file named <em>es.amplia.oda.statemanager.inmemory.cfg</em> must be created with the next parameters:</p>
+<ul>
+<li><strong>databasePath</strong>: <em>Required parameter</em>. Specify the path where database will be located.</li>
+<li><strong>maxData</strong>: <em>Required parameter</em>. Indicates the maximum number of values stored for each datastreamId, deviceId combination.</li>
+<li><strong>forgetTime</strong>: <em>Required parameter</em>. Indicates the maximum antiquity, in seconds, of values to store. Values older than this will be removed.</li>
+<li><strong>forgetPeriod</strong>:<em>Required parameter</em>. Indicates the periodicity in seconds that older values in database are removed.</li>
+</ul>
 
             <footer class="footline">
             </footer>
@@ -136,12 +135,12 @@ without any affect over the state of the state manager.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1678380685" defer></script>
-        <script src="../../../js/lunr.min.js?1678380685" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1678380685" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1678380685" defer></script>
-        <script src="../../../js/lunr.en.min.js?1678380685" defer></script>
-        <script src="../../../js/search.js?1678380685" defer></script>
+        <script src="../../../js/auto-complete.js?1680542139" defer></script>
+        <script src="../../../js/lunr.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1680542139" defer></script>
+        <script src="../../../js/lunr.en.min.js?1680542139" defer></script>
+        <script src="../../../js/search.js?1680542139" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -249,9 +248,9 @@ without any affect over the state of the state manager.</p>
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1678380685" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1678380685" defer></script>
-    <script src="../../../js/featherlight.min.js?1678380685" defer></script>
-    <script src="../../../js/theme.js?1678380685" defer></script>
+    <script src="../../../js/clipboard.min.js?1680542139" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1680542139" defer></script>
+    <script src="../../../js/featherlight.min.js?1680542139" defer></script>
+    <script src="../../../js/theme.js?1680542139" defer></script>
   </body>
 </html>

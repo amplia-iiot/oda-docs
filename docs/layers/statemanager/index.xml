@@ -11,7 +11,8 @@
       <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</guid>
-      <description>In Memory State Manager This State Manager stores the data of a event to provide the actual value of a datastream quickly when the third system send a get request. This means, that the State Manager have a internal State that it refreshes every time that an event arrives and the engine method is called and, use it to send a response of the get operation instead of search the datastream and do the engine with that value through all the rules.</description>
+      <description>In Memory State Manager This State Manager stores the data of events to provide the actual value of a datastream quickly when the third system send a get request. This means, that the State Manager has an internal State that it refreshes every time that an event arrives.
+When an event arrives, the state manager applies the rules defined for that datastream and refreshes the stored value. The rules can change the value or not, either case the value is stored.</description>
     </item>
     <item>
       <title>Real Time State Manager</title>
