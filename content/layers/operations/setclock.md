@@ -13,6 +13,12 @@ from the third system on the operation request itself. This value will be a long
 * [Operation API]({{< ref "_index.md" >}}): Provides the api of the operation and the enums of the result code.
 * [State Manager]({{< ref "layers/statemanager/_index.md" >}}): Provides the API of the State Manager that will handle the returned value by the operation.
 
+#### Configuration
+
+ To configure Set Clock Operation module, a file named _es.amplia.oda.operation.setclock.cfg_ must be created with the next parameters:
+
+* __clockDatastream__:_Required parameter_. Id of the datastream used to configure device clock.
+
 #### Trace
 
 The trace send by the third system (e.g. OpenGate) to the ODA to do this operation is like this:
