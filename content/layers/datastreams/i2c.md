@@ -31,7 +31,7 @@ every time that want to know actual value).
 
 _es.amplia.oda.datastreams.i2c.cfg_ will have a similar format to:
 
-```
+```properties
 lightData=getter:false,setter:true,device:lightDev,min:0,max:10
 temperatureData=device:temperatureDev
 ```

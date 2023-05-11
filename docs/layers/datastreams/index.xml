@@ -50,6 +50,17 @@ Dependencies This module requires the following modules:
 I2C Hardware: Provide an implementation of I2C Service that the datastream module need to provide information of each datastream. Configuration To configure I2C Datastream module, a file named es.amplia.oda.datastreams.i2c.cfg must be created with the next parameters for each input channel that you want to register:</description>
     </item>
     <item>
+      <title>IEC104</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/datastreams/iec104/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/datastreams/iec104/index.html</guid>
+      <description>IEC104 This Datastream module defines the configuration needed to connect with an Iec104 device.
+To access source code click here.
+Dependencies This module requires the following modules:
+IEC104 Comms: : Provide an implementation of IEC104 Master that the datastream module needs to connect with the devices. Configuration To configure IEC104 Datastream module, a file named es.amplia.oda.datastreams.iec104.cfg must be created with the next parameters:
+pollingTime: Required parameter. Indicates the time in seconds between pollings to execute an Interrogation Command.</description>
+    </item>
+    <item>
       <title>MODBUS</title>
       <link>https://amplia-iiot.github.io/oda-docs/layers/datastreams/modbus/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

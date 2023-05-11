@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>MQTT :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1680707967" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1680707967" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1680707967" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1680707967" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1680707967" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1680707967" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1680707967" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1680707967" rel="stylesheet">
-    <link href="../../../css/fonts.css?1680707967" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1680707967" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1680707967" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1680707967" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1680707967" rel="stylesheet">
-    <link href="../../../css/variant.css?1680707967" rel="stylesheet">
-    <link href="../../../css/print.css?1680707967" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1680707967"></script>
-    <script src="../../../js/variant.js?1680707967"></script>
+    <link href="../../../css/fontawesome-all.min.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1683797502" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1683797502" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1683797502" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1683797502" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1683797502" rel="stylesheet">
+    <link href="../../../css/fonts.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1683797502" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1683797502" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1683797502" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1683797502" rel="stylesheet">
+    <link href="../../../css/variant.css?1683797502" rel="stylesheet">
+    <link href="../../../css/print.css?1683797502" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1683797502"></script>
+    <script src="../../../js/variant.js?1683797502"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1680707967" defer></script>
+    <script src="../../../js/jquery.min.js?1683797502" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/mqtt/index.html">
     <div id="body" class="default-animation">
@@ -100,8 +100,8 @@ we have to send a message to the topic oda/enable/myDeviceId/myDatastreamId.</p>
   <div class="box-label"></div>
   <div class="box-content">
 <p>The explained format is common in all the topics for all the functions. To operate on a datastream, we use the next topic format:</p>
-<pre tabindex="0"><code>expectedTopic/deviceId/datastreamId
-</code></pre>  </div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">expectedTopic/deviceId/datastreamId</span>
+</span></span></code></pre></div>  </div>
 </div>
 <p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/mqtt">To access source code click here</a>.</p>
 <h4 id="dependencies">Dependencies</h4>
@@ -127,17 +127,17 @@ module need to connect to the MQTT broker to provide information of each datastr
 <li><strong>lwtTopic</strong>: <em>Required parameter</em>. Topic where ODA expects the Last Will messages of another devices clients to be sent.</li>
 </ul>
 <p><em>es.amplia.oda.datastreams.mqtt.cfg</em>. will have a similar format to:</p>
-<pre tabindex="0"><code>brokerURI=tcp://localhost:1883
-clientId=oda
-enableDatastreamTopic=oda/enable
-disableDatastreamTopic=oda/disable
-eventTopic=oda/event
-readRequestTopic=oda/operation/read/request
-readResponseTopic=oda/operation/read/response
-writeRequestTopic=oda/operation/write/request
-writeResponseTopic=oda/operation/write/response
-lwtTopic=oda/lwt
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">brokerURI</span><span style="color:#f92672">=</span><span style="color:#e6db74">tcp://localhost:1883</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">clientId</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enableDatastreamTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/enable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">disableDatastreamTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/disable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">eventTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/event</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readRequestTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/operation/read/request</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readResponseTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/operation/read/response</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">writeRequestTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/operation/write/request</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">writeResponseTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/operation/write/response</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lwtTopic</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda/lwt</span>
+</span></span></code></pre></div>
 <div class="box notices cstyle primary">
   <div class="box-label"></div>
   <div class="box-content">
@@ -209,12 +209,12 @@ lwtTopic=oda/lwt
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1680707967" defer></script>
-        <script src="../../../js/lunr.min.js?1680707967" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1680707967" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1680707967" defer></script>
-        <script src="../../../js/lunr.en.min.js?1680707967" defer></script>
-        <script src="../../../js/search.js?1680707967" defer></script>
+        <script src="../../../js/auto-complete.js?1683797502" defer></script>
+        <script src="../../../js/lunr.min.js?1683797502" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1683797502" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1683797502" defer></script>
+        <script src="../../../js/lunr.en.min.js?1683797502" defer></script>
+        <script src="../../../js/search.js?1683797502" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -241,6 +241,7 @@ lwtTopic=oda/lwt
           <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
           <li data-nav-id="/layers/datastreams/gpio/index.html" class="dd-item"><a href="../../../layers/datastreams/gpio/index.html">GPIO</a></li>
           <li data-nav-id="/layers/datastreams/i2c/index.html" class="dd-item"><a href="../../../layers/datastreams/i2c/index.html">I2C</a></li>
+          <li data-nav-id="/layers/datastreams/iec104/index.html" class="dd-item"><a href="../../../layers/datastreams/iec104/index.html">IEC104</a></li>
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../../layers/datastreams/modbus/index.html">MODBUS</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item active"><a href="../../../layers/datastreams/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li></ul></li>
@@ -322,9 +323,9 @@ lwtTopic=oda/lwt
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1680707967" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1680707967" defer></script>
-    <script src="../../../js/featherlight.min.js?1680707967" defer></script>
-    <script src="../../../js/theme.js?1680707967" defer></script>
+    <script src="../../../js/clipboard.min.js?1683797503" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1683797503" defer></script>
+    <script src="../../../js/featherlight.min.js?1683797503" defer></script>
+    <script src="../../../js/theme.js?1683797503" defer></script>
   </body>
 </html>

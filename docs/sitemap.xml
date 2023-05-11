@@ -124,6 +124,9 @@
     <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/iec104/index.html</loc>
   </url>
   <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/iec104/index.html</loc>
+  </url>
+  <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/statemanager/inmemory/index.html</loc>
   </url>
   <url>

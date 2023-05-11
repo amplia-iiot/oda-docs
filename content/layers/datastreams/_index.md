@@ -54,6 +54,7 @@ The following data sources are implemented and abstracted as datamodels:
 * [__I2C__](https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/i2c): Data inside I2C devices (sensors and microcontrollers).
 * [__Modbus__](https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/modbus): Data measured by connected devices through Modbus protocol.
 * [__MQTT__](https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/mqtt): Data measured by connected devices through MQTT protocol.
+* [__IEC104__](https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/iec104): Data measured by connected devices through Iec104 protocol.
 
 #### Simulator
 

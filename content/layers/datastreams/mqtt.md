@@ -16,7 +16,7 @@ we have to send a message to the topic oda/enable/myDeviceId/myDatastreamId.
 {{% notice style="primary" %}}
 The explained format is common in all the topics for all the functions. To operate on a datastream, we use the next topic format:
 
-```
+```properties
 expectedTopic/deviceId/datastreamId
 ```
 
@@ -50,7 +50,7 @@ To configure I2C Datastream module, a file named _es.amplia.oda.datastreams.mqtt
 
 _es.amplia.oda.datastreams.mqtt.cfg_. will have a similar format to:
 
-```
+```properties
 brokerURI=tcp://localhost:1883
 clientId=oda
 enableDatastreamTopic=oda/enable

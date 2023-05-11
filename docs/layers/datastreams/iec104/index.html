@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>I2C :: ODA Documentation Site</title>
+    <title>IEC104 :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../../css/fontawesome-all.min.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1683797502" rel="stylesheet"></noscript>
     <link href="../../../css/featherlight.min.css?1683797502" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1683797502" rel="stylesheet"></noscript>
@@ -41,17 +41,17 @@
     </script>
     <script src="../../../js/jquery.min.js?1683797502" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../../layers/datastreams/i2c/index.html">
+  <body class="mobile-support html" data-url="../../../layers/datastreams/iec104/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../../layers/datastreams/iec104/index.html" title="IEC104 (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../../layers/datastreams/modbus/index.html" title="MODBUS (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../../layers/datastreams/gpio/index.html" title="GPIO (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../../layers/datastreams/i2c/index.html" title="I2C (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -62,7 +62,7 @@
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/datastreams/index.html"><span itemprop="name">Datastreams</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">I2C</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">IEC104</span><meta itemprop="position" content="4"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -71,7 +71,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#i2c">I2C</a></li>
+        <li><a href="#iec104">IEC104</a></li>
       </ul>
     </li>
   </ul>
@@ -85,32 +85,35 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="i2c">I2C</h1>
+<h1 id="iec104">IEC104</h1>
 
-<h3 id="i2c">I2C</h3>
-<p>This Datastream module enable to register the datastreams of <a href="https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/">I2C Hardware module</a>.</p>
-<p>This datastreams corresponds to the I2C devices connected to the device.</p>
-<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/i2c">To access source code click here</a>.</p>
+<h3 id="iec104">IEC104</h3>
+<p>This Datastream module defines the configuration needed to connect with an Iec104 device.</p>
+<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/iec104">To access source code click here</a>.</p>
 <h4 id="dependencies">Dependencies</h4>
 <p>This module requires the following modules:</p>
 <ul>
-<li><strong><a href="https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/">I2C Hardware</a></strong>: Provide an implementation of I2C Service that the datastream module need to provide information of each datastream.</li>
+<li><strong><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/comms/#iec104">IEC104 Comms</a></strong>: : Provide an implementation of IEC104 Master that the datastream module needs to connect with the devices.</li>
 </ul>
 <h4 id="configuration">Configuration</h4>
-<p>To configure I2C Datastream module, a file named <em>es.amplia.oda.datastreams.i2c.cfg</em> must be created with the next parameters
-for each input channel that you want to register:</p>
+<p>To configure IEC104 Datastream module, a file named <em>es.amplia.oda.datastreams.iec104.cfg</em> must be created with the next parameters:</p>
 <ul>
-<li><strong>name</strong>: <em>Required parameter</em>. Identifier name of the datastream.</li>
-<li><strong>getter</strong>: <em>true by default</em>. Enable the option to use this channel as datastream getter (have to check the value manually
-every time that want to know actual value).</li>
-<li><strong>setter</strong>: <em>false by default</em>. Enable the option to use this channel as datastream setter (have to send a operation to change the value of this datastream).</li>
-<li><strong>device</strong>: <em>Required parameter</em>. Identifier name of the i2c device hardware</li>
-<li><strong>min</strong>: <em>0 by default, if min &gt; max then min = 0</em>. Specifies the value that datastream will take when the hardware channel value is in the minimum of the range.</li>
-<li><strong>max</strong>: <em>1 by default, if min &gt; max then max = 1</em>. Specifies the value that datastream will take when the hardware channel value is in the maximum of the range</li>
+<li>
+<p><strong>pollingTime</strong>: <em>Required parameter</em>. Indicates the time in seconds between pollings to execute an Interrogation Command.</p>
+</li>
+<li>
+<p><strong>deviceId</strong>: <em>Required parameter</em>. Indicates the information needed to connect with device in the next format:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span>    <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">=</span><span style="color:#e6db74">ipAddress;port;commonAddress</span>
+</span></span></code></pre></div></li>
 </ul>
-<p><em>es.amplia.oda.datastreams.i2c.cfg</em> will have a similar format to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">lightData</span><span style="color:#f92672">=</span><span style="color:#e6db74">getter:false,setter:true,device:lightDev,min:0,max:10</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">temperatureData</span><span style="color:#f92672">=</span><span style="color:#e6db74">device:temperatureDev</span>
+<p><em>es.amplia.oda.datastreams.iec104.cfg</em> will have a similar format to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
+</span></span></code></pre></div><p>It is possible to define N devices with the format:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj1</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;2</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj3</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.2;2404;1</span>
 </span></span></code></pre></div>
             <footer class="footline">
             </footer>
@@ -165,8 +168,8 @@ every time that want to know actual value).</li>
           <li data-nav-id="/layers/datastreams/adc/index.html" class="dd-item"><a href="../../../layers/datastreams/adc/index.html">ADC</a></li>
           <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
           <li data-nav-id="/layers/datastreams/gpio/index.html" class="dd-item"><a href="../../../layers/datastreams/gpio/index.html">GPIO</a></li>
-          <li data-nav-id="/layers/datastreams/i2c/index.html" class="dd-item active"><a href="../../../layers/datastreams/i2c/index.html">I2C</a></li>
-          <li data-nav-id="/layers/datastreams/iec104/index.html" class="dd-item"><a href="../../../layers/datastreams/iec104/index.html">IEC104</a></li>
+          <li data-nav-id="/layers/datastreams/i2c/index.html" class="dd-item"><a href="../../../layers/datastreams/i2c/index.html">I2C</a></li>
+          <li data-nav-id="/layers/datastreams/iec104/index.html" class="dd-item active"><a href="../../../layers/datastreams/iec104/index.html">IEC104</a></li>
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../../layers/datastreams/modbus/index.html">MODBUS</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item"><a href="../../../layers/datastreams/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li></ul></li>
@@ -248,9 +251,9 @@ every time that want to know actual value).</li>
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1683797502" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1683797502" defer></script>
-    <script src="../../../js/featherlight.min.js?1683797502" defer></script>
-    <script src="../../../js/theme.js?1683797502" defer></script>
+    <script src="../../../js/clipboard.min.js?1683797503" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1683797503" defer></script>
+    <script src="../../../js/featherlight.min.js?1683797503" defer></script>
+    <script src="../../../js/theme.js?1683797503" defer></script>
   </body>
 </html>
