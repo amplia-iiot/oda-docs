@@ -24,6 +24,14 @@ Using the nashorn engine we can use java objects and its methods in javascript.
 
 The methods defined in utils.js are located in the classes State and DatastreamValue in the package es.amplia.oda.core.commons.utils
 
+We can use single line comments inside the rule, they will be ignored when loading the rule inside the rule engine.
+
+We can also use functions to log messages from inside the rule to ODA log file using the functions logInfo, logDebug, logError, logWarn, logTrace  from State class as in this example:
+
+```java
+State.logInfo("Year = {}, Month = {}, Day = {}", var1, var2, var3);
+```
+
 ### Rules configuration
 
 To be able to apply rules we must first configure ODA to tell it the directory where the rules to apply will be stored.

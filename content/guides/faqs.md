@@ -1,6 +1,6 @@
 +++
 title= "FAQs"
-weight= 2
+weight= 9
 +++
 
 ### Datastream format
@@ -17,9 +17,9 @@ The State is the collection of datastreams managed in a moment by ODA.
 
 To change the way state manager works we must change the state manager bundles deployed.
 
-* To work in real time mode, use the bundles statemanager.api y statemanager.realtime
+* To work in real time mode, use the bundle statemanager.realtime
 
-* To work in memory mode, use the bundles statemanager.api y statemanager.inmemory
+* To work in memory mode, use the bundle statemanager.inmemory
 
 If there is both realtime and inmemory bundles deployed, remove the one which isn't being used.
 

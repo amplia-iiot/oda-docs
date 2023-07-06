@@ -7,16 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>FAQs</title>
-      <link>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</link>
+      <title>Events flow</title>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</guid>
-      <description>Datastream format We can see the format of the datastreams used by ODA in this link
-OpenGate IOT JSON
-Definition of state The State is the collection of datastreams managed in a moment by ODA.
-Change state manager mode To change the way state manager works we must change the state manager bundles deployed.
-To work in real time mode, use the bundles statemanager.api y statemanager.realtime
-To work in memory mode, use the bundles statemanager.</description>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/index.html</guid>
+      <description>Introduction This section will include schemas to explain the stages an event goes through from being read from a device to being published.
+Poller reads data from devices using the corresponding connector and passes it to the StateManager to be processed.
+Depending on the configuration, the behavior of the StateManager differs.
+If we are using StateManager-RealTime, data will be sent to the dispatcher to be published.
+If we are using StateManager-InMemory, data will be processed (using rule engine) and stored.</description>
     </item>
     <item>
       <title>Configuration files</title>
@@ -49,6 +48,18 @@ If we remove a bundle from this bundle, the framework will stop and uninstall it
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amplia-iiot.github.io/oda-docs/guides/dependency-table/index.html</guid>
       <description> Module Group Module / Bundle Dependencies Comms MQTT Core Commons Connectors Coap Core Commons AT Server Connectors DNP3 Core Commons Connectors HTTP Core Commons Connectors IEC104 Core Commons Connectors MQTT Core Commons MQTT Comms Connectors Websocket Core Commons Core Commons Datastream ADC Core Commons Datastream Device Info Core Commons Datastream Device Info FX30 Core Commons Datastream GPIO Core Commons Datastream I2C Core Commons Event API Datastream ModBus Core Commons Datastream MQTT Core Commons MQTT Comms Datastream Simulador Core Commons Dispatchers OpenGate Core Commons Operation API Event API Dispatchers SCADA Core Commons Events Events API Core Commons Hardware AT Server Core Commons Hardware Comms Core Commons Hardware DioZero Core Commons Hardware I2C Core Commons Hardware JDKDIO Core Commons Hardware ModBus Core Commons Operations API Core Commons Operations Get Core Commons Operation API Operations Discovery Core Commons Operation API MQTT Comms Operations Refresh Info Core Commons Operation API Operations Set Core Commons Operation API Operations Set Clock Core Commons Operation API Operations Sync Clock Core Commons Operation API Operations Update Core Commons Operation API Rule Engine API Core Commons Event API Rule Engine Nashorn Core Commons Event API Rule Engine API Services CBOR Serializer Core Commons Services JSON Serializer Core Commons State Manager In Memory Core Commons Event API Rule Engine API State Manager Real Time Core Commons Event API Subsystem Collector Core Commons Event API Subsystem Poller Core Commons Subsystem SSH Server Core Commons </description>
+    </item>
+    <item>
+      <title>FAQs</title>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</guid>
+      <description>Datastream format We can see the format of the datastreams used by ODA in this link
+OpenGate IOT JSON
+Definition of state The State is the collection of datastreams managed in a moment by ODA.
+Change state manager mode To change the way state manager works we must change the state manager bundles deployed.
+To work in real time mode, use the bundle statemanager.realtime
+To work in memory mode, use the bundle statemanager.</description>
     </item>
   </channel>
 </rss>

@@ -67,6 +67,11 @@ by default. Available options are PKIX, SUN_X509, SUN_JSSE. Specify the algorith
 
 * __message.qos__: _1 by default_. This parameter can be 0, 1 or 2. QOS that will have the messages sent by connector's client.
 QOS is the level agreed between client and broker to ensure the delivery of the message.
+
+  * qos = 0 - at most once - Message is delivered at most once. Its delivery is not acknowledged. It may not be delivered at all. Fastest method.
+  * qos = 1 - at least once - Message is always delivered at least once. It might be delivered multiple times.
+  * qos = 2 - exactly once - Message is always delivered exactly once. Safest method but slowest.
+
 * __message.retained__: _false by default_. If is true, the last message sent to broker will be sent to another clients
 even if those clients connects after the message was sent.
 

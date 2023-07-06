@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventsprocessing/index.html</loc>
+  </url>
+  <url>
     <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/core/index.html</loc>
   </url>
   <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventscollection/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/index.html</loc>
@@ -20,6 +26,9 @@
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/guides/configfiles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventserasure/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/rules/index.html</loc>
@@ -56,6 +65,9 @@
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/develop/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/adc/index.html</loc>

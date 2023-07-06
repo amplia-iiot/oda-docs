@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Events flow on ODA Documentation Site</title>
+    <link>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/index.html</link>
+    <description>Recent content in Events flow on ODA Documentation Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://amplia-iiot.github.io/oda-docs/guides/eventsflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Events processing</title>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventsprocessing/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventsprocessing/index.html</guid>
+      <description>In StateManager- InMemory bundle, when a new event from a device arrives, it is processed executing a number of steps:
+Rules associated to the datastreamId of the event are applied to the event. There can be N rules to be applied.
+Once all rules have been applied, we retrieve from StateManager memory all the datastreamIds which have been marked as &amp;lsquo;refreshed&amp;rsquo; (there is a new value for that datastreamId) or as &amp;lsquo;sendImmediately&amp;rsquo;.</description>
+    </item>
+    <item>
+      <title>Events collection</title>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventscollection/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventscollection/index.html</guid>
+      <description>In Collector bundle, when we have to collect events stored in StateManager memory a number of steps is executed:
+Get from memory all events whose datastreamId and deviceId are equals to the ones that triggered the process (all those configured in the collector config file for this moment).
+Get from database all existing values for the datastreamId and deviceId indicated.
+Using the values obtained from the database, all values stored in memory are updated.</description>
+    </item>
+    <item>
+      <title>Events erasure</title>
+      <link>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventserasure/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventserasure/index.html</guid>
+      <description>In StateManager-InMemory bundle, events are stored in memory and in the database. We need a process that erases old events that are no longer needed to avoid using too much disk and memory. This process is done in different places and bundles.
+There are three parameters in StateManager configuration file that are used in these process:
+maxData - indicates how many values can be stored for any datastreamId, deviceId combination.</description>
+    </item>
+  </channel>
+</rss>

@@ -336,5 +336,5 @@ Nothing else is needed.
 To deploy this dispatcher you have to deploy the Dispatcher API, the Rule Engine API and the specific implementation of
 the rule engine that you will use.
 
-This is because the historic data will be used by the rulke engine bundle and is needed to include it to be used, having
+This is because the historic data will be used by the rule engine bundle and is needed to include it to be used, having
 both of these bundles a mutual dependency.
