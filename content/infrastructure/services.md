@@ -3,7 +3,7 @@ title = "Services"
 weight= 4
 +++
 
-This multi-module contains services used widely across the ODA system (e.g. serialization services).
+This multi-module contains services used by other bundles in ODA.
 
 ## Implemented services
 
@@ -28,3 +28,7 @@ Currently, two serialization implementations are provided:
 {{% notice style="primary" %}}
 To add a new serialization format, just implement the Serializer interface contained in core module and register the service in the OSGi registry
 {{% /notice %}}
+
+### Scada Tables
+
+This bundle is used by the IEC104 datastreams bundle. It defines the information needed to translate variables retrieved from a SCADA system to ODA events.

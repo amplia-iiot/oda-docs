@@ -12,3 +12,5 @@ Here we are going to see some examples of things we can do with ODA as it is.
 [__Apply rules to data recollected__](applyrules)
 
 [__Install bundle from OpenGate__](updateoperation)
+
+[__Read data from IEC104 devices__](readdataiec104)

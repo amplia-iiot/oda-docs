@@ -7,8 +7,8 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>State Manager :: ODA Documentation Site</title>
-    <link href="../../layers/statemanager/index.xml" rel="alternate" type="application/rss+xml" title="State Manager :: ODA Documentation Site">
+    <title>Other :: ODA Documentation Site</title>
+    <link href="../../layers/other/index.xml" rel="alternate" type="application/rss+xml" title="Other :: ODA Documentation Site">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../css/fontawesome-all.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1690195374" rel="stylesheet"></noscript>
     <link href="../../css/featherlight.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1690195374" rel="stylesheet"></noscript>
@@ -42,17 +42,17 @@
     </script>
     <script src="../../js/jquery.min.js?1690195374" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../layers/statemanager/index.html">
+  <body class="mobile-support html" data-url="../../layers/other/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../layers/statemanager/inmemory/index.html" title="In Memory State Manager (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../layers/other/scadatables/index.html" title="Scada Tables (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../layers/hardware/modbus/index.html" title="ModBus (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../layers/operationdispatcher/index.html" title="Operation Dispatchers (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -62,7 +62,7 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">State Manager</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Other</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -71,7 +71,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#state-manager">State Manager</a></li>
+        <li><a href="#other">Other</a></li>
       </ul>
     </li>
   </ul>
@@ -85,31 +85,10 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="state-manager">State Manager</h1>
+<h1 id="other">Other</h1>
 
-<h3 id="state-manager">State Manager</h3>
-<p>The State Manager stores the device data state in the current moment to ease the data access from operations and increase the system performance (at a expense of possible outdated data).</p>
-<p>Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables <a href="https://en.wikipedia.org/wiki/Edge_computing">Edge Computing</a> features.</p>
-<p>There are different State Managers implementations depending on project needs. New State Managers may be added implementing the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/interfaces/StateManager.java">StateManager</a> interface:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">StateManager</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getDatastreamInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> String datastreamId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDatastreamsInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> datastreamIds<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDatastreamsInformation</span><span style="color:#f92672">(</span>DevicePattern devicePattern<span style="color:#f92672">,</span> String datastreamId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDatastreamsInformation</span><span style="color:#f92672">(</span>DevicePattern devicePattern<span style="color:#f92672">,</span> Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> datastreamId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getDeviceInformation</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">setDatastreamValue</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> String datastreamId<span style="color:#f92672">,</span> Object value<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Set<span style="color:#f92672">&lt;</span>DatastreamValue<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">setDatastreamValues</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> datastreamValues<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onReceivedEvents</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;</span> events<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">publishValues</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;</span> event<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h4 id="state-manager-implementations">State Manager implementations</h4>
-<p>The currently implemented state managers are:</p>
-<ul>
-<li><a href="realtime"><strong>Real-time State Manager</strong></a>: The real time state manager is a proxy that works without storing any state and always getting and setting the data from/to the data source. It is the choice for projects with real-time concerns and without edge computing needs.</li>
-<li><a href="inmemory"><strong>In-Memory State Manager</strong></a>: The in-memory state manager store the state of all the data in the device in memory and uses a rule engine to execute business rules dependent on the device data.</li>
-</ul>
-<p>New implementations may be added in the future like database based state manager, multiple samples state managers&hellip;</p>
+<h3 id="other">Other</h3>
+<p>In this section we explain bundles that are not part of any of the main sections but are needed in certain scenarios.</p>
 
             <footer class="footline">
             </footer>
@@ -176,7 +155,7 @@
           <li data-nav-id="/layers/hardware/i2c/index.html" class="dd-item"><a href="../../layers/hardware/i2c/index.html">I2C</a></li>
           <li data-nav-id="/layers/hardware/jdkdio/index.html" class="dd-item"><a href="../../layers/hardware/jdkdio/index.html">JDK DIO</a></li>
           <li data-nav-id="/layers/hardware/modbus/index.html" class="dd-item"><a href="../../layers/hardware/modbus/index.html">ModBus</a></li></ul></li>
-          <li data-nav-id="/layers/statemanager/index.html" class="dd-item active parent"><input type="checkbox" id="section-49fff6a2c94f4a27b39e331dfeda7ecf" aria-controls="subsections-49fff6a2c94f4a27b39e331dfeda7ecf" class="toggle" checked><label class="a11y-only toggle" for="section-49fff6a2c94f4a27b39e331dfeda7ecf" >Submenu State Manager</label><a href="../../layers/statemanager/index.html">State Manager</a><ul id="subsections-49fff6a2c94f4a27b39e331dfeda7ecf">
+          <li data-nav-id="/layers/statemanager/index.html" class="dd-item"><input type="checkbox" id="section-49fff6a2c94f4a27b39e331dfeda7ecf" aria-controls="subsections-49fff6a2c94f4a27b39e331dfeda7ecf" class="toggle"><label class="a11y-only toggle" for="section-49fff6a2c94f4a27b39e331dfeda7ecf" >Submenu State Manager</label><a href="../../layers/statemanager/index.html">State Manager</a><ul id="subsections-49fff6a2c94f4a27b39e331dfeda7ecf">
           <li data-nav-id="/layers/statemanager/inmemory/index.html" class="dd-item"><a href="../../layers/statemanager/inmemory/index.html">In Memory State Manager</a></li>
           <li data-nav-id="/layers/statemanager/realtime/index.html" class="dd-item"><a href="../../layers/statemanager/realtime/index.html">Real Time State Manager</a></li></ul></li>
           <li data-nav-id="/layers/ruleengine/index.html" class="dd-item"><input type="checkbox" id="section-5c5718f57e4c96976956f07776544a83" aria-controls="subsections-5c5718f57e4c96976956f07776544a83" class="toggle"><label class="a11y-only toggle" for="section-5c5718f57e4c96976956f07776544a83" >Submenu Rule Engine</label><a href="../../layers/ruleengine/index.html">Rule Engine</a><ul id="subsections-5c5718f57e4c96976956f07776544a83">
@@ -193,7 +172,7 @@
           <li data-nav-id="/layers/eventdispatcher/index.html" class="dd-item"><input type="checkbox" id="section-505d5dd0fed93ed0707276db1981105e" aria-controls="subsections-505d5dd0fed93ed0707276db1981105e" class="toggle"><label class="a11y-only toggle" for="section-505d5dd0fed93ed0707276db1981105e" >Submenu Event Dispatcher</label><a href="../../layers/eventdispatcher/index.html">Event Dispatcher</a><ul id="subsections-505d5dd0fed93ed0707276db1981105e">
           <li data-nav-id="/layers/eventdispatcher/events/index.html" class="dd-item"><a href="../../layers/eventdispatcher/events/index.html">Events</a></li></ul></li>
           <li data-nav-id="/layers/operationdispatcher/index.html" class="dd-item"><a href="../../layers/operationdispatcher/index.html">Operation Dispatchers</a></li>
-          <li data-nav-id="/layers/other/index.html" class="dd-item"><input type="checkbox" id="section-94d58c57e02f823575551f6a726456f1" aria-controls="subsections-94d58c57e02f823575551f6a726456f1" class="toggle"><label class="a11y-only toggle" for="section-94d58c57e02f823575551f6a726456f1" >Submenu Other</label><a href="../../layers/other/index.html">Other</a><ul id="subsections-94d58c57e02f823575551f6a726456f1">
+          <li data-nav-id="/layers/other/index.html" class="dd-item active parent"><input type="checkbox" id="section-94d58c57e02f823575551f6a726456f1" aria-controls="subsections-94d58c57e02f823575551f6a726456f1" class="toggle" checked><label class="a11y-only toggle" for="section-94d58c57e02f823575551f6a726456f1" >Submenu Other</label><a href="../../layers/other/index.html">Other</a><ul id="subsections-94d58c57e02f823575551f6a726456f1">
           <li data-nav-id="/layers/other/scadatables/index.html" class="dd-item"><a href="../../layers/other/scadatables/index.html">Scada Tables</a></li></ul></li></ul></li>
           <li data-nav-id="/scenarios/index.html" class="dd-item"><input type="checkbox" id="section-2ac616f661d8c58d2dde5d6eb61b43de" aria-controls="subsections-2ac616f661d8c58d2dde5d6eb61b43de" class="toggle"><label class="a11y-only toggle" for="section-2ac616f661d8c58d2dde5d6eb61b43de" >Submenu Scenarios</label><a href="../../scenarios/index.html">Scenarios</a><ul id="subsections-2ac616f661d8c58d2dde5d6eb61b43de">
           <li data-nav-id="/scenarios/recollectdata/index.html" class="dd-item"><a href="../../scenarios/recollectdata/index.html">Recollect Data</a></li>

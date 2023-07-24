@@ -24,16 +24,6 @@ Some connectors are able to receive operations from third systems (usually OpenG
 Datastreams Getters: Datastreams modelling data with read access. public interface DatastreamsGetter { String getDatastreamIdSatisfied(); List&amp;lt;String&amp;gt; getDevicesIdManaged(); CompletableFuture&amp;lt;CollectedValue&amp;gt; get(String device); } Datastreams Setters: Datastreams modelling data with write access. public interface DatastreamsSetter { String getDatastreamIdSatisfied(); Type getDatastreamType(); List&amp;lt;String&amp;gt; getDevicesIdManaged(); CompletableFuture&amp;lt;Void&amp;gt; set(String device, Object value); } Datastreams Events: Datastreams modelling data that trigger data events.</description>
     </item>
     <item>
-      <title>Event Dispatcher</title>
-      <link>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</guid>
-      <description>Event Dispatcher The event dispatcher is responsible for receiving the events generated in the device and sending them through the available connectors.
-The interface defining the service is the EventDispatcher interface and the main method is the publish method that receives an event:
-public interface EventDispatcher { void publish(Event event); } Events objects are explained in the Events page.
-OpenGate Event Dispatcher The OpenGate Event Dispatcher publishes the received events through an OpenGate connector with the OpenGate IOT JSON format.</description>
-    </item>
-    <item>
       <title>Hardware</title>
       <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -45,13 +35,22 @@ AT Server Server capable of sending and receiving AT Commands.
 Implement the following interface:</description>
     </item>
     <item>
-      <title>Operation Dispatchers</title>
-      <link>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</link>
+      <title>State Manager</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</guid>
-      <description>Operation Dispatchers The operation dispatchers are responsible for getting the high level operation requests from the low level representation, pass them to the proper operation processor and send back the responses to the connector as low level representation also.
-This components should also take care of the operation error handling: serialization errors, error in operation params, not supported operations&amp;hellip;
-The entry point is the process method getting the requests and returning the response.</description>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</guid>
+      <description>State Manager The State Manager stores the device data state in the current moment to ease the data access from operations and increase the system performance (at a expense of possible outdated data).
+Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables Edge Computing features.
+There are different State Managers implementations depending on project needs.</description>
+    </item>
+    <item>
+      <title>Rule Engine</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</guid>
+      <description>Rule Engine The rule engine executes custom business rules dependent on the device data. The rules may be deployed from our OpenGate IOT Platform and are loaded at runtime.
+The rules are based in a when -&amp;gt; then paradigm:
+when: Predicates defining when the rule should be executed then: Actions to execute when the predicates evaluates to true. The scope available inside this functions includes the state of the device (all the values of the datastreams in the current moment) and the new value that has triggered the rules evaluation.</description>
     </item>
     <item>
       <title>Operations</title>
@@ -65,22 +64,30 @@ Basic Operations The basic operations are:
 Refresh Info: Send the values of the datastreams at the moment the operation is received. Get Device Parameters: Get the values of the specified datastreams at the moment the operation is received.</description>
     </item>
     <item>
-      <title>Rule Engine</title>
-      <link>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</link>
+      <title>Event Dispatcher</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</guid>
-      <description>Rule Engine The rule engine executes custom business rules dependent on the device data. The rules may be deployed from our OpenGate IOT Platform and are loaded at runtime.
-The rules are based in a when -&amp;gt; then paradigm:
-when: Predicates defining when the rule should be executed then: Actions to execute when the predicates evaluates to true. The scope available inside this functions includes the state of the device (all the values of the datastreams in the current moment) and the new value that has triggered the rules evaluation.</description>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</guid>
+      <description>Event Dispatcher The event dispatcher is responsible for receiving the events generated in the device and sending them through the available connectors.
+The interface defining the service is the EventDispatcher interface and the main method is the publish method that receives an event:
+public interface EventDispatcher { void publish(Event event); } Events objects are explained in the Events page.
+OpenGate Event Dispatcher The OpenGate Event Dispatcher publishes the received events through an OpenGate connector with the OpenGate IOT JSON format.</description>
     </item>
     <item>
-      <title>State Manager</title>
-      <link>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</link>
+      <title>Operation Dispatchers</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://amplia-iiot.github.io/oda-docs/layers/statemanager/index.html</guid>
-      <description>State Manager The State Manager stores the device data state in the current moment to ease the data access from operations and increase the system performance (at a expense of possible outdated data).
-Storing the state of all data in the device allow us to calculate inferred data (e.g. datastream statistical information) and execute smart actions depending on data that enables Edge Computing features.
-There are different State Managers implementations depending on project needs.</description>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/operationdispatcher/index.html</guid>
+      <description>Operation Dispatchers The operation dispatchers are responsible for getting the high level operation requests from the low level representation, pass them to the proper operation processor and send back the responses to the connector as low level representation also.
+This components should also take care of the operation error handling: serialization errors, error in operation params, not supported operations&amp;hellip;
+The entry point is the process method getting the requests and returning the response.</description>
+    </item>
+    <item>
+      <title>Other</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/other/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/other/index.html</guid>
+      <description>Other In this section we explain bundles that are not part of any of the main sections but are needed in certain scenarios.</description>
     </item>
   </channel>
 </rss>

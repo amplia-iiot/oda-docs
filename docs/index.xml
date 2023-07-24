@@ -31,7 +31,8 @@ Connectors: Send and received data to/from the Internet at a low level of abstra
 Recollect data from devices
 Publish data recollected from devices
 Apply rules to data recollected
-Install bundle from OpenGate</description>
+Install bundle from OpenGate
+Read data from IEC104 devices</description>
     </item>
     <item>
       <title>Guides</title>

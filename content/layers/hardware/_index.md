@@ -1,5 +1,6 @@
 +++
 title = "Hardware"
+weight= 3
 +++
 
 ### Hardware

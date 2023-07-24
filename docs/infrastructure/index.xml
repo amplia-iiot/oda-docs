@@ -30,7 +30,7 @@ Protocols MQTT The MQTT protocol is used to connect to OpenGate and also to conn
       <link>https://amplia-iiot.github.io/oda-docs/infrastructure/services/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amplia-iiot.github.io/oda-docs/infrastructure/services/index.html</guid>
-      <description>This multi-module contains services used widely across the ODA system (e.g. serialization services).
+      <description>This multi-module contains services used by other bundles in ODA.
 Implemented services Serialization Serialization is a common feature to communicate to other local or global systems where different serialization formats may be required.
 A common serialization API has been created to call these services, independently of the required format:
 public interface Serializer { byte[] serialize(Object value) throws IOException; &amp;lt;T&amp;gt; T deserialize(byte[] value, Class&amp;lt;T&amp;gt; type) throws IOException; } Currently, two serialization implementations are provided:</description>
