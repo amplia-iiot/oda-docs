@@ -15,7 +15,7 @@
 This internal objects are created to notify a new value to the state manager and are handled by the state manager or the rule engine, depending on the state manager implementation that we will use.
 The event object will have the next parameters to specify the information of the event.
 The Event is defined as:
-public class Event { private String datastreamId; private String deviceId; private String[] path; private Long at; private Object value; } Datastream ID is the id of the datastream which has changed and created an event to notify that change to the state manager.</description>
+public class Event { private String datastreamId; private String deviceId; private String[] path; private String feed; private Long at; private Object value; } Datastream ID is the id of the datastream which has changed and created an event to notify that change to the state manager.</description>
     </item>
   </channel>
 </rss>

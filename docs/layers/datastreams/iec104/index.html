@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.115.4">
+    <meta name="generator" content="Hugo 0.119.0">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>IEC104 :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1690195374" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1690195374" rel="stylesheet">
-    <link href="../../../css/fonts.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1690195374" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1690195374" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1690195374" rel="stylesheet">
-    <link href="../../../css/variant.css?1690195374" rel="stylesheet">
-    <link href="../../../css/print.css?1690195374" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1690195374"></script>
-    <script src="../../../js/variant.js?1690195374"></script>
+    <link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1696955317" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1696955317" rel="stylesheet">
+    <link href="../../../css/fonts.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1696955317" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1696955317" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1696955317" rel="stylesheet">
+    <link href="../../../css/variant.css?1696955317" rel="stylesheet">
+    <link href="../../../css/print.css?1696955317" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1696955317"></script>
+    <script src="../../../js/variant.js?1696955317"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1690195374" defer></script>
+    <script src="../../../js/jquery.min.js?1696955317" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/iec104/index.html">
     <div id="body" class="default-animation">
@@ -100,7 +100,10 @@
 <p>To configure IEC104 Datastream module, a file named <em>es.amplia.oda.datastreams.iec104.cfg</em> must be created with the next parameters:</p>
 <ul>
 <li>
-<p><strong>pollingTime</strong>: <em>Required parameter</em>. Indicates the time in seconds between Interrogation Command executions. Every x seconds, an Interrogation Command is sent to the iec104 device to retrieve data.</p>
+<p><strong>initialPollingTime</strong>: <em>Required parameter</em>. Indicates the time in seconds that pass between the start of the bundle and the first Interrogation Command sent.</p>
+</li>
+<li>
+<p><strong>pollingTime</strong>: <em>Required parameter</em>. Indicates the time in seconds between Interrogation Command executions. Every x seconds after the initial Interrogation Command, an Interrogation Command is sent to the iec104 device to retrieve data.</p>
 </li>
 <li>
 <p><strong>deviceId</strong>: <em>Required parameter</em>. Indicates the information needed to connect with device in the next format:</p>
@@ -108,10 +111,12 @@
 </span></span></code></pre></div></li>
 </ul>
 <p><em>es.amplia.oda.datastreams.iec104.cfg</em> will have a similar format to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">initialPollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
 </span></span></code></pre></div><p>It is possible to define N devices with the format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">initialPollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj1</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;2</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj3</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.2;2404;1</span>
@@ -138,12 +143,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1690195375" defer></script>
-        <script src="../../../js/lunr.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.en.min.js?1690195375" defer></script>
-        <script src="../../../js/search.js?1690195375" defer></script>
+        <script src="../../../js/auto-complete.js?1696955317" defer></script>
+        <script src="../../../js/lunr.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.en.min.js?1696955317" defer></script>
+        <script src="../../../js/search.js?1696955317" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -259,9 +264,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1690195375" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1690195375" defer></script>
-    <script src="../../../js/featherlight.min.js?1690195375" defer></script>
-    <script src="../../../js/theme.js?1690195375" defer></script>
+    <script src="../../../js/clipboard.min.js?1696955317" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1696955317" defer></script>
+    <script src="../../../js/featherlight.min.js?1696955317" defer></script>
+    <script src="../../../js/theme.js?1696955317" defer></script>
   </body>
 </html>

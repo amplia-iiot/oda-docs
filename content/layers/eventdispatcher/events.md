@@ -18,6 +18,7 @@ public class Event {
     private String datastreamId;
     private String deviceId;
     private String[] path;
+    private String feed;
     private Long at;
     private Object value;
 }
@@ -26,6 +27,7 @@ public class Event {
 * Datastream ID is the id of the datastream which has changed and created an event to notify that change to the state manager.
 * Device ID is the id of the device that contains the changed datastream.
 * Path is the way to arrive to the device which contains the datastream.
+* Feed indicates the origin of the datastream.
 * At is the timestamp of the moment the event was created.
 * Value is the new value that the datastream has collected. If a rule engine is included, it is possible that the value
     saved into the state manager will be different to the arrived value.

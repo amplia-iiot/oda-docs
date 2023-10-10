@@ -35,7 +35,7 @@ public interface DatastreamsSetter {
 public interface DatastreamsEvent {
     void registerToEventSource();
     void unregisterFromEventSource();
-    void publish(String deviceId, String datastreamId, List<String> path, Long at, Object value);
+    void publish(String deviceId, List<String> path, Map<String, Map<String, Map<Long, Object>>> events);
 }
 ```
 

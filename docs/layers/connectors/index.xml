@@ -44,7 +44,7 @@ Core Commons: Provides many interfaces that this module will use. Device Info Pr
       <description>IEC 104 This connector enable communication via IEC 104 Protocol.
 Allow the transfer of data and operations with a SCADA third-system that implements an IEC 104 master (client).
 Dependencies This module requires the following modules:
-Core Commons: Provides many interfaces that this module will use. Scada Dispatcher: Needed to process the payloads and de/serialize its content. Configuration To configure IEC 104 connector, a file named es.amplia.oda.connector.iec104.cfg must be created with the next parameters:</description>
+Core Commons: Provides many interfaces that this module will use. IEC104 Communications Module: Needed to create the IEC104 client that will connect to the third system. Scada Dispatcher: Needed to process the payloads and de/serialize its content.</description>
     </item>
     <item>
       <title>MQTT</title>

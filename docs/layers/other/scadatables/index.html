@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.115.4">
+    <meta name="generator" content="Hugo 0.119.0">
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Scada Tables :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1690195374" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1690195374" rel="stylesheet">
-    <link href="../../../css/fonts.css?1690195374" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1690195374" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1690195374" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1690195374" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1690195374" rel="stylesheet">
-    <link href="../../../css/variant.css?1690195374" rel="stylesheet">
-    <link href="../../../css/print.css?1690195374" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1690195374"></script>
-    <script src="../../../js/variant.js?1690195374"></script>
+    <link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1696955317" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1696955317" rel="stylesheet">
+    <link href="../../../css/fonts.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696955317" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1696955317" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1696955317" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1696955317" rel="stylesheet">
+    <link href="../../../css/variant.css?1696955317" rel="stylesheet">
+    <link href="../../../css/print.css?1696955317" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1696955317"></script>
+    <script src="../../../js/variant.js?1696955317"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1690195374" defer></script>
+    <script src="../../../js/jquery.min.js?1696955317" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/other/scadatables/index.html">
     <div id="body" class="default-animation">
@@ -90,23 +90,47 @@
 <h3 id="scada-tables">Scada Tables</h3>
 <p>This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from IEC104 devices and its corresponding ASDU.</p>
 <p>Its configuration file (es.amplia.oda.service.scadatables.cfg) has this format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU1,</span> <span style="color:#e6db74">address1 = datastream: datastreamId1</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ASDU2,</span> <span style="color:#e6db74">address2 = datastream: datastreamId2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU1,</span> <span style="color:#e6db74">address1 = datastream: datastreamId1, device: deviceId1, feed: feed1, event:true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ASDU2,</span> <span style="color:#e6db74">address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, event:false</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
-</span></span></code></pre></div><p>Every line represents an element read from the IEC104 device.</p>
+</span></span></code></pre></div><p>Every line represents an element read from the IEC104 device:</p>
+<ul>
+<li>
 <p>The ASDU indicates the type of the value read.</p>
+</li>
+<li>
 <p>The address indicates the address where the value is stored in the IEC104 device.</p>
-<p>The datastreamId indicates the Id of the datastream assigned to the value read.</p>
+</li>
+<li>
+<p>The datastream indicates the Id of the datastream assigned to the value read.</p>
+</li>
+<li>
+<p>The device indicates the Id of the device assigned to the value read. If no device indicated, it will be assigned to the ID of the connection (defined in es.amplia.oda.datastreams.iec104.cfg).</p>
+</li>
+<li>
+<p>The feed is the value the field feed will take in the event published to OpenGate</p>
+</li>
+<li>
+<p>The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be &lsquo;recollected&rsquo; (as a reponse of an interrogation command sent to the SCADA server).</p>
+</li>
+</ul>
 <p>ODA supports the next ASDUs:</p>
 <ul>
 <li>M_SP_NA_1 = Single Point</li>
+<li>M_SP_TB_1 = Single Point with time tag CP56Time2a</li>
 <li>M_DP_NA_1 = Double Point</li>
+<li>M_DP_TB_1 = Double Point with time tag CP56Time2a</li>
 <li>M_ME_NC_1 = Measured Float</li>
+<li>M_ME_TF_1 = Measured Float with time tag CP56Time2a</li>
 <li>M_ST_NA_1 = Step Position</li>
+<li>M_ST_TB_1 = Step Position with time tag CP56Time2a</li>
 <li>M_BO_NA_1 = Bitstring</li>
+<li>M_BO_TB_1 = Bitstring with time tag CP56Time2a</li>
 <li>M_ME_NA_1 = Measured Normalized</li>
+<li>M_ME_TD_1 = Measured Normalized with time tag CP56Time2a</li>
 <li>M_ME_ND_1 = Measured Normalized (no quality information)</li>
 <li>M_ME_NB_1 = Measured Scaled</li>
+<li>M_ME_TE_1 = Measured Scaled with time tag CP56Time2a</li>
 </ul>
 
             <footer class="footline">
@@ -131,12 +155,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1690195375" defer></script>
-        <script src="../../../js/lunr.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1690195375" defer></script>
-        <script src="../../../js/lunr.en.min.js?1690195375" defer></script>
-        <script src="../../../js/search.js?1690195375" defer></script>
+        <script src="../../../js/auto-complete.js?1696955317" defer></script>
+        <script src="../../../js/lunr.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1696955317" defer></script>
+        <script src="../../../js/lunr.en.min.js?1696955317" defer></script>
+        <script src="../../../js/search.js?1696955317" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -252,9 +276,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1690195375" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1690195375" defer></script>
-    <script src="../../../js/featherlight.min.js?1690195375" defer></script>
-    <script src="../../../js/theme.js?1690195375" defer></script>
+    <script src="../../../js/clipboard.min.js?1696955318" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1696955318" defer></script>
+    <script src="../../../js/featherlight.min.js?1696955318" defer></script>
+    <script src="../../../js/theme.js?1696955318" defer></script>
   </body>
 </html>

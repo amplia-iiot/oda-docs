@@ -16,46 +16,51 @@ We will explain how to configure these bundles to connect to the device and to r
 The first step is to configure the connection with the device. This is defined in the configuration of datastreams bundle (es.amplia.oda.datastreams.iec104.cfg):
 
 ```properties
+initialPollingTime=10000
 pollingTime=10000
 iec104DeviceId=127.0.0.1;2404;1
 ```
 
-The pollingTime parameter indicates the seconds between executions of Interrogation Commands. Every x seconds, an Interrogation Command is sent to the devices defined in the configuration. When the IEC104 device receives the interrogation command, it sends all the data it has stored to ODA and stores it in a cache.
+The pollingTime parameter indicates the seconds between executions of Interrogation Commands. There is a first interrogation command sent X seconds (indicated by initialPollingTime) after starting the bundle. After this initial interrogation command, an Interrogation Command is sent to the devices defined in the configuration every Y seconds (indicated by pollingTime). When the IEC104 device receives the interrogation command, it sends all the data it has stored to ODA and stores it in a cache.
 
 The next lines of the configuration indicates the information needed to connect with the IEC104 devices. The first element is the deviceId that will be associated to the data retrieved. The second and third elements are the ip address and port of the IEC104 device. The last element indicates the commonAddress, it identifies the IEC104 device in the network.
 
 Once we have the connection with the devices defined, we have to define the data we want to retrieve. This is defined in the ScadaTable bundle (es.amplia.oda.service.scadatables.cfg) with the format:
 
 ```properties
-M_ME_NC_1,106001 = datastream: tensFaseFaseLA01
-M_SP_NA_1,101040 = datastream: estProtLA01
-M_DP_NA_1,104700 = datastream: estReenganCF11
-M_BO_NA_1,110000 = datastream: identCCPLO
-M_ST_NA_1,107001 = datastream: limPosTR01
+M_ME_NC_1,1073153 = datastream: tensFaseFaseLA01, feed:interrogation, device:test_cache_iec104, event: false
+M_SP_NA_1,1052736 = datastream: estProtLA01, feed:interrogation,device:test_cache_iec104, event: true
+M_DP_NA_1,1066752 = datastream: estReenganCF11, feed:interrogation,device:test_cache_iec104
+M_BO_NA_1,1114112 = datastream: identCCPLO, feed:interrogation,device:test_cache_iec104
+M_ST_NA_1,1077249 = datastream: limPosTR01, feed:interrogation,device:test_cache_iec104
 ```
 
 Every line represents an element read from the IEC104 device. The format is :
 
 ```properties
-ASDU, address = datastream: datastreamId
+ASDU, address = datastream: datastreamId, feed: feed, device: deviceId, event: false
 ```
 
-The ASDU indicates the type of the value read.
+* The ASDU indicates the type of the value read.
 
-The address indicates the address where the value is stored in the IEC104 device.
+* The address indicates the address where the value is stored in the IEC104 device.
 
-The datastreamId indicates the Id of the datastream assigned to the value read.
+* The datastreamId indicates the Id of the datastream assigned to the value read.
 
-ODA supports the next ASDUs:
+* The device indicates the Id of the device assigned to the value read. If no device indicated, it will be assigned to the ID of the connection (defined in es.amplia.oda.datastreams.iec104.cfg).
 
-* M_SP_NA_1 = Single Point
-* M_DP_NA_1 = Double Point
-* M_ME_NC_1 = Measured Float
-* M_ST_NA_1 = Step Position
-* M_BO_NA_1 = Bitstring
-* M_ME_NA_1 = Measured Normalized
-* M_ME_ND_1 = Measured Normalized (no quality information)
-* M_ME_NB_1 = Measured Scaled
+* The feed is the value the field feed will take in the event published to OpenGate
 
-With the IEC104 protocol configured, the last step is to configure poller bundle to retrieve the data from the IEC104 cache. When the poller launches its operation, it retrieves the data indicated from the IEC104 cache and stores it in the StateManager.
+* The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be 'recollected' (as a reponse of an interrogation command sent to the SCADA server).
+
+ODA supports the ASDUs indicated in [__scadatables__](/layers/other/scadatables) 
+
+There are two types of signals regarding its form of recollection:
+
+* Signals marked in configuration as events, are those that will be sent spontaneously by the IEC104 device (not as a response of an interrogation command). These signals are published immediately to the dispatcher to be sent to a third system (like OpenGate). They are not stored in any cache nor in StateManager.
+
+* Signals not marked in configuration as events, are those that will be sent by the IEC104 device as a response of an interrogation command. These signals are stored in a cache awaiting to be retrieved by the DatastreamGetter.
+
+With the IEC104 protocol configured, the last step is to configure poller bundle to retrieve the data from the IEC104 cache. 
+When the poller launches its operation, it retrieves the data indicated from the IEC104 cache and stores it in the StateManager.
 Once the poller retrieves the data from the cache, it follows the same path trough ODA bundles as other data until it is published.

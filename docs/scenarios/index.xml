@@ -53,7 +53,7 @@ when - this method defines the conditions that must be met for the rule to apply
       <description>Read data from an IEC104 device ODA allows to read data from an IEC104 device using these bundles:
 es.amplia.oda.datastreams.iec104 es.amplia.oda.comms.iec104 es.amplia.oda.service.scadatables We will explain how to configure these bundles to connect to the device and to read data from it.
 The first step is to configure the connection with the device. This is defined in the configuration of datastreams bundle (es.amplia.oda.datastreams.iec104.cfg):
-pollingTime=10000 iec104DeviceId=127.0.0.1;2404;1 The pollingTime parameter indicates the seconds between executions of Interrogation Commands.</description>
+initialPollingTime=10000 pollingTime=10000 iec104DeviceId=127.0.0.1;2404;1 The pollingTime parameter indicates the seconds between executions of Interrogation Commands.</description>
     </item>
   </channel>
 </rss>
