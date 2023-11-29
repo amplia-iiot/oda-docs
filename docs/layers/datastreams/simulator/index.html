@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Simulator :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1696955317" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1696955317" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1696955317" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1696955317" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1696955317" rel="stylesheet">
-    <link href="../../../css/fonts.css?1696955317" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1696955317" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1696955317" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1696955317" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1696955317" rel="stylesheet">
-    <link href="../../../css/variant.css?1696955317" rel="stylesheet">
-    <link href="../../../css/print.css?1696955317" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1696955317"></script>
-    <script src="../../../js/variant.js?1696955317"></script>
+    <link href="../../../css/fontawesome-all.min.css?1701258716" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1701258716" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1701258716" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1701258716" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1701258716" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1701258716" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1701258716" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1701258716" rel="stylesheet">
+    <link href="../../../css/fonts.css?1701258716" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1701258716" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1701258716" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1701258716" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1701258716" rel="stylesheet">
+    <link href="../../../css/variant.css?1701258716" rel="stylesheet">
+    <link href="../../../css/print.css?1701258716" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1701258716"></script>
+    <script src="../../../js/variant.js?1701258716"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1696955317" defer></script>
+    <script src="../../../js/jquery.min.js?1701258716" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/simulator/index.html">
     <div id="body" class="default-animation">
@@ -99,6 +99,7 @@ for each input channel that you want to register:</p>
 <ul>
 <li><strong>datastreamId</strong>: <em>Required parameter</em>. Identifier of the datastream.</li>
 <li><strong>deviceId</strong>: <em>void string (&quot;&quot;) by default</em>. Identifier of the device that contents this datastream.</li>
+<li><strong>feed</strong>: <em>null by default</em>. Identifier of the feed used in the datastreams generated.</li>
 <li><strong>dataType</strong>: <em>Required data</em>. Allowed values are: <em>string, int, integer, float, double, number</em>. Is th data-type of the datastream.</li>
 <li><strong>constantValue</strong>: <em>Required data</em>. Value that always will return this datastream.</li>
 </ul>
@@ -106,12 +107,13 @@ for each input channel that you want to register:</p>
 <ul>
 <li><strong>datastreamId</strong>: <em>Required parameter</em>. Identifier of the datastream.</li>
 <li><strong>deviceId</strong>: <em>void string (&quot;&quot;) by default</em>. Identifier of the device that contents this datastream.</li>
+<li><strong>feed</strong>: <em>null by default</em>. Identifier of the feed used in the datastreams generated.</li>
 <li><strong>minValue</strong>: <em>Required data</em>. Minimum value that the datastream can returns.</li>
 <li><strong>maxValue</strong>: <em>Required data</em>. Maximum value that the datastream can returns.</li>
 <li><strong>maxDiff</strong>: <em>Required data</em>. Percentage of the range that the value can change compared to the last. 100 if it doesn&rsquo;t matter how much changes</li>
 </ul>
 <p><em>es.amplia.oda.datastreams.simulator.cfg</em> will have a similar format to:</p>
-<pre tabindex="0"><code>constantValue,testDevice=string,this is a test value
+<pre tabindex="0"><code>constantValue;testDevice;testFeed=string,this is a test value
 randomValue=0,100,10
 </code></pre>
             <footer class="footline">
@@ -136,12 +138,12 @@ randomValue=0,100,10
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1696955317" defer></script>
-        <script src="../../../js/lunr.min.js?1696955317" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1696955317" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1696955317" defer></script>
-        <script src="../../../js/lunr.en.min.js?1696955317" defer></script>
-        <script src="../../../js/search.js?1696955317" defer></script>
+        <script src="../../../js/auto-complete.js?1701258717" defer></script>
+        <script src="../../../js/lunr.min.js?1701258717" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1701258717" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1701258717" defer></script>
+        <script src="../../../js/lunr.en.min.js?1701258717" defer></script>
+        <script src="../../../js/search.js?1701258717" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -257,9 +259,9 @@ randomValue=0,100,10
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1696955317" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1696955317" defer></script>
-    <script src="../../../js/featherlight.min.js?1696955317" defer></script>
-    <script src="../../../js/theme.js?1696955317" defer></script>
+    <script src="../../../js/clipboard.min.js?1701258717" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1701258717" defer></script>
+    <script src="../../../js/featherlight.min.js?1701258717" defer></script>
+    <script src="../../../js/theme.js?1701258717" defer></script>
   </body>
 </html>
