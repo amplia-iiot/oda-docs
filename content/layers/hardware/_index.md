@@ -143,6 +143,8 @@ The [Modbus](modbus) module abstracts the communication with [Modbus](modbus) de
 
 ```java
 public interface ModbusMaster {
+    String getDeviceId();
+    String getDeviceManufacturer();
     void connect();
     boolean readInputDiscrete(int unitId, int ref);
     Boolean[] readInputDiscretes(int unitId, int ref, int count);
