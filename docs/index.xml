@@ -52,7 +52,8 @@ If you need to know what dependencies have a module that you want to use, you ca
       <description>Here we are going to see how we can develop new features for ODA.
 Recollect data from new devices
 Bundle configuration
-Create new operation</description>
+Create new operation
+Create new counters</description>
     </item>
   </channel>
 </rss>

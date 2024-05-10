@@ -17,6 +17,14 @@ To achieve this we must create two classes in our code.
 One class will be the one containing the parameters our bundle needs. In this example our bundle needs two parameters that are two strings.</description>
     </item>
     <item>
+      <title>Counter Manager</title>
+      <link>https://amplia-iiot.github.io/oda-docs/develop/countermanager/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/develop/countermanager/index.html</guid>
+      <description>How to create your own counters Import counters in your bundle You have to get the counter manager bundle in your code. For this you can create a CounterManagerProxy in your Activator.java file, like this:
+Create your own counters For creating your own couter you have to create a new class that extends from Counter.java, create an enum for your configured counters and save a reference to counter manager. This is an example:</description>
+    </item>
+    <item>
       <title>DataStream Getter</title>
       <link>https://amplia-iiot.github.io/oda-docs/develop/datastreamgetter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -7,8 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Operation Dispatchers :: ODA Documentation Site</title>
-    <link href="../../layers/operationdispatcher/index.xml" rel="alternate" type="application/rss+xml" title="Operation Dispatchers :: ODA Documentation Site">
+    <title>Counter Manager :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../css/fontawesome-all.min.css?1715345536" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1715345536" rel="stylesheet"></noscript>
     <link href="../../css/featherlight.min.css?1715345536" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1715345536" rel="stylesheet"></noscript>
@@ -42,17 +41,17 @@
     </script>
     <script src="../../js/jquery.min.js?1715345536" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../layers/operationdispatcher/index.html">
+  <body class="mobile-support html" data-url="../../develop/countermanager/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../layers/other/index.html" title="Other (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../develop/datastreamgetter/index.html" title="DataStream Getter (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../layers/eventdispatcher/events/index.html" title="Events (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../develop/bundleconfiguration/index.html" title="Bundle configuration (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -61,17 +60,19 @@
             <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Operation Dispatchers</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../develop/index.html"><span itemprop="name">Develop</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Counter Manager</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper" dir="ltr">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#how-to-create-your-own-counters">How to create your own counters</a>
       <ul>
-        <li><a href="#operation-dispatchers">Operation Dispatchers</a></li>
+        <li><a href="#import-counters-in-your-bundle">Import counters in your bundle</a></li>
+        <li><a href="#create-your-own-counters">Create your own counters</a></li>
+        <li><a href="#adding-counters-in-your-code">Adding counters in your code</a></li>
       </ul>
     </li>
   </ul>
@@ -85,37 +86,68 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="operation-dispatchers">Operation Dispatchers</h1>
+<h1 id="counter-manager">Counter Manager</h1>
 
-<h3 id="operation-dispatchers">Operation Dispatchers</h3>
-<p>The operation dispatchers are responsible for getting the high level operation requests from the low level representation, pass them to the proper operation processor and send back the responses to the connector as low level representation also.</p>
-<p>This components should also take care of the operation error handling: serialization errors, error in operation params, not supported operations&hellip;</p>
-<p>The entry point is the <strong>process</strong> method getting the requests and returning the response.</p>
-<h4 id="opengate-dispatcher">OpenGate Dispatcher</h4>
-<p>The OpenGate Dispatcher takes care of the OpenGate operation requests. It implements the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/interfaces/Dispatcher.java">Dispatcher</a> interface:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Dispatcher</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]&gt;</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> input<span style="color:#f92672">,</span> ContentType contentType<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>The <strong>process</strong> method gets the request byte array and content-type and returns the response byte array. It is assumed that the response content-type is the same as the request. If no content-type is provided, <em>JSON</em> format is taken by default.</p>
-<p>The component deserialize the request and send it to the correct operation processor to be processed. Then receives the OpenGate Operation response, serialize it and send it back to the connector. It handles the errors about serialization, format and not supported operations.</p>
-<p>To create the operation processors it uses a <a href="https://github.com/amplia-iiot/oda/blob/master/oda-dispatchers/opengate/src/main/java/es/amplia/oda/dispatcher/opengate/operation/processor/OpenGateOperationProcessorFactoryImpl.java">factory</a> with the OpenGate already supported operations. This is the entry point to add new operations using the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-dispatchers/opengate/src/main/java/es/amplia/oda/dispatcher/opengate/operation/processor/OperationProcessorTemplate.java">OperationProcessorTemplate</a>. The operation API should be defined in the <a href="https://github.com/amplia-iiot/oda/tree/master/oda-operations/api">Operations API module</a>.</p>
-<p>The OpenGate Operation Dispatcher also provides a feature to handle <strong>custom operations</strong> that allows to add new operations without modifying the OpenGate Operation Dispatcher and the Operations API. They must implement the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-operations/api/src/main/java/es/amplia/oda/operation/api/CustomOperation.java">CustomOperation</a> and define the operation name they handle:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">CustomOperation</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    CompletableFuture<span style="color:#f92672">&lt;</span>Result<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>String deviceId<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> params<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">getOperationSatisfied</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h4 id="scada-dispatcher">SCADA Dispatcher</h4>
-<p>The SCADA Dispatcher takes care of the SCADA operation requests. It implements the <a href="https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/interfaces/ScadaDispatcher.java">SCADA Dispatcher</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ScadaDispatcher</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">,</span> S<span style="color:#f92672">&gt;</span> CompletableFuture<span style="color:#f92672">&lt;</span>ScadaOperationResult<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>ScadaOperation operation<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span> T value<span style="color:#f92672">,</span> S type<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>It processes a SCADA operation on a given index, value and type and returns a <strong>ScadaOperationResult</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> ScadaOperationResult <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    SUCCESS<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    ERROR<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    NOT_SUPPORTED
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div>
+<h2 id="how-to-create-your-own-counters">How to create your own counters</h2>
+<h3 id="import-counters-in-your-bundle">Import counters in your bundle</h3>
+<p>You have to get the counter manager bundle in your code. For this you can create a <em>CounterManagerProxy</em> in your <strong>Activator.java</strong> file, like this:</p>
+<!-- raw HTML omitted -->
+<h3 id="create-your-own-counters">Create your own counters</h3>
+<p>For creating your own couter you have to create a new class that extends from <em>Counter.java</em>, create an enum for your configured counters and save a reference to counter manager. This is an example:</p>
+<!-- raw HTML omitted -->
+<pre><code>public class TestCounters extends Counters {
+    
+    private static CounterManager counterManager;
+
+    public enum TestCounterType {
+        TEST_COUNTER_SIMPLE(&quot;TEST/COUNTER/SIMPLE&quot;),
+        TEST_COUNTER_REPLACE(&quot;TEST/COUNTER/REPLACE/type&quot;),
+        ;
+                
+        private String m_name;
+        
+        private TestCounterType (String _nameString){
+            m_name = _nameString;
+        }
+        
+        public String getCounterString(String type) {
+            String res = m_name;
+            if (type != null)
+                res = res.replaceAll(&quot;type&quot;, type.toUpperCase());
+            else
+                logger.warn(&quot;operation type is null&quot;);
+            if (logger.isTraceEnabled())
+                logger.trace(&quot;counter string retrieved: &quot; + res);
+            return res;
+        }
+    
+    }
+        
+    public TestCounters(CounterManager _counterManager) {
+        TestCounters.counterManager = _counterManager;
+    }
+        
+    public static void incrCounter(TestCounterType counter, int number) {
+        counterManager.incrementCounter(counter.m_name, number);
+    }
+        
+    public static void incrCounter(TestCounterType counter, String type, int number) {
+        counterManager.incrementCounter(counter.getCounterString(type), number);
+    }
+
+}
+</code></pre>
+<!-- raw HTML omitted -->
+<p>As you can see in the example above you can put a replace token in your counter for creating variable counters.</p>
+<h3 id="adding-counters-in-your-code">Adding counters in your code</h3>
+<p>For adding counters in your you simply have to call the static methods that you have create in your counter class:</p>
+<!-- raw HTML omitted -->
+<pre><code>TestCounters.incrCounter(TestCounters.TestCounterType.TEST_COUNTER_SIMPLE, 1);
+
+TestCounters.incrCounter(TestCounters.TestCounterType.TEST_COUNTER_REPLACE, &quot;ANY_TYPE&quot;, 1);
+</code></pre>
+<!-- raw HTML omitted -->
+
             <footer class="footline">
             </footer>
           </article>
@@ -138,12 +170,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1715345537" defer></script>
-        <script src="../../js/lunr.min.js?1715345537" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1715345537" defer></script>
-        <script src="../../js/lunr.multi.min.js?1715345537" defer></script>
-        <script src="../../js/lunr.en.min.js?1715345537" defer></script>
-        <script src="../../js/search.js?1715345537" defer></script>
+        <script src="../../js/auto-complete.js?1715345536" defer></script>
+        <script src="../../js/lunr.min.js?1715345536" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1715345536" defer></script>
+        <script src="../../js/lunr.multi.min.js?1715345536" defer></script>
+        <script src="../../js/lunr.en.min.js?1715345536" defer></script>
+        <script src="../../js/search.js?1715345536" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -157,7 +189,7 @@
           <li data-nav-id="/infrastructure/comms/index.html" class="dd-item"><a href="../../infrastructure/comms/index.html">Communications</a></li>
           <li data-nav-id="/infrastructure/services/index.html" class="dd-item"><a href="../../infrastructure/services/index.html">Services</a></li>
           <li data-nav-id="/infrastructure/subsystems/index.html" class="dd-item"><a href="../../infrastructure/subsystems/index.html">Subsystems</a></li></ul></li>
-          <li data-nav-id="/layers/index.html" class="dd-item parent"><input type="checkbox" id="section-8df243b6078cc25c6a8ce3f10cfb5b94" aria-controls="subsections-8df243b6078cc25c6a8ce3f10cfb5b94" class="toggle" checked><label class="a11y-only toggle" for="section-8df243b6078cc25c6a8ce3f10cfb5b94" >Submenu Layers</label><a href="../../layers/index.html">Layers</a><ul id="subsections-8df243b6078cc25c6a8ce3f10cfb5b94">
+          <li data-nav-id="/layers/index.html" class="dd-item"><input type="checkbox" id="section-8df243b6078cc25c6a8ce3f10cfb5b94" aria-controls="subsections-8df243b6078cc25c6a8ce3f10cfb5b94" class="toggle"><label class="a11y-only toggle" for="section-8df243b6078cc25c6a8ce3f10cfb5b94" >Submenu Layers</label><a href="../../layers/index.html">Layers</a><ul id="subsections-8df243b6078cc25c6a8ce3f10cfb5b94">
           <li data-nav-id="/layers/connectors/index.html" class="dd-item"><input type="checkbox" id="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" aria-controls="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c" class="toggle"><label class="a11y-only toggle" for="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" >Submenu Connectors</label><a href="../../layers/connectors/index.html">Connectors</a><ul id="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c">
           <li data-nav-id="/layers/connectors/coap/index.html" class="dd-item"><a href="../../layers/connectors/coap/index.html">COAP</a></li>
           <li data-nav-id="/layers/connectors/dnp3/index.html" class="dd-item"><a href="../../layers/connectors/dnp3/index.html">DNP3</a></li>
@@ -197,7 +229,7 @@
           <li data-nav-id="/layers/operations/update/index.html" class="dd-item"><a href="../../layers/operations/update/index.html">Update</a></li></ul></li>
           <li data-nav-id="/layers/eventdispatcher/index.html" class="dd-item"><input type="checkbox" id="section-505d5dd0fed93ed0707276db1981105e" aria-controls="subsections-505d5dd0fed93ed0707276db1981105e" class="toggle"><label class="a11y-only toggle" for="section-505d5dd0fed93ed0707276db1981105e" >Submenu Event Dispatcher</label><a href="../../layers/eventdispatcher/index.html">Event Dispatcher</a><ul id="subsections-505d5dd0fed93ed0707276db1981105e">
           <li data-nav-id="/layers/eventdispatcher/events/index.html" class="dd-item"><a href="../../layers/eventdispatcher/events/index.html">Events</a></li></ul></li>
-          <li data-nav-id="/layers/operationdispatcher/index.html" class="dd-item active"><a href="../../layers/operationdispatcher/index.html">Operation Dispatchers</a></li>
+          <li data-nav-id="/layers/operationdispatcher/index.html" class="dd-item"><a href="../../layers/operationdispatcher/index.html">Operation Dispatchers</a></li>
           <li data-nav-id="/layers/other/index.html" class="dd-item"><input type="checkbox" id="section-94d58c57e02f823575551f6a726456f1" aria-controls="subsections-94d58c57e02f823575551f6a726456f1" class="toggle"><label class="a11y-only toggle" for="section-94d58c57e02f823575551f6a726456f1" >Submenu Other</label><a href="../../layers/other/index.html">Other</a><ul id="subsections-94d58c57e02f823575551f6a726456f1">
           <li data-nav-id="/layers/other/scadatables/index.html" class="dd-item"><a href="../../layers/other/scadatables/index.html">Scada Tables</a></li></ul></li></ul></li>
           <li data-nav-id="/scenarios/index.html" class="dd-item"><input type="checkbox" id="section-2ac616f661d8c58d2dde5d6eb61b43de" aria-controls="subsections-2ac616f661d8c58d2dde5d6eb61b43de" class="toggle"><label class="a11y-only toggle" for="section-2ac616f661d8c58d2dde5d6eb61b43de" >Submenu Scenarios</label><a href="../../scenarios/index.html">Scenarios</a><ul id="subsections-2ac616f661d8c58d2dde5d6eb61b43de">
@@ -217,9 +249,9 @@
           <li data-nav-id="/guides/folders/index.html" class="dd-item"><a href="../../guides/folders/index.html">Folders</a></li>
           <li data-nav-id="/guides/dependency-table/index.html" class="dd-item"><a href="../../guides/dependency-table/index.html">Depedency table</a></li>
           <li data-nav-id="/guides/faqs/index.html" class="dd-item"><a href="../../guides/faqs/index.html">FAQs</a></li></ul></li>
-          <li data-nav-id="/develop/index.html" class="dd-item"><input type="checkbox" id="section-033639ee3dcd8f399ef182e83dd1b535" aria-controls="subsections-033639ee3dcd8f399ef182e83dd1b535" class="toggle"><label class="a11y-only toggle" for="section-033639ee3dcd8f399ef182e83dd1b535" >Submenu Develop</label><a href="../../develop/index.html">Develop</a><ul id="subsections-033639ee3dcd8f399ef182e83dd1b535">
+          <li data-nav-id="/develop/index.html" class="dd-item parent"><input type="checkbox" id="section-033639ee3dcd8f399ef182e83dd1b535" aria-controls="subsections-033639ee3dcd8f399ef182e83dd1b535" class="toggle" checked><label class="a11y-only toggle" for="section-033639ee3dcd8f399ef182e83dd1b535" >Submenu Develop</label><a href="../../develop/index.html">Develop</a><ul id="subsections-033639ee3dcd8f399ef182e83dd1b535">
           <li data-nav-id="/develop/bundleconfiguration/index.html" class="dd-item"><a href="../../develop/bundleconfiguration/index.html">Bundle configuration</a></li>
-          <li data-nav-id="/develop/countermanager/index.html" class="dd-item"><a href="../../develop/countermanager/index.html">Counter Manager</a></li>
+          <li data-nav-id="/develop/countermanager/index.html" class="dd-item active"><a href="../../develop/countermanager/index.html">Counter Manager</a></li>
           <li data-nav-id="/develop/datastreamgetter/index.html" class="dd-item"><a href="../../develop/datastreamgetter/index.html">DataStream Getter</a></li>
           <li data-nav-id="/develop/customoperation/index.html" class="dd-item"><a href="../../develop/customoperation/index.html">New operation</a></li></ul></li>
         </ul>
@@ -260,9 +292,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1715345537" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1715345537" defer></script>
-    <script src="../../js/featherlight.min.js?1715345537" defer></script>
-    <script src="../../js/theme.js?1715345537" defer></script>
+    <script src="../../js/clipboard.min.js?1715345536" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1715345536" defer></script>
+    <script src="../../js/featherlight.min.js?1715345536" defer></script>
+    <script src="../../js/theme.js?1715345536" defer></script>
   </body>
 </html>
