@@ -161,3 +161,8 @@ public interface ModbusMaster {
     void disconnect();
 }
 ```
+
+##### [FTP](ftp)
+
+The [FTP](ftp) module abstracts the communication with [FTP](ftp) servers.
+

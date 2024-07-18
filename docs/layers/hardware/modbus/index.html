@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>ModBus :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1705592593" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1705592593" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1705592593" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1705592593" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1705592593" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1705592593" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1705592593" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1705592593" rel="stylesheet">
-    <link href="../../../css/fonts.css?1705592593" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1705592593" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1705592593" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1705592593" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1705592593" rel="stylesheet">
-    <link href="../../../css/variant.css?1705592593" rel="stylesheet">
-    <link href="../../../css/print.css?1705592593" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1705592593"></script>
-    <script src="../../../js/variant.js?1705592593"></script>
+    <link href="../../../css/fontawesome-all.min.css?1721301147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1721301147" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1721301147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1721301147" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1721301147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1721301147" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1721301147" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1721301147" rel="stylesheet">
+    <link href="../../../css/fonts.css?1721301147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1721301147" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1721301147" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1721301147" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1721301147" rel="stylesheet">
+    <link href="../../../css/variant.css?1721301147" rel="stylesheet">
+    <link href="../../../css/print.css?1721301147" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1721301147"></script>
+    <script src="../../../js/variant.js?1721301147"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1705592593" defer></script>
+    <script src="../../../js/jquery.min.js?1721301147" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/hardware/modbus/index.html">
     <div id="body" class="default-animation">
@@ -118,13 +118,13 @@ Allows multiple devices from different manufacturers with the format : deviceId1
 <p><em>es.amplia.oda.hardware.modbus.cfg</em> will have a similar format to:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">UDP</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">=</span><span style="color:#e6db74">30</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">deviceId,localhost,30, manufacturer</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">deviceId,localhost,30,manufacturer</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">TCP</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">=</span><span style="color:#e6db74">30</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">reconnect</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">deviceId,localhost,30, manufacturer</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">deviceId,localhost,30,manufacturer</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">Serial</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ports</span><span style="color:#f92672">=</span><span style="color:#e6db74">ttyUSB0,deviceId1, manufacturer1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ports</span><span style="color:#f92672">=</span><span style="color:#e6db74">ttyUSB0,deviceId1,manufacturer1</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">baudRate</span><span style="color:#f92672">=</span><span style="color:#e6db74">115200</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">flowControlIn</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">flowControlOut</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
@@ -156,12 +156,12 @@ Allows multiple devices from different manufacturers with the format : deviceId1
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1705592594" defer></script>
-        <script src="../../../js/lunr.min.js?1705592594" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1705592594" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1705592594" defer></script>
-        <script src="../../../js/lunr.en.min.js?1705592594" defer></script>
-        <script src="../../../js/search.js?1705592594" defer></script>
+        <script src="../../../js/auto-complete.js?1721301148" defer></script>
+        <script src="../../../js/lunr.min.js?1721301148" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1721301148" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1721301148" defer></script>
+        <script src="../../../js/lunr.en.min.js?1721301148" defer></script>
+        <script src="../../../js/search.js?1721301148" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -277,9 +277,9 @@ Allows multiple devices from different manufacturers with the format : deviceId1
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1705592594" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1705592594" defer></script>
-    <script src="../../../js/featherlight.min.js?1705592594" defer></script>
-    <script src="../../../js/theme.js?1705592594" defer></script>
+    <script src="../../../js/clipboard.min.js?1721301148" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1721301148" defer></script>
+    <script src="../../../js/featherlight.min.js?1721301148" defer></script>
+    <script src="../../../js/theme.js?1721301148" defer></script>
   </body>
 </html>
