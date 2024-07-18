@@ -10,3 +10,5 @@ Here we are going to see how we can develop new features for ODA.
 [__Bundle configuration__]({{< ref "bundleConfiguration.md" >}})
 
 [__Create new operation__]({{< ref "customOperation.md" >}})
+
+[__Create new counters__]({{< ref "counterManager.md" >}})
