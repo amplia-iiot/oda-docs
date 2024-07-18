@@ -38,6 +38,16 @@ Dependencies This module requires the following modules:
 Commons: Provide the ADC APIs, exceptions and types and the basic APIs to register the service. Configuration To configure I2C Hardware module, a file named es.amplia.oda.hardware.diozero.cfg must be created with the next parameters for each input channel that you want to register:</description>
     </item>
     <item>
+      <title>FTP</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/ftp/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/ftp/index.html</guid>
+      <description>FTP Implementation of the library Apache Commons Net to access FTP servers.
+To access source code click here.
+Dependencies This module has no dependencies.
+Configuration This bundle requires no configuration</description>
+    </item>
+    <item>
       <title>I2C</title>
       <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/i2c/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
