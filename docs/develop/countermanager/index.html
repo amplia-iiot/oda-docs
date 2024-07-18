@@ -7,8 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Events flow :: ODA Documentation Site</title>
-    <link href="../../guides/eventsflow/index.xml" rel="alternate" type="application/rss+xml" title="Events flow :: ODA Documentation Site">
+    <title>Counter Manager :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../css/fontawesome-all.min.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1721312583" rel="stylesheet"></noscript>
     <link href="../../css/featherlight.min.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1721312583" rel="stylesheet"></noscript>
@@ -42,17 +41,17 @@
     </script>
     <script src="../../js/jquery.min.js?1721312583" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../guides/eventsflow/index.html">
+  <body class="mobile-support html" data-url="../../develop/countermanager/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../guides/eventsflow/eventsprocessing/index.html" title="Events processing (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../develop/datastreamgetter/index.html" title="DataStream Getter (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../guides/index.html" title="Guides (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../develop/bundleconfiguration/index.html" title="Bundle configuration (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -61,15 +60,21 @@
             <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../guides/index.html"><span itemprop="name">Guides</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Events flow</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../develop/index.html"><span itemprop="name">Develop</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Counter Manager</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper" dir="ltr">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#how-to-create-your-own-counters">How to create your own counters</a>
+      <ul>
+        <li><a href="#import-counters-in-your-bundle">Import counters in your bundle</a></li>
+        <li><a href="#create-your-own-counters">Create your own counters</a></li>
+        <li><a href="#adding-counters-in-your-code">Adding counters in your code</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
             </div>
@@ -81,36 +86,67 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="events-flow">Events flow</h1>
+<h1 id="counter-manager">Counter Manager</h1>
 
-<h2 id="introduction">Introduction</h2>
-<p>This section will include schemas to explain the stages an event goes through from being read from a device to being published.</p>
-<p>
-<a href="../../img/eventsFlow.drawio.svg" data-featherlight="image">
-<img src="../../img/eventsFlow.drawio.svg" alt="eventsFlow" style="height: auto; width: auto;" loading="lazy">
-</a></p>
-<ol>
-<li>
-<p>Poller reads data from devices using the corresponding connector and passes it to the StateManager to be processed.</p>
-</li>
-<li>
-<p>Depending on the configuration, the behavior of the StateManager differs.</p>
-<ul>
-<li>
-<p>If we are using StateManager-RealTime, data will be sent to the dispatcher to be published.</p>
-</li>
-<li>
-<p>If we are using StateManager-InMemory, data will be processed (using rule engine) and stored. We can also send the processed data directly to the dispatcher marking the data to be sent immediately. It is explained in more detail in <a href="../../guides/eventsflow/eventsprocessing"><strong>events processing</strong></a>.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>The collector, retrieves data stored in the StateManager-InMemory and sends it to the dispatcher. It is explained in more detail in <a href="../../guides/eventsflow/eventscollection"><strong>events collection</strong></a>.</p>
-</li>
-<li>
-<p>Dispatcher sends data (trough the necessary connector) to an external system.</p>
-</li>
-</ol>
+<h2 id="how-to-create-your-own-counters">How to create your own counters</h2>
+<h3 id="import-counters-in-your-bundle">Import counters in your bundle</h3>
+<p>You have to get the counter manager bundle in your code. For this you can create a new <em>CounterManagerProxy</em> in your <strong>Activator.java</strong> file, like this:</p>
+<!-- raw HTML omitted -->
+<h3 id="create-your-own-counters">Create your own counters</h3>
+<p>For creating your own couter you have to create a new class that extends from <em>Counter.java</em>, create an enum for your configured counters and save a reference to counter manager. This is an example:</p>
+<!-- raw HTML omitted -->
+<pre><code>public class TestCounters extends Counters {
+    
+    private static CounterManager counterManager;
+
+    public enum TestCounterType {
+        TEST_COUNTER_SIMPLE(&quot;TEST/COUNTER/SIMPLE&quot;),
+        TEST_COUNTER_REPLACE(&quot;TEST/COUNTER/REPLACE/type&quot;),
+        ;
+                
+        private String m_name;
+        
+        private TestCounterType (String _nameString){
+            m_name = _nameString;
+        }
+        
+        public String getCounterString(String type) {
+            String res = m_name;
+            if (type != null)
+                res = res.replaceAll(&quot;type&quot;, type.toUpperCase());
+            else
+                logger.warn(&quot;operation type is null&quot;);
+            if (logger.isTraceEnabled())
+                logger.trace(&quot;counter string retrieved: &quot; + res);
+            return res;
+        }
+    
+    }
+        
+    public TestCounters(CounterManager _counterManager) {
+        TestCounters.counterManager = _counterManager;
+    }
+        
+    public static void incrCounter(TestCounterType counter, int number) {
+        counterManager.incrementCounter(counter.m_name, number);
+    }
+        
+    public static void incrCounter(TestCounterType counter, String type, int number) {
+        counterManager.incrementCounter(counter.getCounterString(type), number);
+    }
+
+}
+</code></pre>
+<!-- raw HTML omitted -->
+<p>As you can see in the example above you can put a replace token in your counter for creating variable counters.</p>
+<h3 id="adding-counters-in-your-code">Adding counters in your code</h3>
+<p>For adding counters in your you simply have to call the static methods that you have create in your counter class:</p>
+<!-- raw HTML omitted -->
+<pre><code>TestCounters.incrCounter(TestCounters.TestCounterType.TEST_COUNTER_SIMPLE, 1);
+
+TestCounters.incrCounter(TestCounters.TestCounterType.TEST_COUNTER_REPLACE, &quot;ANY_TYPE&quot;, 1);
+</code></pre>
+<!-- raw HTML omitted -->
 
             <footer class="footline">
             </footer>
@@ -134,12 +170,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1721312584" defer></script>
-        <script src="../../js/lunr.min.js?1721312584" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1721312584" defer></script>
-        <script src="../../js/lunr.multi.min.js?1721312584" defer></script>
-        <script src="../../js/lunr.en.min.js?1721312584" defer></script>
-        <script src="../../js/search.js?1721312584" defer></script>
+        <script src="../../js/auto-complete.js?1721312583" defer></script>
+        <script src="../../js/lunr.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.multi.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.en.min.js?1721312583" defer></script>
+        <script src="../../js/search.js?1721312583" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -205,8 +241,8 @@
           <li data-nav-id="/scenarios/updatesoftware/bundles/index.html" class="dd-item"><a href="../../scenarios/updatesoftware/bundles/index.html">Install bundles</a></li>
           <li data-nav-id="/scenarios/updatesoftware/rules/index.html" class="dd-item"><a href="../../scenarios/updatesoftware/rules/index.html">Install rules</a></li></ul></li>
           <li data-nav-id="/scenarios/readdataiec104/index.html" class="dd-item"><a href="../../scenarios/readdataiec104/index.html">Read data from IEC104 devices</a></li></ul></li>
-          <li data-nav-id="/guides/index.html" class="dd-item parent"><input type="checkbox" id="section-cecd4ea74d1b57416f3e6afae6030290" aria-controls="subsections-cecd4ea74d1b57416f3e6afae6030290" class="toggle" checked><label class="a11y-only toggle" for="section-cecd4ea74d1b57416f3e6afae6030290" >Submenu Guides</label><a href="../../guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
-          <li data-nav-id="/guides/eventsflow/index.html" class="dd-item active parent"><input type="checkbox" id="section-59ebf96ce5601d08d3663933e35c98e9" aria-controls="subsections-59ebf96ce5601d08d3663933e35c98e9" class="toggle" checked><label class="a11y-only toggle" for="section-59ebf96ce5601d08d3663933e35c98e9" >Submenu Events flow</label><a href="../../guides/eventsflow/index.html">Events flow</a><ul id="subsections-59ebf96ce5601d08d3663933e35c98e9">
+          <li data-nav-id="/guides/index.html" class="dd-item"><input type="checkbox" id="section-cecd4ea74d1b57416f3e6afae6030290" aria-controls="subsections-cecd4ea74d1b57416f3e6afae6030290" class="toggle"><label class="a11y-only toggle" for="section-cecd4ea74d1b57416f3e6afae6030290" >Submenu Guides</label><a href="../../guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
+          <li data-nav-id="/guides/eventsflow/index.html" class="dd-item"><input type="checkbox" id="section-59ebf96ce5601d08d3663933e35c98e9" aria-controls="subsections-59ebf96ce5601d08d3663933e35c98e9" class="toggle"><label class="a11y-only toggle" for="section-59ebf96ce5601d08d3663933e35c98e9" >Submenu Events flow</label><a href="../../guides/eventsflow/index.html">Events flow</a><ul id="subsections-59ebf96ce5601d08d3663933e35c98e9">
           <li data-nav-id="/guides/eventsflow/eventsprocessing/index.html" class="dd-item"><a href="../../guides/eventsflow/eventsprocessing/index.html">Events processing</a></li>
           <li data-nav-id="/guides/eventsflow/eventscollection/index.html" class="dd-item"><a href="../../guides/eventsflow/eventscollection/index.html">Events collection</a></li>
           <li data-nav-id="/guides/eventsflow/eventserasure/index.html" class="dd-item"><a href="../../guides/eventsflow/eventserasure/index.html">Events erasure</a></li></ul></li>
@@ -214,9 +250,9 @@
           <li data-nav-id="/guides/folders/index.html" class="dd-item"><a href="../../guides/folders/index.html">Folders</a></li>
           <li data-nav-id="/guides/dependency-table/index.html" class="dd-item"><a href="../../guides/dependency-table/index.html">Depedency table</a></li>
           <li data-nav-id="/guides/faqs/index.html" class="dd-item"><a href="../../guides/faqs/index.html">FAQs</a></li></ul></li>
-          <li data-nav-id="/develop/index.html" class="dd-item"><input type="checkbox" id="section-033639ee3dcd8f399ef182e83dd1b535" aria-controls="subsections-033639ee3dcd8f399ef182e83dd1b535" class="toggle"><label class="a11y-only toggle" for="section-033639ee3dcd8f399ef182e83dd1b535" >Submenu Develop</label><a href="../../develop/index.html">Develop</a><ul id="subsections-033639ee3dcd8f399ef182e83dd1b535">
+          <li data-nav-id="/develop/index.html" class="dd-item parent"><input type="checkbox" id="section-033639ee3dcd8f399ef182e83dd1b535" aria-controls="subsections-033639ee3dcd8f399ef182e83dd1b535" class="toggle" checked><label class="a11y-only toggle" for="section-033639ee3dcd8f399ef182e83dd1b535" >Submenu Develop</label><a href="../../develop/index.html">Develop</a><ul id="subsections-033639ee3dcd8f399ef182e83dd1b535">
           <li data-nav-id="/develop/bundleconfiguration/index.html" class="dd-item"><a href="../../develop/bundleconfiguration/index.html">Bundle configuration</a></li>
-          <li data-nav-id="/develop/countermanager/index.html" class="dd-item"><a href="../../develop/countermanager/index.html">Counter Manager</a></li>
+          <li data-nav-id="/develop/countermanager/index.html" class="dd-item active"><a href="../../develop/countermanager/index.html">Counter Manager</a></li>
           <li data-nav-id="/develop/datastreamgetter/index.html" class="dd-item"><a href="../../develop/datastreamgetter/index.html">DataStream Getter</a></li>
           <li data-nav-id="/develop/customoperation/index.html" class="dd-item"><a href="../../develop/customoperation/index.html">New operation</a></li></ul></li>
         </ul>
@@ -257,9 +293,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1721312584" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1721312584" defer></script>
-    <script src="../../js/featherlight.min.js?1721312584" defer></script>
-    <script src="../../js/theme.js?1721312584" defer></script>
+    <script src="../../js/clipboard.min.js?1721312583" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1721312583" defer></script>
+    <script src="../../js/featherlight.min.js?1721312583" defer></script>
+    <script src="../../js/theme.js?1721312583" defer></script>
   </body>
 </html>

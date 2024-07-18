@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Subsystems :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1721303942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1721303942" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1721303942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1721303942" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1721303942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1721303942" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1721303942" rel="stylesheet">
-    <link href="../../css/nucleus.css?1721303942" rel="stylesheet">
-    <link href="../../css/fonts.css?1721303942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1721303942" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1721303942" rel="stylesheet">
-    <link href="../../css/theme-oda.css?1721303942" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1721303942" rel="stylesheet">
-    <link href="../../css/variant.css?1721303942" rel="stylesheet">
-    <link href="../../css/print.css?1721303942" rel="stylesheet" media="print">
-    <script src="../../js/url.js?1721303942"></script>
-    <script src="../../js/variant.js?1721303942"></script>
+    <link href="../../css/fontawesome-all.min.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1721312583" rel="stylesheet"></noscript>
+    <link href="../../css/featherlight.min.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1721312583" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1721312583" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1721312583" rel="stylesheet">
+    <link href="../../css/nucleus.css?1721312583" rel="stylesheet">
+    <link href="../../css/fonts.css?1721312583" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1721312583" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1721312583" rel="stylesheet">
+    <link href="../../css/theme-oda.css?1721312583" rel="stylesheet" id="variant-style">
+    <link href="../../css/ie.css?1721312583" rel="stylesheet">
+    <link href="../../css/variant.css?1721312583" rel="stylesheet">
+    <link href="../../css/print.css?1721312583" rel="stylesheet" media="print">
+    <script src="../../js/url.js?1721312583"></script>
+    <script src="../../js/variant.js?1721312583"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../js/jquery.min.js?1721303942" defer></script>
+    <script src="../../js/jquery.min.js?1721312583" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../infrastructure/subsystems/index.html">
     <div id="body" class="default-animation">
@@ -83,6 +83,12 @@
         <li><a href="#configuration-2">Configuration</a></li>
       </ul>
     </li>
+    <li><a href="#counter-manager">Counter Manager</a>
+      <ul>
+        <li><a href="#configuration-3">Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#counters-output">Counters output</a></li>
   </ul>
 </nav>
             </div>
@@ -136,7 +142,70 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">50000</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#e6db74">oda</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">password</span><span style="color:#f92672">=</span><span style="color:#e6db74">0d878278b5225ed381a8b4114acca68e019dfb346f1d067271137abcdaaa46200b6b7e0d459ccf821aa788216fd8ca6168f6c814505d64fc5cdb5fdecedbdc2f   # oda</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="counter-manager">Counter Manager</h2>
+<p>The Counter Manager subsytem is used for analyze the performance of your bundle. You can put counter in your bundle code and this counter bundle print statistics in a log file.</p>
+<h3 id="configuration-3">Configuration</h3>
+<p>The configuration of counters have 2 files. The first file you have is the configuration of this bundle, a file named <strong>es.amplia.oda.subsystem.countermanager.cfg</strong> where you can configure things like the period for counters storage in seconds or the format of showing data in the counters log:</p>
+<ul>
+<li><code>countermanager.enable</code>: If enable or not the Counter Manager Subsytem</li>
+<li><code>countermanager.initialSize</code>: Minimun number of counters</li>
+<li><code>countermanager.store.slottime</code>: Period for counters storage in seconds</li>
+<li><code>countermanager.store.limit</code>: Maximum number of samples for increment estimation</li>
+<li><code>printeroutputmanager.showdata.format</code>: Format for showing data in the file</li>
+<li><code>printeroutputmanager.showdata.setTotal</code>:</li>
+<li><code>printeroutputmanager.showdata.setRatio</code>:</li>
+<li><code>printeroutputmanager.showdata.setAcc</code>:</li>
+<li><code>printeroutputmanager.showdata.setAvg</code>:</li>
+<li><code>printeroutputmanager.showdata.setVar</code>:</li>
+</ul>
+<p>Aconfiguration file example is</p>
+<!-- raw HTML omitted -->
+<pre><code>countermanager.enable=true
+
+# minimun number of counters
+countermanager.initialSize=10
+
+# store policy
+# - slottime: period for counters storage in seconds
+# - limit: maximum number of samples for increment estimation
+countermanager.store.slottime=60
+countermanager.store.limit=2
+
+# set constant size of data
+printeroutputmanager.showdata.format=##0.000000
+printeroutputmanager.showdata.setTotal=10
+printeroutputmanager.showdata.setRatio=10
+printeroutputmanager.showdata.setAcc=14
+printeroutputmanager.showdata.setAvg=11
+printeroutputmanager.showdata.setVar=12
+</code></pre>
+<!-- raw HTML omitted -->
+<p>And the other file, named <strong>counters.properties</strong>, where you can configure the counter you want to show in the <em>counters.log</em>:</p>
+<!-- raw HTML omitted -->
+<pre><code>######## TEST #######
+TEST/COUNTER/SIMPLE
+TEST/COUNTER/REPLACE/*
+</code></pre>
+<!-- raw HTML omitted -->
+<p>You can configure your counters like a tree. If you want all your test counter in the same block you shoud put <em>TEST/COUNTER</em> or if you want an specific type of replacement in your counter you shoud put <em>TEST/COUNTER/REPLACE/ANY_TYPE</em>. If you put <em>TEST/COUNTER/REPLACE/</em> * your are putting al the replacements in differents block in te <em>counters.log</em>.</p>
+<p><strong>Note:</strong> You have to put <em>counters.properties</em> in the folder <strong>conf</strong> of the ODA project.</p>
+<h2 id="counters-output">Counters output</h2>
+<p>The output of the counters is a log appender named <strong>_COUNTER</strong> and it is usually configued as file log named <em>counters.log</em> in the logback.xml configuration.</p>
+<p>For each counter configured in the <em>counters.properties</em> you can see a line like this:</p>
+<!-- raw HTML omitted -->
+<pre><code>2024-05-09 13:25:00.001 [COUNTERS] INFO _COUNTER -          1 - rat:   0.016667 (ips) - avg:         N/A - std:          N/A - acc:            N/A - TEST/COUNTER/SIMPLE
+
+2024-05-09 13:25:00.001 [COUNTERS] INFO _COUNTER -          1 - rat:   0.016667 (ips) - avg:         N/A - std:          N/A - acc:            N/A - TEST/COUNTER/REPLACE/ANY_TYPE
+</code></pre>
+<!-- raw HTML omitted -->
+<ul>
+<li>In the first column you have all times the code have called this counter.</li>
+<li>In <em>rat</em> column you have the ratio of the calls you have in the prediod configured in <em>countermanager.store.limit</em>.</li>
+<li>In <em>avg</em> you have the avarage of the calls in the period.</li>
+<li>In <em>std</em> you have th stadard deviation of the calls in the period.</li>
+<li>And in <em>acc</em> you have tha accumulate of the calls in the period.</li>
+</ul>
+
             <footer class="footline">
             </footer>
           </article>
@@ -159,12 +228,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1721303943" defer></script>
-        <script src="../../js/lunr.min.js?1721303943" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1721303943" defer></script>
-        <script src="../../js/lunr.multi.min.js?1721303943" defer></script>
-        <script src="../../js/lunr.en.min.js?1721303943" defer></script>
-        <script src="../../js/search.js?1721303943" defer></script>
+        <script src="../../js/auto-complete.js?1721312583" defer></script>
+        <script src="../../js/lunr.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.multi.min.js?1721312583" defer></script>
+        <script src="../../js/lunr.en.min.js?1721312583" defer></script>
+        <script src="../../js/search.js?1721312583" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -241,6 +310,7 @@
           <li data-nav-id="/guides/faqs/index.html" class="dd-item"><a href="../../guides/faqs/index.html">FAQs</a></li></ul></li>
           <li data-nav-id="/develop/index.html" class="dd-item"><input type="checkbox" id="section-033639ee3dcd8f399ef182e83dd1b535" aria-controls="subsections-033639ee3dcd8f399ef182e83dd1b535" class="toggle"><label class="a11y-only toggle" for="section-033639ee3dcd8f399ef182e83dd1b535" >Submenu Develop</label><a href="../../develop/index.html">Develop</a><ul id="subsections-033639ee3dcd8f399ef182e83dd1b535">
           <li data-nav-id="/develop/bundleconfiguration/index.html" class="dd-item"><a href="../../develop/bundleconfiguration/index.html">Bundle configuration</a></li>
+          <li data-nav-id="/develop/countermanager/index.html" class="dd-item"><a href="../../develop/countermanager/index.html">Counter Manager</a></li>
           <li data-nav-id="/develop/datastreamgetter/index.html" class="dd-item"><a href="../../develop/datastreamgetter/index.html">DataStream Getter</a></li>
           <li data-nav-id="/develop/customoperation/index.html" class="dd-item"><a href="../../develop/customoperation/index.html">New operation</a></li></ul></li>
         </ul>
@@ -281,9 +351,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1721303943" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1721303943" defer></script>
-    <script src="../../js/featherlight.min.js?1721303943" defer></script>
-    <script src="../../js/theme.js?1721303943" defer></script>
+    <script src="../../js/clipboard.min.js?1721312583" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1721312583" defer></script>
+    <script src="../../js/featherlight.min.js?1721312583" defer></script>
+    <script src="../../js/theme.js?1721312583" defer></script>
   </body>
 </html>
