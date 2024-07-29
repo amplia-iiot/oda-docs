@@ -70,3 +70,13 @@ For adding counters in your you simply have to call the static methods that you 
 
     TestCounters.incrCounter(TestCounters.TestCounterType.TEST_COUNTER_REPLACE, "ANY_TYPE", 1);
 </code>
+
+### Logging counters
+To be able to register your counters in its corresponding log file, counters must be added to file counter.properties inside conf folder.
+For the example above file counter.propertiers will look like this:
+
+<code>
+   TEST/COUNTER/SIMPLE
+   
+   TEST/COUNTER/REPLACE/*
+</code>
