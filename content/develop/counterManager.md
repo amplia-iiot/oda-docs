@@ -75,8 +75,7 @@ For adding counters in your you simply have to call the static methods that you 
 To be able to register your counters in its corresponding log file, counters must be added to file counter.properties inside conf folder.
 For the example above file counter.propertiers will look like this:
 
-<code>
-   TEST/COUNTER/SIMPLE
-   
-   TEST/COUNTER/REPLACE/*
-</code>
+```
+TEST/COUNTER/SIMPLE
+TEST/COUNTER/REPLACE/*
+```
