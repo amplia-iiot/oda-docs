@@ -55,5 +55,14 @@ es.amplia.oda.datastreams.iec104 es.amplia.oda.comms.iec104 es.amplia.oda.servic
 The first step is to configure the connection with the device. This is defined in the configuration of datastreams bundle (es.amplia.oda.datastreams.iec104.cfg):
 initialPollingTime=10000 pollingTime=10000 iec104DeviceId=127.0.0.1;2404;1 The pollingTime parameter indicates the seconds between executions of Interrogation Commands.</description>
     </item>
+    <item>
+      <title>Read N Modbus registers</title>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/readmodbusblock/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/readmodbusblock/index.html</guid>
+      <description>Read N Modbus registers in a single request ODA allows to read data from a Modbus device using these bundles:
+es.amplia.oda.datastreams.modbus es.amplia.oda.hardware.modbus The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with the device:
+type=TCP timeout=1000 reconnect=true connections=SSAA51,127.0.0.1,5803,Saci; In this example we are configuring a TCP connection with a 1000 miliseconds response timeout with reconnections enabled to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.</description>
+    </item>
   </channel>
 </rss>

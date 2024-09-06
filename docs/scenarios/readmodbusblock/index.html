@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Services :: ODA Documentation Site</title>
+    <title>Read N Modbus registers :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../css/fontawesome-all.min.css?1725624398" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1725624398" rel="stylesheet"></noscript>
     <link href="../../css/featherlight.min.css?1725624398" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1725624398" rel="stylesheet"></noscript>
@@ -41,17 +41,17 @@
     </script>
     <script src="../../js/jquery.min.js?1725624398" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../infrastructure/services/index.html">
+  <body class="mobile-support html" data-url="../../scenarios/readmodbusblock/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../infrastructure/subsystems/index.html" title="Subsystems (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../guides/index.html" title="Guides (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../infrastructure/comms/index.html" title="Communications (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../scenarios/readdataiec104/index.html" title="Read data from IEC104 devices (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -60,18 +60,18 @@
             <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../infrastructure/index.html"><span itemprop="name">Infrastructure</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Services</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../scenarios/index.html"><span itemprop="name">Scenarios</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Read N Modbus registers</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
             <div class="toc-wrapper" dir="ltr">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#implemented-services">Implemented services</a>
+    <li><a href="#read-n-modbus-registers-in-a-single-request">Read N Modbus registers in a single request</a>
       <ul>
-        <li><a href="#serialization">Serialization</a></li>
-        <li><a href="#scada-tables">Scada Tables</a></li>
+        <li><a href="#limits">Limits</a></li>
+        <li><a href="#special-cases">Special cases</a></li>
       </ul>
     </li>
   </ul>
@@ -85,31 +85,51 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="services">Services</h1>
+<h1 id="read-n-modbus-registers">Read N Modbus registers</h1>
 
-<p>This multi-module contains services used by other bundles in ODA.</p>
-<h2 id="implemented-services">Implemented services</h2>
-<h3 id="serialization">Serialization</h3>
-<p>Serialization is a common feature to communicate to other local or global systems where different serialization formats may be required.</p>
-<p>A common serialization API has been created to call these services, independently of the required format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Serializer</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">serialize</span><span style="color:#f92672">(</span>Object value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">deserialize</span><span style="color:#f92672">(</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> value<span style="color:#f92672">,</span> Class<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> type<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Currently, two serialization implementations are provided:</p>
+<h2 id="read-n-modbus-registers-in-a-single-request">Read N Modbus registers in a single request</h2>
+<p>ODA allows to read data from a Modbus device using these bundles:</p>
 <ul>
-<li>JSON</li>
-<li>CBOR</li>
+<li>es.amplia.oda.datastreams.modbus</li>
+<li>es.amplia.oda.hardware.modbus</li>
 </ul>
-
-<div class="box notices cstyle primary">
-  <div class="box-label"></div>
-  <div class="box-content">
-<p>To add a new serialization format, just implement the Serializer interface contained in core module and register the service in the OSGi registry</p>
-  </div>
-</div>
-<h3 id="scada-tables">Scada Tables</h3>
-<p>This bundle is used by the IEC104 datastreams bundle. It defines the information needed to translate variables retrieved from a SCADA system to ODA events.</p>
+<p>The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with the device:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">TCP</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">reconnect</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">SSAA51,127.0.0.1,5803,Saci;</span>
+</span></span></code></pre></div><p>In this example we are configuring a TCP connection with a 1000 miliseconds response timeout with reconnections enabled to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.</p>
+<p>The bundle es.amplia.oda.datastreams.modbus defines the data we want to retrieve from the Modbus devices:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">tensA;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:Float,slaveAddress:3,dataType:INPUT_REGISTER,dataAddress:6</span>
+</span></span></code></pre></div><p>In this example we are retrieving the data in modbus starting register 6, from slave address 3 from device SSAA51. The data is stored in the modbus device as INPUT_REGISTER.
+The data retrieved from modbus is a Float (which consits of two modbus registers) and the value retrieved will be assigned to the datastreamId tensA.</p>
+<p>In the normal behaviour, the bundle makes a modbus request for each value we want to retrieve. When we want to retrieve N values this will be equal to N modbus request to the device.</p>
+<p>To avoid the high number of requests sent to the modbus device, we can configure a &lsquo;block&rsquo; datastream request to retrieve N registers from a single modbus request.
+To configure a &lsquo;block&rsquo; request we must stablish the datastreamType to List and indicate the number of registers we want to retrieve in the parameter numRegisters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">block;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:List,slaveAddress:1,dataType:INPUT_REGISTER,dataAddress:0,numRegisters:100</span>
+</span></span></code></pre></div><p>In this example we are retrieving the registers from address 0 to address 99.
+The data retrieved trough a &lsquo;block&rsquo; request is saved in a cache, not returned right away. If we want to retrieve the data from the cache we must tell the bundle how to interpret the modbus registers. In the same config file (es.amplia.oda.datastreams.modbus) we define the datastreams as if we were making a single request but we indicate that we want to read from the cache:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">tensA;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:Float,slaveAddress:3,dataType:INPUT_REGISTER,dataAddress:6,readCache:true</span>
+</span></span></code></pre></div><p>With this configuration the data will be read from the cache and the result will have the timestamp of when the data was read from the modbus device (and inserted in the cache).</p>
+<p>We can have more than one block request in case we don&rsquo;t need to read all registers, only some range of address or the same range but from different types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">block1;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:List,slaveAddress:1,dataType:INPUT_REGISTER,dataAddress:0,numRegisters:100</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">block2;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:List,slaveAddress:1,dataType:HOLDING_REGISTER,dataAddress:0,numRegisters:100</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">block3;SSAA51</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastreamType:List,slaveAddress:1,dataType:HOLDING_REGISTER,dataAddress:1380,numRegisters:100</span>
+</span></span></code></pre></div><h3 id="limits">Limits</h3>
+<p>The Modbus protocol establishes a maximum of registers that can be read in a single request depending of the type of the data. We have set the limits a little lower than the protocol indicates:</p>
+<ul>
+<li>INPUT_REGISTER - 120 registers per request</li>
+<li>HOLDING_REGISTER - 120 registers per request</li>
+<li>INPUT_DISCRETE - 1900 registers per request</li>
+<li>COILS - 1900 registers per request</li>
+</ul>
+<p>This limits indicate the number of request that will be done to the device to get all registers described in a block. For example, if we want to retrieve 400 HOLDING_REGISTER values we will have 3 requests of 120 values and a fourth request of 40 values.</p>
+<h3 id="special-cases">Special cases</h3>
+<ul>
+<li>If we want to retrieve from cache a value that has not been read by a block request (and put in the cache), the value returned will be null.</li>
+<li>If one of the requests that conform the block fails, all values of that request will be set to null in the cache. For example, we want to read 200 holding registers, this will be a request of 120 registers and another request of 80 registers. If the second request fails we will have in cache the values of the first 120 registers but from 120 to 200 we will have null values.</li>
+<li>If we want to retrieve from cache a value that is formed by two modbus registers, the registers must have the same datetime. If they don&rsquo;t match, it means that they were read in different moments and the value is not valid and no value will be retrieved.</li>
+</ul>
 
             <footer class="footline">
             </footer>
@@ -147,10 +167,10 @@
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics collapsible-menu">
-          <li data-nav-id="/infrastructure/index.html" class="dd-item parent"><input type="checkbox" id="section-c87dab607c2202b2389fc157db37dfc4" aria-controls="subsections-c87dab607c2202b2389fc157db37dfc4" class="toggle" checked><label class="a11y-only toggle" for="section-c87dab607c2202b2389fc157db37dfc4" >Submenu Infrastructure</label><a href="../../infrastructure/index.html">Infrastructure</a><ul id="subsections-c87dab607c2202b2389fc157db37dfc4">
+          <li data-nav-id="/infrastructure/index.html" class="dd-item"><input type="checkbox" id="section-c87dab607c2202b2389fc157db37dfc4" aria-controls="subsections-c87dab607c2202b2389fc157db37dfc4" class="toggle"><label class="a11y-only toggle" for="section-c87dab607c2202b2389fc157db37dfc4" >Submenu Infrastructure</label><a href="../../infrastructure/index.html">Infrastructure</a><ul id="subsections-c87dab607c2202b2389fc157db37dfc4">
           <li data-nav-id="/infrastructure/core/index.html" class="dd-item"><a href="../../infrastructure/core/index.html">Core</a></li>
           <li data-nav-id="/infrastructure/comms/index.html" class="dd-item"><a href="../../infrastructure/comms/index.html">Communications</a></li>
-          <li data-nav-id="/infrastructure/services/index.html" class="dd-item active"><a href="../../infrastructure/services/index.html">Services</a></li>
+          <li data-nav-id="/infrastructure/services/index.html" class="dd-item"><a href="../../infrastructure/services/index.html">Services</a></li>
           <li data-nav-id="/infrastructure/subsystems/index.html" class="dd-item"><a href="../../infrastructure/subsystems/index.html">Subsystems</a></li></ul></li>
           <li data-nav-id="/layers/index.html" class="dd-item"><input type="checkbox" id="section-8df243b6078cc25c6a8ce3f10cfb5b94" aria-controls="subsections-8df243b6078cc25c6a8ce3f10cfb5b94" class="toggle"><label class="a11y-only toggle" for="section-8df243b6078cc25c6a8ce3f10cfb5b94" >Submenu Layers</label><a href="../../layers/index.html">Layers</a><ul id="subsections-8df243b6078cc25c6a8ce3f10cfb5b94">
           <li data-nav-id="/layers/connectors/index.html" class="dd-item"><input type="checkbox" id="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" aria-controls="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c" class="toggle"><label class="a11y-only toggle" for="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" >Submenu Connectors</label><a href="../../layers/connectors/index.html">Connectors</a><ul id="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c">
@@ -196,7 +216,7 @@
           <li data-nav-id="/layers/operationdispatcher/index.html" class="dd-item"><a href="../../layers/operationdispatcher/index.html">Operation Dispatchers</a></li>
           <li data-nav-id="/layers/other/index.html" class="dd-item"><input type="checkbox" id="section-94d58c57e02f823575551f6a726456f1" aria-controls="subsections-94d58c57e02f823575551f6a726456f1" class="toggle"><label class="a11y-only toggle" for="section-94d58c57e02f823575551f6a726456f1" >Submenu Other</label><a href="../../layers/other/index.html">Other</a><ul id="subsections-94d58c57e02f823575551f6a726456f1">
           <li data-nav-id="/layers/other/scadatables/index.html" class="dd-item"><a href="../../layers/other/scadatables/index.html">Scada Tables</a></li></ul></li></ul></li>
-          <li data-nav-id="/scenarios/index.html" class="dd-item"><input type="checkbox" id="section-2ac616f661d8c58d2dde5d6eb61b43de" aria-controls="subsections-2ac616f661d8c58d2dde5d6eb61b43de" class="toggle"><label class="a11y-only toggle" for="section-2ac616f661d8c58d2dde5d6eb61b43de" >Submenu Scenarios</label><a href="../../scenarios/index.html">Scenarios</a><ul id="subsections-2ac616f661d8c58d2dde5d6eb61b43de">
+          <li data-nav-id="/scenarios/index.html" class="dd-item parent"><input type="checkbox" id="section-2ac616f661d8c58d2dde5d6eb61b43de" aria-controls="subsections-2ac616f661d8c58d2dde5d6eb61b43de" class="toggle" checked><label class="a11y-only toggle" for="section-2ac616f661d8c58d2dde5d6eb61b43de" >Submenu Scenarios</label><a href="../../scenarios/index.html">Scenarios</a><ul id="subsections-2ac616f661d8c58d2dde5d6eb61b43de">
           <li data-nav-id="/scenarios/recollectdata/index.html" class="dd-item"><a href="../../scenarios/recollectdata/index.html">Recollect Data</a></li>
           <li data-nav-id="/scenarios/publishdata/index.html" class="dd-item"><a href="../../scenarios/publishdata/index.html">Publish Data</a></li>
           <li data-nav-id="/scenarios/applyrules/index.html" class="dd-item"><a href="../../scenarios/applyrules/index.html">Apply Rules</a></li>
@@ -204,7 +224,7 @@
           <li data-nav-id="/scenarios/updatesoftware/bundles/index.html" class="dd-item"><a href="../../scenarios/updatesoftware/bundles/index.html">Install bundles</a></li>
           <li data-nav-id="/scenarios/updatesoftware/rules/index.html" class="dd-item"><a href="../../scenarios/updatesoftware/rules/index.html">Install rules</a></li></ul></li>
           <li data-nav-id="/scenarios/readdataiec104/index.html" class="dd-item"><a href="../../scenarios/readdataiec104/index.html">Read data from IEC104 devices</a></li>
-          <li data-nav-id="/scenarios/readmodbusblock/index.html" class="dd-item"><a href="../../scenarios/readmodbusblock/index.html">Read N Modbus registers</a></li></ul></li>
+          <li data-nav-id="/scenarios/readmodbusblock/index.html" class="dd-item active"><a href="../../scenarios/readmodbusblock/index.html">Read N Modbus registers</a></li></ul></li>
           <li data-nav-id="/guides/index.html" class="dd-item"><input type="checkbox" id="section-cecd4ea74d1b57416f3e6afae6030290" aria-controls="subsections-cecd4ea74d1b57416f3e6afae6030290" class="toggle"><label class="a11y-only toggle" for="section-cecd4ea74d1b57416f3e6afae6030290" >Submenu Guides</label><a href="../../guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
           <li data-nav-id="/guides/eventsflow/index.html" class="dd-item"><input type="checkbox" id="section-59ebf96ce5601d08d3663933e35c98e9" aria-controls="subsections-59ebf96ce5601d08d3663933e35c98e9" class="toggle"><label class="a11y-only toggle" for="section-59ebf96ce5601d08d3663933e35c98e9" >Submenu Events flow</label><a href="../../guides/eventsflow/index.html">Events flow</a><ul id="subsections-59ebf96ce5601d08d3663933e35c98e9">
           <li data-nav-id="/guides/eventsflow/eventsprocessing/index.html" class="dd-item"><a href="../../guides/eventsflow/eventsprocessing/index.html">Events processing</a></li>
