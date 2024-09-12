@@ -29,6 +29,7 @@ To configure MQTT connector, a file named _es.amplia.oda.connector.mqtt.cfg_ mus
 * __port__: _1883 by default_. Port though the connector have to connect to the host.
 * __securePort__: _8883 by default_. Alternative port to connect securely.
 * __secure__: _false by default_. True to connect to the secure port, false to connect to common port.
+* __skipVerify__: _false by default_. True to connect without secure certificate verification (if secure = true).
 * __mqttVersion__: _MQTT_3_1_1 by default_. Available options are MQTT_3_1, MQTT_3_1_1. MQTT version that connector has to use.
 * __keepAliveInterval__: _60 by default_. Interval defined by MQTT client to communicate a keep alive message before to disconnect.
 * __maxInFlight__: _10 by default_. Maximum messages that can be queued to be transmitted simultaneously.
