@@ -13,6 +13,12 @@ ODA allows to read data from an OPC UA device using these bundles:
 
 We will explain how to configure these bundles to connect to the device and to read data from it.
 
+There are two working modes to retrieve data:
+* subscription - default mode. We subscribe to the data we want to receive, the server stores the data and sends it when indicated. When the data arrives at ODA it is published immediately.
+* polling - additional mode. We send a request to the server each time we want to retrieve data. This data goes trought the regular path in ODA (poller - StateManager - collector - dispatcher).
+
+### Subscription mode
+
 The first step is to configure the connection with the device. This is defined in the configuration of hardware bundle (es.amplia.oda.hardware.opcua.cfg):
 
 ```properties
@@ -21,9 +27,27 @@ subscription.publish=10000
 subscription.list=1;6057;5000|1;6192;5000|1;6159;5000
 ```
 The url parameter indicates the url of the OPC UA server to connect to.
-The subscription.publish parameter indicates the milliseconds between renewal of subscriptions to data from OPC UA server.
+The subscription.publish parameter indicates how often (in milliseconds) the OPC UA server send us the data in subscription mode.
 The subscription.list indicates the data we want to retrieve from the OPC UA server with the format:
-    ```namespaceIndex1;nodeId1;samplingInterval1|namespaceIndex2;nodeId2;samplingInterval2| ....```
+
+    namespaceIndex1;nodeId1;samplingInterval1|namespaceIndex2;nodeId2;samplingInterval2| ....
+
+Sampling interval indicates how often we want a value of that nodeId (that it is stored in the server) and it is sent to us when subscription.publish is met.
+
+Example:
+
+    subscription.publish = 60 seconds
+    sampling interval = 5 seconds
+    The server will store a value of the data indicated each 5 seconds and when 60 seconds pass, it will send us 12 values (of the last 60 seconds).
+
+
+### Polling mode
+
+This is an additional mode to subscription mode. Subscription mode can't be disabled.
+To configure polling mode we only need to configure ODA poller bundle with the datastreamIds defined in ScadaTables bundle configuration.
+The data recollected trought poller pass trough StateManager and follows the same path trough ODA bundles as other data until it is published.
+
+### Translation
 
 Once we have defined the data we want to retrieve, we have to indicate the datastreamId and deviceId to assign to this data. This is defined in the ScadaTable bundle (es.amplia.oda.service.scadatables.cfg) with the format:
 
@@ -46,6 +70,3 @@ Every line represents an element read from the OPC UA device. The format is :
 * The device indicates the Id of the device assigned to the value read.
 
 * The feed is the value the field feed will take in the event published to OpenGate
-
-The data received as spontaneous events is published directly, it doens't pass trought StateManager.
-We can also configure the poller bundle to retrieve data from the OPC UA device when we want and these values do pass trough StateManager and follows the same path trough ODA bundles as other data until it is published.

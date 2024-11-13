@@ -71,8 +71,8 @@ type=TCP timeout=1000 reconnect=true connections=SSAA51,127.0.0.1,5803,Saci; In 
       <guid>https://amplia-iiot.github.io/oda-docs/scenarios/readdataopcua/index.html</guid>
       <description>Read data from an OPCUA device ODA allows to read data from an OPC UA device using these bundles:
 es.amplia.oda.datastreams.opcua es.amplia.oda.hardware.opcua es.amplia.oda.service.scadatables We will explain how to configure these bundles to connect to the device and to read data from it.
-The first step is to configure the connection with the device. This is defined in the configuration of hardware bundle (es.amplia.oda.hardware.opcua.cfg):
-url=opc.tcp://opcua.nl:4840 subscription.publish=10000 subscription.list=1;6057;5000|1;6192;5000|1;6159;5000 The url parameter indicates the url of the OPC UA server to connect to.</description>
+There are two working modes to retrieve data:
+subscription - default mode. We subscribe to the data we want to receive, the server stores the data and sends it when indicated.</description>
     </item>
   </channel>
 </rss>
