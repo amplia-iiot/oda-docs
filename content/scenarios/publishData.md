@@ -1,6 +1,6 @@
 +++
 title = "Publish Data"
-weight= 3
+weight = 2
 +++
 
 ## Publish data recollected from devices

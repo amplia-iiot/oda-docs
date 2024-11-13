@@ -1,6 +1,6 @@
 +++
 title = "Read N Modbus registers"
-weight = 6
+weight = 5
 +++
 
 ## Read N Modbus registers in a single request

@@ -1,6 +1,6 @@
 +++
 title = "Recollect Data"
-weight= 2
+weight = 1
 +++
 
 ## Request data periodically from devices

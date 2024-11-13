@@ -78,5 +78,15 @@ To access source code click here.
 Dependencies This module requires the following modules:
 Commons: Provide the ModBus APIs, exceptions and types and the basic APIs to register the service. Configuration To configure ModBus Hardware module, a file named es.amplia.oda.hardware.modbus.cfg must be created with the next parameters:</description>
     </item>
+    <item>
+      <title>OPC UA</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/opcua/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/opcua/index.html</guid>
+      <description>OPC UA Implementation of the library eclipse milo to access devices connected through OPC UA. This is the hardware module that give support to OPC UA Datastreams.
+To access source code click here.
+Dependencies This module requires the following modules:
+Commons: Provide the OPC UA APIs, exceptions and types and the basic APIs to register the service. Scada Tables: Provide the information of the data to read from the OPC UA server (address, datastreamID, deviceId).</description>
+    </item>
   </channel>
 </rss>

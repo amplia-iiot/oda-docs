@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Events collection :: ODA Documentation Site</title>
+    <title>OPC UA :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../../css/fontawesome-all.min.css?1731513304" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1731513304" rel="stylesheet"></noscript>
     <link href="../../../css/featherlight.min.css?1731513304" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1731513304" rel="stylesheet"></noscript>
@@ -41,28 +41,42 @@
     </script>
     <script src="../../../js/jquery.min.js?1731513304" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../../guides/eventsflow/eventscollection/index.html">
+  <body class="mobile-support html" data-url="../../../layers/datastreams/opcua/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../../guides/eventsflow/eventserasure/index.html" title="Events erasure (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../../layers/datastreams/simulator/index.html" title="Simulator (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../../guides/eventsflow/eventsprocessing/index.html" title="Events processing (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../../layers/datastreams/mqtt/index.html" title="MQTT (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../guides/index.html"><span itemprop="name">Guides</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../guides/eventsflow/index.html"><span itemprop="name">Events flow</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Events collection</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/datastreams/index.html"><span itemprop="name">Datastreams</span></a><meta itemprop="position" content="3"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">OPC UA</span><meta itemprop="position" content="4"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper" dir="ltr">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#opc-ua">OPC UA</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -71,40 +85,21 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="events-collection">Events collection</h1>
+<h1 id="opc-ua">OPC UA</h1>
 
-<p>In Collector bundle, when we have to collect events stored in StateManager memory a number of steps is executed:</p>
-<ol>
-<li>
-<p>Get from memory all events whose datastreamId and deviceId are equals to the ones that triggered the process (all those configured in the collector config file for this moment).</p>
-</li>
-<li>
-<p>Get from database all existing values for the datastreamId and deviceId indicated.</p>
-</li>
-<li>
-<p>Using the values obtained from the database, all values stored in memory are updated. The update only affects the &lsquo;sent&rsquo; indication. If in the values in database it is indicated that the value has already been sent, we update the value in memory to indicate the same. If it indicates that it has&rsquo;nt been sent, we do the same.</p>
-</li>
-<li>
-<p>Once all values in memory have been updated, we get all values that haven&rsquo;t been sent.</p>
-</li>
-<li>
-<p>We update the &lsquo;sent&rsquo; indication for these values in database.</p>
-</li>
-<li>
-<p>Of all the values collected, filter out those whose status is not okay.</p>
-</li>
-<li>
-<p>The values that are OK, are sent to the dispatcher to be published.</p>
-</li>
-<li>
-<p>In OpenGate Dispatcher, for every event it is checked if the datastreamId of the event is defined in the dispatcher configuration. If it is, the event is saved in a list to be published when the dispatcher indicates. If it is not defined in the dispatcher, it will be send immediately.</p>
-</li>
-</ol>
-<p>We can see the relation between the collector and dispatcher in the next schema:</p>
-<p>
-<a href="../../../img/collectorDispatcherRelation.drawio.svg" data-featherlight="image">
-<img src="../../../img/collectorDispatcherRelation.drawio.svg" alt="collectorDispatcher" style="height: auto; width: auto;" loading="lazy">
-</a></p>
+<h3 id="opc-ua">OPC UA</h3>
+<p>This Datastream module enable to register the datastreams of <a href="https://amplia-iiot.github.io/oda-docs/layers/hardware/opcua/">OPC UA Hardware module</a>.</p>
+<p>This datastreams corresponds to the inputs/outputs obtained through opc ua protocol.</p>
+<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/opcua">To access source code click here</a>.</p>
+<h4 id="dependencies">Dependencies</h4>
+<p>This module requires the following modules:</p>
+<ul>
+<li><strong><a href="https://amplia-iiot.github.io/oda-docs/layers/hardware/opcua/">OPC UA Hardware</a></strong>: Provide an implementation of OPC UA that the datastream module need to connect to the
+server and collect the information of each datastream.</li>
+<li><strong><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Commons</a></strong>: Provide the OPC UA APIs, exceptions and types and the basic APIs to register the service.</li>
+</ul>
+<h4 id="configuration">Configuration</h4>
+<p>This module doesn&rsquo;t require configuration</p>
 
             <footer class="footline">
             </footer>
@@ -147,7 +142,7 @@
           <li data-nav-id="/infrastructure/comms/index.html" class="dd-item"><a href="../../../infrastructure/comms/index.html">Communications</a></li>
           <li data-nav-id="/infrastructure/services/index.html" class="dd-item"><a href="../../../infrastructure/services/index.html">Services</a></li>
           <li data-nav-id="/infrastructure/subsystems/index.html" class="dd-item"><a href="../../../infrastructure/subsystems/index.html">Subsystems</a></li></ul></li>
-          <li data-nav-id="/layers/index.html" class="dd-item"><input type="checkbox" id="section-8df243b6078cc25c6a8ce3f10cfb5b94" aria-controls="subsections-8df243b6078cc25c6a8ce3f10cfb5b94" class="toggle"><label class="a11y-only toggle" for="section-8df243b6078cc25c6a8ce3f10cfb5b94" >Submenu Layers</label><a href="../../../layers/index.html">Layers</a><ul id="subsections-8df243b6078cc25c6a8ce3f10cfb5b94">
+          <li data-nav-id="/layers/index.html" class="dd-item parent"><input type="checkbox" id="section-8df243b6078cc25c6a8ce3f10cfb5b94" aria-controls="subsections-8df243b6078cc25c6a8ce3f10cfb5b94" class="toggle" checked><label class="a11y-only toggle" for="section-8df243b6078cc25c6a8ce3f10cfb5b94" >Submenu Layers</label><a href="../../../layers/index.html">Layers</a><ul id="subsections-8df243b6078cc25c6a8ce3f10cfb5b94">
           <li data-nav-id="/layers/connectors/index.html" class="dd-item"><input type="checkbox" id="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" aria-controls="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c" class="toggle"><label class="a11y-only toggle" for="section-fbe8b8bdaf5d2eed72d4e615f2bf135c" >Submenu Connectors</label><a href="../../../layers/connectors/index.html">Connectors</a><ul id="subsections-fbe8b8bdaf5d2eed72d4e615f2bf135c">
           <li data-nav-id="/layers/connectors/coap/index.html" class="dd-item"><a href="../../../layers/connectors/coap/index.html">COAP</a></li>
           <li data-nav-id="/layers/connectors/dnp3/index.html" class="dd-item"><a href="../../../layers/connectors/dnp3/index.html">DNP3</a></li>
@@ -155,7 +150,7 @@
           <li data-nav-id="/layers/connectors/iec104/index.html" class="dd-item"><a href="../../../layers/connectors/iec104/index.html">IEC 104</a></li>
           <li data-nav-id="/layers/connectors/mqtt/index.html" class="dd-item"><a href="../../../layers/connectors/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/connectors/websocket/index.html" class="dd-item"><a href="../../../layers/connectors/websocket/index.html">WebSocket</a></li></ul></li>
-          <li data-nav-id="/layers/datastreams/index.html" class="dd-item"><input type="checkbox" id="section-8ebc5351388cfd743d17677922293506" aria-controls="subsections-8ebc5351388cfd743d17677922293506" class="toggle"><label class="a11y-only toggle" for="section-8ebc5351388cfd743d17677922293506" >Submenu Datastreams</label><a href="../../../layers/datastreams/index.html">Datastreams</a><ul id="subsections-8ebc5351388cfd743d17677922293506">
+          <li data-nav-id="/layers/datastreams/index.html" class="dd-item parent"><input type="checkbox" id="section-8ebc5351388cfd743d17677922293506" aria-controls="subsections-8ebc5351388cfd743d17677922293506" class="toggle" checked><label class="a11y-only toggle" for="section-8ebc5351388cfd743d17677922293506" >Submenu Datastreams</label><a href="../../../layers/datastreams/index.html">Datastreams</a><ul id="subsections-8ebc5351388cfd743d17677922293506">
           <li data-nav-id="/layers/datastreams/adc/index.html" class="dd-item"><a href="../../../layers/datastreams/adc/index.html">ADC</a></li>
           <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
           <li data-nav-id="/layers/datastreams/gpio/index.html" class="dd-item"><a href="../../../layers/datastreams/gpio/index.html">GPIO</a></li>
@@ -163,7 +158,7 @@
           <li data-nav-id="/layers/datastreams/iec104/index.html" class="dd-item"><a href="../../../layers/datastreams/iec104/index.html">IEC104</a></li>
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../../layers/datastreams/modbus/index.html">MODBUS</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item"><a href="../../../layers/datastreams/mqtt/index.html">MQTT</a></li>
-          <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item"><a href="../../../layers/datastreams/opcua/index.html">OPC UA</a></li>
+          <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item active"><a href="../../../layers/datastreams/opcua/index.html">OPC UA</a></li>
           <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li></ul></li>
           <li data-nav-id="/layers/hardware/index.html" class="dd-item"><input type="checkbox" id="section-589e40adde04d9d598c4ed169069b38a" aria-controls="subsections-589e40adde04d9d598c4ed169069b38a" class="toggle"><label class="a11y-only toggle" for="section-589e40adde04d9d598c4ed169069b38a" >Submenu Hardware</label><a href="../../../layers/hardware/index.html">Hardware</a><ul id="subsections-589e40adde04d9d598c4ed169069b38a">
           <li data-nav-id="/layers/hardware/atserver/index.html" class="dd-item"><a href="../../../layers/hardware/atserver/index.html">AT Server</a></li>
@@ -203,10 +198,10 @@
           <li data-nav-id="/scenarios/updatesoftware/index.html" class="dd-item"><input type="checkbox" id="section-05bda3d60b0317e877a173504c52b354" aria-controls="subsections-05bda3d60b0317e877a173504c52b354" class="toggle"><label class="a11y-only toggle" for="section-05bda3d60b0317e877a173504c52b354" >Submenu New Software</label><a href="../../../scenarios/updatesoftware/index.html">New Software</a><ul id="subsections-05bda3d60b0317e877a173504c52b354">
           <li data-nav-id="/scenarios/updatesoftware/bundles/index.html" class="dd-item"><a href="../../../scenarios/updatesoftware/bundles/index.html">Install bundles</a></li>
           <li data-nav-id="/scenarios/updatesoftware/rules/index.html" class="dd-item"><a href="../../../scenarios/updatesoftware/rules/index.html">Install rules</a></li></ul></li></ul></li>
-          <li data-nav-id="/guides/index.html" class="dd-item parent"><input type="checkbox" id="section-cecd4ea74d1b57416f3e6afae6030290" aria-controls="subsections-cecd4ea74d1b57416f3e6afae6030290" class="toggle" checked><label class="a11y-only toggle" for="section-cecd4ea74d1b57416f3e6afae6030290" >Submenu Guides</label><a href="../../../guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
-          <li data-nav-id="/guides/eventsflow/index.html" class="dd-item parent"><input type="checkbox" id="section-59ebf96ce5601d08d3663933e35c98e9" aria-controls="subsections-59ebf96ce5601d08d3663933e35c98e9" class="toggle" checked><label class="a11y-only toggle" for="section-59ebf96ce5601d08d3663933e35c98e9" >Submenu Events flow</label><a href="../../../guides/eventsflow/index.html">Events flow</a><ul id="subsections-59ebf96ce5601d08d3663933e35c98e9">
+          <li data-nav-id="/guides/index.html" class="dd-item"><input type="checkbox" id="section-cecd4ea74d1b57416f3e6afae6030290" aria-controls="subsections-cecd4ea74d1b57416f3e6afae6030290" class="toggle"><label class="a11y-only toggle" for="section-cecd4ea74d1b57416f3e6afae6030290" >Submenu Guides</label><a href="../../../guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
+          <li data-nav-id="/guides/eventsflow/index.html" class="dd-item"><input type="checkbox" id="section-59ebf96ce5601d08d3663933e35c98e9" aria-controls="subsections-59ebf96ce5601d08d3663933e35c98e9" class="toggle"><label class="a11y-only toggle" for="section-59ebf96ce5601d08d3663933e35c98e9" >Submenu Events flow</label><a href="../../../guides/eventsflow/index.html">Events flow</a><ul id="subsections-59ebf96ce5601d08d3663933e35c98e9">
           <li data-nav-id="/guides/eventsflow/eventsprocessing/index.html" class="dd-item"><a href="../../../guides/eventsflow/eventsprocessing/index.html">Events processing</a></li>
-          <li data-nav-id="/guides/eventsflow/eventscollection/index.html" class="dd-item active"><a href="../../../guides/eventsflow/eventscollection/index.html">Events collection</a></li>
+          <li data-nav-id="/guides/eventsflow/eventscollection/index.html" class="dd-item"><a href="../../../guides/eventsflow/eventscollection/index.html">Events collection</a></li>
           <li data-nav-id="/guides/eventsflow/eventserasure/index.html" class="dd-item"><a href="../../../guides/eventsflow/eventserasure/index.html">Events erasure</a></li></ul></li>
           <li data-nav-id="/guides/configfiles/index.html" class="dd-item"><a href="../../../guides/configfiles/index.html">Configuration files</a></li>
           <li data-nav-id="/guides/folders/index.html" class="dd-item"><a href="../../../guides/folders/index.html">Folders</a></li>

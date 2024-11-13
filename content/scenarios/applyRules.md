@@ -1,6 +1,6 @@
 +++
 title = "Apply Rules"
-weight= 4
+weight = 3
 +++
 
 ## Apply rules to the collected data

@@ -1,6 +1,6 @@
 +++
 title = "Read data from IEC104 devices"
-weight= 5
+weight = 4
 +++
 
 ## Read data from an IEC104 device

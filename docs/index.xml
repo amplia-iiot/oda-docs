@@ -33,7 +33,8 @@ Publish data recollected from devices
 Apply rules to data recollected
 Install bundle from OpenGate
 Read data from IEC104 devices
-Read N Modbus registers</description>
+Read N Modbus registers
+Read data from OPC UA devices</description>
     </item>
     <item>
       <title>Guides</title>

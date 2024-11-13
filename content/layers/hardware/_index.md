@@ -166,3 +166,19 @@ public interface ModbusMaster {
 
 The [FTP](ftp) module abstracts the communication with [FTP](ftp) servers.
 
+
+##### [OPC UA](opcua)
+
+The [OPC UA](opcua) module abstracts the communication with [OPC UA](opcua) devices.
+
+```java
+public interface OpcUaConnection {
+    void connect() throws OpcUaException;
+    String browse(String tab, String nodeId) throws OpcUaException;
+    String readNode(String nodeId) throws OpcUaException;
+    Object readVariable(String nodeId) throws OpcUaException;
+    void writeVariable(String nodeId, Object value) throws OpcUaException;
+    Object[] method(String objectId, String methodId, Object[] params) throws OpcUaException;
+    void disconnect() throws OpcUaException;
+}
+```

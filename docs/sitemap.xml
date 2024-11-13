@@ -10,6 +10,9 @@
     <loc>https://amplia-iiot.github.io/oda-docs/guides/eventsflow/eventsprocessing/index.html</loc>
   </url>
   <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/recollectdata/index.html</loc>
+  </url>
+  <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/other/scadatables/index.html</loc>
   </url>
   <url>
@@ -28,7 +31,10 @@
     <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/bundles/index.html</loc>
   </url>
   <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/recollectdata/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/publishdata/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/infrastructure/comms/index.html</loc>
@@ -49,13 +55,10 @@
     <loc>https://amplia-iiot.github.io/oda-docs/layers/index.html</loc>
   </url>
   <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/publishdata/index.html</loc>
-  </url>
-  <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/applyrules/index.html</loc>
-  </url>
-  <url>
     <loc>https://amplia-iiot.github.io/oda-docs/guides/folders/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/readdataiec104/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/scenarios/index.html</loc>
@@ -73,10 +76,7 @@
     <loc>https://amplia-iiot.github.io/oda-docs/guides/index.html</loc>
   </url>
   <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</loc>
-  </url>
-  <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/readdataiec104/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/readmodbusblock/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/ruleengine/index.html</loc>
@@ -91,7 +91,7 @@
     <loc>https://amplia-iiot.github.io/oda-docs/layers/operations/index.html</loc>
   </url>
   <url>
-    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/readmodbusblock/index.html</loc>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/readdataopcua/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/index.html</loc>
@@ -101,6 +101,9 @@
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/guides/faqs/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/scenarios/updatesoftware/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/other/index.html</loc>
@@ -194,6 +197,12 @@
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/opcua/index.html</loc>
+  </url>
+  <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/hardware/opcua/index.html</loc>
   </url>
   <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/statemanager/realtime/index.html</loc>

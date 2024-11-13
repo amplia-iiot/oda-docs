@@ -64,5 +64,15 @@ initialPollingTime=10000 pollingTime=10000 iec104DeviceId=127.0.0.1;2404;1 The p
 es.amplia.oda.datastreams.modbus es.amplia.oda.hardware.modbus The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with the device:
 type=TCP timeout=1000 reconnect=true connections=SSAA51,127.0.0.1,5803,Saci; In this example we are configuring a TCP connection with a 1000 miliseconds response timeout with reconnections enabled to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.</description>
     </item>
+    <item>
+      <title>Read data from OPCUA devices</title>
+      <link>https://amplia-iiot.github.io/oda-docs/scenarios/readdataopcua/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/scenarios/readdataopcua/index.html</guid>
+      <description>Read data from an OPCUA device ODA allows to read data from an OPC UA device using these bundles:
+es.amplia.oda.datastreams.opcua es.amplia.oda.hardware.opcua es.amplia.oda.service.scadatables We will explain how to configure these bundles to connect to the device and to read data from it.
+The first step is to configure the connection with the device. This is defined in the configuration of hardware bundle (es.amplia.oda.hardware.opcua.cfg):
+url=opc.tcp://opcua.nl:4840 subscription.publish=10000 subscription.list=1;6057;5000|1;6192;5000|1;6159;5000 The url parameter indicates the url of the OPC UA server to connect to.</description>
+    </item>
   </channel>
 </rss>
