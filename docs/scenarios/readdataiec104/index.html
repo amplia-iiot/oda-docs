@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Read data from IEC104 devices :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1731516685" rel="stylesheet">
-    <link href="../../css/nucleus.css?1731516685" rel="stylesheet">
-    <link href="../../css/fonts.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1731516685" rel="stylesheet">
-    <link href="../../css/theme-oda.css?1731516685" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1731516685" rel="stylesheet">
-    <link href="../../css/variant.css?1731516685" rel="stylesheet">
-    <link href="../../css/print.css?1731516685" rel="stylesheet" media="print">
-    <script src="../../js/url.js?1731516685"></script>
-    <script src="../../js/variant.js?1731516685"></script>
+    <link href="../../css/fontawesome-all.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../css/featherlight.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1732639359" rel="stylesheet">
+    <link href="../../css/nucleus.css?1732639359" rel="stylesheet">
+    <link href="../../css/fonts.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1732639359" rel="stylesheet">
+    <link href="../../css/theme-oda.css?1732639359" rel="stylesheet" id="variant-style">
+    <link href="../../css/ie.css?1732639359" rel="stylesheet">
+    <link href="../../css/variant.css?1732639359" rel="stylesheet">
+    <link href="../../css/print.css?1732639359" rel="stylesheet" media="print">
+    <script src="../../js/url.js?1732639359"></script>
+    <script src="../../js/variant.js?1732639359"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../js/jquery.min.js?1731516685" defer></script>
+    <script src="../../js/jquery.min.js?1732639359" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../scenarios/readdataiec104/index.html">
     <div id="body" class="default-animation">
@@ -97,13 +97,13 @@
 </span></span></code></pre></div><p>The pollingTime parameter indicates the seconds between executions of Interrogation Commands. There is a first interrogation command sent X seconds (indicated by initialPollingTime) after starting the bundle. After this initial interrogation command, an Interrogation Command is sent to the devices defined in the configuration every Y seconds (indicated by pollingTime). When the IEC104 device receives the interrogation command, it sends all the data it has stored to ODA and stores it in a cache.</p>
 <p>The next lines of the configuration indicates the information needed to connect with the IEC104 devices. The first element is the deviceId that will be associated to the data retrieved. The second and third elements are the ip address and port of the IEC104 device. The last element indicates the commonAddress, it identifies the IEC104 device in the network.</p>
 <p>Once we have the connection with the devices defined, we have to define the data we want to retrieve. This is defined in the ScadaTable bundle (es.amplia.oda.service.scadatables.cfg) with the format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">M_ME_NC_1,1073153</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: tensFaseFaseLA01, feed:interrogation, device:test_cache_iec104, event: false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">M_SP_NA_1,1052736</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: estProtLA01, feed:interrogation,device:test_cache_iec104, event: true</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">M_ME_NC_1,1073153</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: tensFaseFaseLA01, feed:interrogation, device:test_cache_iec104, eventPublish: dispatcher</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">M_SP_NA_1,1052736</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: estProtLA01, feed:interrogation,device:test_cache_iec104, eventPublish: stateManager</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">M_DP_NA_1,1066752</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: estReenganCF11, feed:interrogation,device:test_cache_iec104</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">M_BO_NA_1,1114112</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: identCCPLO, feed:interrogation,device:test_cache_iec104</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">M_ST_NA_1,1077249</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">datastream: limPosTR01, feed:interrogation,device:test_cache_iec104</span>
 </span></span></code></pre></div><p>Every line represents an element read from the IEC104 device. The format is :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU,</span> <span style="color:#e6db74">address = datastream: datastreamId, feed: feed, device: deviceId, event: false</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU,</span> <span style="color:#e6db74">address = datastream: datastreamId, feed: feed, device: deviceId, eventPublish: dispatcher</span>
 </span></span></code></pre></div><ul>
 <li>
 <p>The ASDU indicates the type of the value read.</p>
@@ -121,17 +121,21 @@
 <p>The feed is the value the field feed will take in the event published to OpenGate</p>
 </li>
 <li>
-<p>The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be &lsquo;recollected&rsquo; (as a reponse of an interrogation command sent to the SCADA server).</p>
+<p>The eventPublish field is optional. If field is not present, it indicates that the signal is a reponse of an interrogation command. Value received is saved in a cache and will be recolected by poller. If it is present, it indicates that the signal is an event (its an spontaneous message from SCADA server) and how the event will be published. It can take two values:</p>
+<ul>
+<li>dispatcher - spontaneous messages will be publish immediatelly as soon as it is received.</li>
+<li>statemanager - spontaneous messages will be passed to the state manager (rules can be applied) and will be published as other events (through collector and dispatcher).</li>
+</ul>
 </li>
 </ul>
 <p>ODA supports the ASDUs indicated in <a href="../../layers/other/scadatables"><strong>scadatables</strong></a></p>
 <p>There are two types of signals regarding its form of recollection:</p>
 <ul>
 <li>
-<p>Signals marked in configuration as events, are those that will be sent spontaneously by the IEC104 device (not as a response of an interrogation command). These signals are published immediately to the dispatcher to be sent to a third system (like OpenGate). They are not stored in any cache nor in StateManager.</p>
+<p>Signals marked in configuration as events (those with the field eventPublish), are those that will be sent spontaneously by the IEC104 device (not as a response of an interrogation command). These signals can be published immediately to the dispatcher and to a third system (if eventPublish = dispatcher) or can be sent to the state manager (if eventPublish = statemanager) where rules can be applied.</p>
 </li>
 <li>
-<p>Signals not marked in configuration as events, are those that will be sent by the IEC104 device as a response of an interrogation command. These signals are stored in a cache awaiting to be retrieved by the DatastreamGetter.</p>
+<p>Signals not marked in configuration as events, are those that will be sent by the IEC104 device as a response of an interrogation command. These signals are stored in a cache awaiting to be retrieved by a DatastreamGetter.</p>
 </li>
 </ul>
 <p>With the IEC104 protocol configured, the last step is to configure poller bundle to retrieve the data from the IEC104 cache.
@@ -160,12 +164,12 @@ Once the poller retrieves the data from the cache, it follows the same path trou
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1731516686" defer></script>
-        <script src="../../js/lunr.min.js?1731516686" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1731516686" defer></script>
-        <script src="../../js/lunr.multi.min.js?1731516686" defer></script>
-        <script src="../../js/lunr.en.min.js?1731516686" defer></script>
-        <script src="../../js/search.js?1731516686" defer></script>
+        <script src="../../js/auto-complete.js?1732639360" defer></script>
+        <script src="../../js/lunr.min.js?1732639360" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1732639360" defer></script>
+        <script src="../../js/lunr.multi.min.js?1732639360" defer></script>
+        <script src="../../js/lunr.en.min.js?1732639360" defer></script>
+        <script src="../../js/search.js?1732639360" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -287,9 +291,9 @@ Once the poller retrieves the data from the cache, it follows the same path trou
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1731516686" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1731516686" defer></script>
-    <script src="../../js/featherlight.min.js?1731516686" defer></script>
-    <script src="../../js/theme.js?1731516686" defer></script>
+    <script src="../../js/clipboard.min.js?1732639360" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1732639360" defer></script>
+    <script src="../../js/featherlight.min.js?1732639360" defer></script>
+    <script src="../../js/theme.js?1732639360" defer></script>
   </body>
 </html>

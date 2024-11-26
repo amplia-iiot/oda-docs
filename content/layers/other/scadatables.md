@@ -5,21 +5,22 @@ weight = 1
 
 ### Scada Tables
 
-This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from IEC104 devices and its corresponding ASDU.
+This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from SCADA devices and its corresponding ASDU.
 
 Its configuration file (es.amplia.oda.service.scadatables.cfg) has this format:
 
 ```properties
-ASDU1, address1 = datastream: datastreamId1, device: deviceId1, feed: feed1, event:true
-ASDU2, address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, event:false
+ASDU1, address1 = datastream: datastreamId1, device: deviceId1, feed: feed1
+ASDU2, address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, eventPublish: dispatcher
+ASDU3, address3 = datastream: datastreamId3, device: deviceId3, feed: feed3, eventPublish: statemanager
 ...
 ```
 
-Every line represents an element read from the IEC104 device:
+Every line represents an element read from the SCADA device:
 
 * The ASDU indicates the type of the value read.
 
-* The address indicates the address where the value is stored in the IEC104 device.
+* The address indicates the address where the value is stored in the device.
 
 * The datastream indicates the Id of the datastream assigned to the value read.
 
@@ -27,7 +28,10 @@ Every line represents an element read from the IEC104 device:
 
 * The feed is the value the field feed will take in the event published to OpenGate
 
-* The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be 'recollected' (as a reponse of an interrogation command sent to the SCADA server).
+* The eventPublish field is optional. If field is not present, it indicates that the signal is a reponse of an interrogation command. Value received is saved in a cache and will be recolected by poller. If it is present, it indicates that the signal is an event (its an spontaneous message from SCADA server) and how the event will be published. It can take two values:
+
+  * dispatcher - spontaneous messages will be publish immediatelly as soon as it is received.
+  * statemanager - spontaneous messages will be passed to the state manager (rules can be applied) and will be published as other events (through collector and dispatcher).
 
 ODA supports the next ASDUs:
 

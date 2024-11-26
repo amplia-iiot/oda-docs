@@ -11,10 +11,9 @@
       <link>https://amplia-iiot.github.io/oda-docs/layers/other/scadatables/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://amplia-iiot.github.io/oda-docs/layers/other/scadatables/index.html</guid>
-      <description>Scada Tables This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from IEC104 devices and its corresponding ASDU.
+      <description>Scada Tables This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from SCADA devices and its corresponding ASDU.
 Its configuration file (es.amplia.oda.service.scadatables.cfg) has this format:
-ASDU1, address1 = datastream: datastreamId1, device: deviceId1, feed: feed1, event:true ASDU2, address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, event:false ... Every line represents an element read from the IEC104 device:
-The ASDU indicates the type of the value read.</description>
+ASDU1, address1 = datastream: datastreamId1, device: deviceId1, feed: feed1 ASDU2, address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, eventPublish: dispatcher ASDU3, address3 = datastream: datastreamId3, device: deviceId3, feed: feed3, eventPublish: statemanager ... Every line represents an element read from the SCADA device:</description>
     </item>
   </channel>
 </rss>

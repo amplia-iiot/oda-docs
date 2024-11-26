@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Scada Tables :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1731516685" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1731516685" rel="stylesheet">
-    <link href="../../../css/fonts.css?1731516685" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1731516685" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1731516685" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1731516685" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1731516685" rel="stylesheet">
-    <link href="../../../css/variant.css?1731516685" rel="stylesheet">
-    <link href="../../../css/print.css?1731516685" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1731516685"></script>
-    <script src="../../../js/variant.js?1731516685"></script>
+    <link href="../../../css/fontawesome-all.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1732639359" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1732639359" rel="stylesheet">
+    <link href="../../../css/fonts.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1732639359" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1732639359" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1732639359" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1732639359" rel="stylesheet">
+    <link href="../../../css/variant.css?1732639359" rel="stylesheet">
+    <link href="../../../css/print.css?1732639359" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1732639359"></script>
+    <script src="../../../js/variant.js?1732639359"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1731516685" defer></script>
+    <script src="../../../js/jquery.min.js?1732639359" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/other/scadatables/index.html">
     <div id="body" class="default-animation">
@@ -88,18 +88,19 @@
 <h1 id="scada-tables">Scada Tables</h1>
 
 <h3 id="scada-tables">Scada Tables</h3>
-<p>This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from IEC104 devices and its corresponding ASDU.</p>
+<p>This bundle is used by the IEC104 datastreams bundle. It defines the variables we want to retrieve from SCADA devices and its corresponding ASDU.</p>
 <p>Its configuration file (es.amplia.oda.service.scadatables.cfg) has this format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU1,</span> <span style="color:#e6db74">address1 = datastream: datastreamId1, device: deviceId1, feed: feed1, event:true</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ASDU2,</span> <span style="color:#e6db74">address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, event:false</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">ASDU1,</span> <span style="color:#e6db74">address1 = datastream: datastreamId1, device: deviceId1, feed: feed1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ASDU2,</span> <span style="color:#e6db74">address2 = datastream: datastreamId2, device: deviceId2, feed: feed2, eventPublish: dispatcher</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ASDU3,</span> <span style="color:#e6db74">address3 = datastream: datastreamId3, device: deviceId3, feed: feed3, eventPublish: statemanager</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
-</span></span></code></pre></div><p>Every line represents an element read from the IEC104 device:</p>
+</span></span></code></pre></div><p>Every line represents an element read from the SCADA device:</p>
 <ul>
 <li>
 <p>The ASDU indicates the type of the value read.</p>
 </li>
 <li>
-<p>The address indicates the address where the value is stored in the IEC104 device.</p>
+<p>The address indicates the address where the value is stored in the device.</p>
 </li>
 <li>
 <p>The datastream indicates the Id of the datastream assigned to the value read.</p>
@@ -111,7 +112,11 @@
 <p>The feed is the value the field feed will take in the event published to OpenGate</p>
 </li>
 <li>
-<p>The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be &lsquo;recollected&rsquo; (as a reponse of an interrogation command sent to the SCADA server).</p>
+<p>The eventPublish field is optional. If field is not present, it indicates that the signal is a reponse of an interrogation command. Value received is saved in a cache and will be recolected by poller. If it is present, it indicates that the signal is an event (its an spontaneous message from SCADA server) and how the event will be published. It can take two values:</p>
+<ul>
+<li>dispatcher - spontaneous messages will be publish immediatelly as soon as it is received.</li>
+<li>statemanager - spontaneous messages will be passed to the state manager (rules can be applied) and will be published as other events (through collector and dispatcher).</li>
+</ul>
 </li>
 </ul>
 <p>ODA supports the next ASDUs:</p>
@@ -155,12 +160,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1731516686" defer></script>
-        <script src="../../../js/lunr.min.js?1731516686" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1731516686" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1731516686" defer></script>
-        <script src="../../../js/lunr.en.min.js?1731516686" defer></script>
-        <script src="../../../js/search.js?1731516686" defer></script>
+        <script src="../../../js/auto-complete.js?1732639360" defer></script>
+        <script src="../../../js/lunr.min.js?1732639360" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1732639360" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1732639360" defer></script>
+        <script src="../../../js/lunr.en.min.js?1732639360" defer></script>
+        <script src="../../../js/search.js?1732639360" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -282,9 +287,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1731516686" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1731516686" defer></script>
-    <script src="../../../js/featherlight.min.js?1731516686" defer></script>
-    <script src="../../../js/theme.js?1731516686" defer></script>
+    <script src="../../../js/clipboard.min.js?1732639360" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1732639360" defer></script>
+    <script src="../../../js/featherlight.min.js?1732639360" defer></script>
+    <script src="../../../js/theme.js?1732639360" defer></script>
   </body>
 </html>

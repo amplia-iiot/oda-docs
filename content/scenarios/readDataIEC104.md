@@ -28,8 +28,8 @@ The next lines of the configuration indicates the information needed to connect 
 Once we have the connection with the devices defined, we have to define the data we want to retrieve. This is defined in the ScadaTable bundle (es.amplia.oda.service.scadatables.cfg) with the format:
 
 ```properties
-M_ME_NC_1,1073153 = datastream: tensFaseFaseLA01, feed:interrogation, device:test_cache_iec104, event: false
-M_SP_NA_1,1052736 = datastream: estProtLA01, feed:interrogation,device:test_cache_iec104, event: true
+M_ME_NC_1,1073153 = datastream: tensFaseFaseLA01, feed:interrogation, device:test_cache_iec104, eventPublish: dispatcher
+M_SP_NA_1,1052736 = datastream: estProtLA01, feed:interrogation,device:test_cache_iec104, eventPublish: stateManager
 M_DP_NA_1,1066752 = datastream: estReenganCF11, feed:interrogation,device:test_cache_iec104
 M_BO_NA_1,1114112 = datastream: identCCPLO, feed:interrogation,device:test_cache_iec104
 M_ST_NA_1,1077249 = datastream: limPosTR01, feed:interrogation,device:test_cache_iec104
@@ -38,7 +38,7 @@ M_ST_NA_1,1077249 = datastream: limPosTR01, feed:interrogation,device:test_cache
 Every line represents an element read from the IEC104 device. The format is :
 
 ```properties
-ASDU, address = datastream: datastreamId, feed: feed, device: deviceId, event: false
+ASDU, address = datastream: datastreamId, feed: feed, device: deviceId, eventPublish: dispatcher
 ```
 
 * The ASDU indicates the type of the value read.
@@ -51,15 +51,18 @@ ASDU, address = datastream: datastreamId, feed: feed, device: deviceId, event: f
 
 * The feed is the value the field feed will take in the event published to OpenGate
 
-* The event field indicates if the signal represents an event (its an spontaneous message from SCADA server) or its a message that will be 'recollected' (as a reponse of an interrogation command sent to the SCADA server).
+* The eventPublish field is optional. If field is not present, it indicates that the signal is a reponse of an interrogation command. Value received is saved in a cache and will be recolected by poller. If it is present, it indicates that the signal is an event (its an spontaneous message from SCADA server) and how the event will be published. It can take two values:
+
+  * dispatcher - spontaneous messages will be publish immediatelly as soon as it is received.
+  * statemanager - spontaneous messages will be passed to the state manager (rules can be applied) and will be published as other events (through collector and dispatcher).
 
 ODA supports the ASDUs indicated in [__scadatables__](/layers/other/scadatables) 
 
 There are two types of signals regarding its form of recollection:
 
-* Signals marked in configuration as events, are those that will be sent spontaneously by the IEC104 device (not as a response of an interrogation command). These signals are published immediately to the dispatcher to be sent to a third system (like OpenGate). They are not stored in any cache nor in StateManager.
+* Signals marked in configuration as events (those with the field eventPublish), are those that will be sent spontaneously by the IEC104 device (not as a response of an interrogation command). These signals can be published immediately to the dispatcher and to a third system (if eventPublish = dispatcher) or can be sent to the state manager (if eventPublish = statemanager) where rules can be applied.
 
-* Signals not marked in configuration as events, are those that will be sent by the IEC104 device as a response of an interrogation command. These signals are stored in a cache awaiting to be retrieved by the DatastreamGetter.
+* Signals not marked in configuration as events, are those that will be sent by the IEC104 device as a response of an interrogation command. These signals are stored in a cache awaiting to be retrieved by a DatastreamGetter.
 
 With the IEC104 protocol configured, the last step is to configure poller bundle to retrieve the data from the IEC104 cache. 
 When the poller launches its operation, it retrieves the data indicated from the IEC104 cache and stores it in the StateManager.
