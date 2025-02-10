@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Device Info :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1732639359" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1732639359" rel="stylesheet">
-    <link href="../../../css/fonts.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1732639359" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1732639359" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1732639359" rel="stylesheet">
-    <link href="../../../css/variant.css?1732639359" rel="stylesheet">
-    <link href="../../../css/print.css?1732639359" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1732639359"></script>
-    <script src="../../../js/variant.js?1732639359"></script>
+    <link href="../../../css/fontawesome-all.min.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1739205987" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1739205987" rel="stylesheet">
+    <link href="../../../css/fonts.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1739205987" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1739205987" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1739205987" rel="stylesheet">
+    <link href="../../../css/variant.css?1739205987" rel="stylesheet">
+    <link href="../../../css/print.css?1739205987" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1739205987"></script>
+    <script src="../../../js/variant.js?1739205987"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1732639359" defer></script>
+    <script src="../../../js/jquery.min.js?1739205987" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/deviceinfo/index.html">
     <div id="body" class="default-animation">
@@ -101,11 +101,24 @@
 <p>To configure Device Info module, a file named <em>es.amplia.oda.datastreams.deviceinfo.cfg</em> (or <em>deviceinfofx30</em>, or <em>deviceinfoowa450</em>)
 must be created with the next parameters for each input channel that you want to register:</p>
 <ul>
-<li><strong>deviceId</strong>: (null if not specified). Identifier of the device. This parameter is used by the third-system (OpenGate,
-Scada&hellip;) to identify where the data arrive from.</li>
-<li><strong>apiKey</strong>: (Required parameter). API Key (like a pass) to access to the third-system.</li>
-<li><strong>source</strong>: (Required parameter). Directory where the bundles (.jar&rsquo;s) are installed.</li>
-<li><strong>path</strong>: (Required parameter). Directory where the script of the Device Info are installed. These files will be executed on runtime to collect the information.</li>
+<li>
+<p><strong>deviceId</strong>: (null if not specified). Identifier of the device. This parameter is used by the third-system (OpenGate,
+Scada&hellip;) to identify where the data arrive from.</p>
+</li>
+<li>
+<p><strong>apiKey</strong>: (Required parameter). API Key (like a pass) to access to the third-system.</p>
+</li>
+<li>
+<p><strong>source</strong>: (Required parameter). Directory where the bundles (.jar&rsquo;s) are installed.</p>
+</li>
+<li>
+<p><strong>path</strong>: (Required parameter). Directory where the script of the Device Info are installed. These files will be executed on runtime to collect the information.</p>
+</li>
+<li>
+<p><strong>scripts</strong>: List of scripts to execute to get information about device and its datastreamId associated with the format:</p>
+<pre><code>  &lt;datastreamId&gt;=&lt;path_to_script&gt;;&lt;data_type&gt;
+</code></pre>
+</li>
 </ul>
 <p><em>es.amplia.oda.datastreams.deviceinfo*.cfg</em> will have a similar format to:</p>
 <pre tabindex="0"><code># Device identifier. If not provided the serial number is used
@@ -116,6 +129,22 @@ apiKey=testApiKey
 source=deploy
 # Directory to extract the scripts
 path=scripts
+
+# List of datastreamId and script to execute for this datastreamId
+# &lt;datastreamId&gt;=&lt;path_to_script&gt;;&lt;data_type&gt;
+# &lt;data_type&gt; can be STRING, LONG, INTEGER, BOOLEAN, FLOAT, DOUBLE. If is not specified STRING type will be used
+device.clock=scripts/obtainClock.sh
+device.upTime=scripts/obtainUptime.sh;LONG
+device.cpu.total=scripts/obtainCpuTotal.sh;INTEGER
+device.cpu.status=scripts/obtainCpuStatus.sh;
+device.cpu.usage=scripts/obtainCpuUsage.sh;INTEGER
+device.ram.total=scripts/obtainRamTotal.sh;LONG
+device.ram.usage=scripts/obtainRamUsage.sh;INTEGER
+device.storage.disk.total=scripts/obtainDiskTotal.sh;LONG
+device.storage.disk.usage=scripts/obtainDiskUsage.sh;INTEGER
+device.temperature.status=scripts/obtainTemperatureStatus.sh
+device.temperature.value=scripts/obtainTemperatureValue.sh;INTEGER
+device.serialNumber=scripts/obtainSerialNumber.sh
 </code></pre>
             <footer class="footline">
             </footer>
@@ -139,12 +168,12 @@ path=scripts
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1732639359" defer></script>
-        <script src="../../../js/lunr.min.js?1732639359" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1732639359" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1732639359" defer></script>
-        <script src="../../../js/lunr.en.min.js?1732639359" defer></script>
-        <script src="../../../js/search.js?1732639359" defer></script>
+        <script src="../../../js/auto-complete.js?1739205987" defer></script>
+        <script src="../../../js/lunr.min.js?1739205987" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1739205987" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1739205987" defer></script>
+        <script src="../../../js/lunr.en.min.js?1739205987" defer></script>
+        <script src="../../../js/search.js?1739205987" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -266,9 +295,9 @@ path=scripts
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1732639359" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1732639359" defer></script>
-    <script src="../../../js/featherlight.min.js?1732639359" defer></script>
-    <script src="../../../js/theme.js?1732639359" defer></script>
+    <script src="../../../js/clipboard.min.js?1739205987" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1739205987" defer></script>
+    <script src="../../../js/featherlight.min.js?1739205987" defer></script>
+    <script src="../../../js/theme.js?1739205987" defer></script>
   </body>
 </html>

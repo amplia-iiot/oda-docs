@@ -13,6 +13,7 @@ Only allows to send data to the OpenGate platform. Operations can't be received.
 This module requires the following modules:
 
 * __[Core Commons]({{< ref "../../infrastructure/core.md" >}})__: Provides many interfaces that this module will use.
+* __[HTTP Communications Module]({{< ref "../../infrastructure/comms.md#http" >}})__: Needed to create the HTTP client.
 * __[Device Info Provider]({{< ref "../datastreams/deviceinfo.md" >}})__: Needed to know the Device Id of the device that are running the Agent and the API Key to access to OpenGate.
 Both data are required to achieve a connection with OpenGate and transferred data will have the deviceId in its metadata.
 

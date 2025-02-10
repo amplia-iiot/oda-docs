@@ -34,7 +34,7 @@ Scada Table Info: Needed to serve to the connector the information of inputs, ou
       <description>HTTP This connector enable communication via HTTP Protocol.
 Only allows to send data to the OpenGate platform. Operations can&amp;rsquo;t be received.
 Dependencies This module requires the following modules:
-Core Commons: Provides many interfaces that this module will use. Device Info Provider: Needed to know the Device Id of the device that are running the Agent and the API Key to access to OpenGate. Both data are required to achieve a connection with OpenGate and transferred data will have the deviceId in its metadata.</description>
+Core Commons: Provides many interfaces that this module will use. HTTP Communications Module: Needed to create the HTTP client. Device Info Provider: Needed to know the Device Id of the device that are running the Agent and the API Key to access to OpenGate.</description>
     </item>
     <item>
       <title>IEC 104</title>

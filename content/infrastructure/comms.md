@@ -40,3 +40,9 @@ public interface MqttClient {
 The IEC104 protocol is used to connect to a SCADA third-system that implements an IEC 104 master (client).
 
 It can be used to recollect data from a device and also to send data to an external SCADA system.
+
+### HTTP
+
+The HTTP protocol is used to make HTTP requests (post, put, get and delete).
+
+It can be used to make calls to REST APIs.

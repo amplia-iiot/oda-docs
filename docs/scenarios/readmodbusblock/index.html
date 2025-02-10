@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>Read N Modbus registers :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1732639359" rel="stylesheet">
-    <link href="../../css/nucleus.css?1732639359" rel="stylesheet">
-    <link href="../../css/fonts.css?1732639359" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1732639359" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1732639359" rel="stylesheet">
-    <link href="../../css/theme-oda.css?1732639359" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1732639359" rel="stylesheet">
-    <link href="../../css/variant.css?1732639359" rel="stylesheet">
-    <link href="../../css/print.css?1732639359" rel="stylesheet" media="print">
-    <script src="../../js/url.js?1732639359"></script>
-    <script src="../../js/variant.js?1732639359"></script>
+    <link href="../../css/fontawesome-all.min.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../css/featherlight.min.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1739205987" rel="stylesheet">
+    <link href="../../css/nucleus.css?1739205987" rel="stylesheet">
+    <link href="../../css/fonts.css?1739205987" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1739205987" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1739205987" rel="stylesheet">
+    <link href="../../css/theme-oda.css?1739205987" rel="stylesheet" id="variant-style">
+    <link href="../../css/ie.css?1739205987" rel="stylesheet">
+    <link href="../../css/variant.css?1739205987" rel="stylesheet">
+    <link href="../../css/print.css?1739205987" rel="stylesheet" media="print">
+    <script src="../../js/url.js?1739205987"></script>
+    <script src="../../js/variant.js?1739205987"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../js/jquery.min.js?1732639359" defer></script>
+    <script src="../../js/jquery.min.js?1739205987" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../scenarios/readmodbusblock/index.html">
     <div id="body" class="default-animation">
@@ -95,8 +95,8 @@
 </ul>
 <p>The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with the device:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">TCP</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">reconnect</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">=</span><span style="color:#e6db74">3000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">reconnect</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">SSAA51,127.0.0.1,5803,Saci;</span>
 </span></span></code></pre></div><p>In this example we are configuring a TCP connection with a 1000 miliseconds response timeout with reconnections enabled to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.</p>
 <p>The bundle es.amplia.oda.datastreams.modbus defines the data we want to retrieve from the Modbus devices:</p>
@@ -153,12 +153,12 @@ The data retrieved trough a &lsquo;block&rsquo; request is saved in a cache, not
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1732639360" defer></script>
-        <script src="../../js/lunr.min.js?1732639360" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1732639360" defer></script>
-        <script src="../../js/lunr.multi.min.js?1732639360" defer></script>
-        <script src="../../js/lunr.en.min.js?1732639360" defer></script>
-        <script src="../../js/search.js?1732639360" defer></script>
+        <script src="../../js/auto-complete.js?1739205988" defer></script>
+        <script src="../../js/lunr.min.js?1739205988" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1739205988" defer></script>
+        <script src="../../js/lunr.multi.min.js?1739205988" defer></script>
+        <script src="../../js/lunr.en.min.js?1739205988" defer></script>
+        <script src="../../js/search.js?1739205988" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -280,9 +280,9 @@ The data retrieved trough a &lsquo;block&rsquo; request is saved in a cache, not
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1732639360" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1732639360" defer></script>
-    <script src="../../js/featherlight.min.js?1732639360" defer></script>
-    <script src="../../js/theme.js?1732639360" defer></script>
+    <script src="../../js/clipboard.min.js?1739205988" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1739205988" defer></script>
+    <script src="../../js/featherlight.min.js?1739205988" defer></script>
+    <script src="../../js/theme.js?1739205988" defer></script>
   </body>
 </html>

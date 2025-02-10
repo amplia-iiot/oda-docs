@@ -207,3 +207,7 @@ between.
 *Input*: The path of the file we want to read.  
 *Output*: The content of the file concatenated in a string.
 
+**setError**  
+*Function*: Mark the datastream as error.  
+*Input*:  The device id (String) and the datastream id (String) of the datastream that function have to mark.  
+*Output*:  Nothing, only refresh the state data.

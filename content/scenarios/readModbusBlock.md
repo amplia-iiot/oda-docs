@@ -14,12 +14,12 @@ The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with
 
 ```properties
 type=TCP
-timeout=1000
-reconnect=true
+timeout=3000
+reconnect=false
 connections=SSAA51,127.0.0.1,5803,Saci;
 ```
 
-In this example we are configuring a TCP connection with a 1000 miliseconds response timeout with reconnections enabled to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.
+In this example we are configuring a TCP connection with a 3000 miliseconds response timeout with a single connection with device for all the session (it won't create a new connection every time we retrieve a value) to a device called SSAA51 in IP Address 127.0.0.1, port 5803 and manufacturer Saci.
 
 The bundle es.amplia.oda.datastreams.modbus defines the data we want to retrieve from the Modbus devices:
 

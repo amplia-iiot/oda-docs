@@ -4,7 +4,7 @@ title = "FTP"
 
 ### FTP
 
-Implementation of the library Apache Commons Net to access FTP servers.
+Implementation of the library Apache Commons Net to access FTP and SFTP servers.
 
 [To access source code click here](https://github.com/amplia-iiot/oda/tree/master/oda-hardware/ftp).
 

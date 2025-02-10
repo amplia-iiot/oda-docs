@@ -26,6 +26,10 @@ Scada...) to identify where the data arrive from.
 * __apiKey__: (Required parameter). API Key (like a pass) to access to the third-system.
 * __source__: (Required parameter). Directory where the bundles (.jar's) are installed.
 * __path__: (Required parameter). Directory where the script of the Device Info are installed. These files will be executed on runtime to collect the information.
+* __scripts__: List of scripts to execute to get information about device and its datastreamId associated with the format:
+
+        <datastreamId>=<path_to_script>;<data_type>
+
 
 _es.amplia.oda.datastreams.deviceinfo*.cfg_ will have a similar format to:
 
@@ -38,4 +42,20 @@ apiKey=testApiKey
 source=deploy
 # Directory to extract the scripts
 path=scripts
+
+# List of datastreamId and script to execute for this datastreamId
+# <datastreamId>=<path_to_script>;<data_type>
+# <data_type> can be STRING, LONG, INTEGER, BOOLEAN, FLOAT, DOUBLE. If is not specified STRING type will be used
+device.clock=scripts/obtainClock.sh
+device.upTime=scripts/obtainUptime.sh;LONG
+device.cpu.total=scripts/obtainCpuTotal.sh;INTEGER
+device.cpu.status=scripts/obtainCpuStatus.sh;
+device.cpu.usage=scripts/obtainCpuUsage.sh;INTEGER
+device.ram.total=scripts/obtainRamTotal.sh;LONG
+device.ram.usage=scripts/obtainRamUsage.sh;INTEGER
+device.storage.disk.total=scripts/obtainDiskTotal.sh;LONG
+device.storage.disk.usage=scripts/obtainDiskUsage.sh;INTEGER
+device.temperature.status=scripts/obtainTemperatureStatus.sh
+device.temperature.value=scripts/obtainTemperatureValue.sh;INTEGER
+device.serialNumber=scripts/obtainSerialNumber.sh
 ```

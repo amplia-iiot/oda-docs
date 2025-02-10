@@ -32,3 +32,7 @@ To add a new serialization format, just implement the Serializer interface conta
 ### Scada Tables
 
 This bundle is used by the IEC104 datastreams bundle. It defines the information needed to translate variables retrieved from a SCADA system to ODA events.
+
+### Zip Compress
+
+This bundle allows to manage .zip files (compress and decompress).
