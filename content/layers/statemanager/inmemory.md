@@ -34,3 +34,6 @@ To configure State Manager InMemory, a file named _es.amplia.oda.statemanager.in
 * __maxData__: _Required parameter_. Indicates the maximum number of values stored for each datastreamId, deviceId combination.
 * __forgetTime__: _Required parameter_. Indicates the maximum antiquity, in seconds, of values to store. Values older than this will be removed.
 * __forgetPeriod__:_Required parameter_. Indicates the periodicity in seconds that older values in database are removed.
+* __numProcessingThreads__:_Optional parameter_. Indicates the number of threads used to process events received. Default value is 10.
+* __tasksQueueSize__:_Optional parameter_. Indicates the size of the queue to store pending events to be processed. Default value is 1000.
+
