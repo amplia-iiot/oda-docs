@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>IEC104 :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1741019296" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1741019296" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1741019296" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1741019296" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1741019296" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1741019296" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1741019296" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1741019296" rel="stylesheet">
-    <link href="../../../css/fonts.css?1741019296" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1741019296" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1741019296" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1741019296" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1741019296" rel="stylesheet">
-    <link href="../../../css/variant.css?1741019296" rel="stylesheet">
-    <link href="../../../css/print.css?1741019296" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1741019296"></script>
-    <script src="../../../js/variant.js?1741019296"></script>
+    <link href="../../../css/fontawesome-all.min.css?1752748544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1752748544" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1752748544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1752748544" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1752748544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1752748544" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1752748544" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1752748544" rel="stylesheet">
+    <link href="../../../css/fonts.css?1752748544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1752748544" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1752748544" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1752748544" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1752748544" rel="stylesheet">
+    <link href="../../../css/variant.css?1752748544" rel="stylesheet">
+    <link href="../../../css/print.css?1752748544" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1752748544"></script>
+    <script src="../../../js/variant.js?1752748544"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1741019296" defer></script>
+    <script src="../../../js/jquery.min.js?1752748544" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/iec104/index.html">
     <div id="body" class="default-animation">
@@ -106,6 +106,16 @@
 <p><strong>pollingTime</strong>: <em>Required parameter</em>. Indicates the time in seconds between Interrogation Command executions. Every x seconds after the initial Interrogation Command, an Interrogation Command is sent to the iec104 device to retrieve data.</p>
 </li>
 <li>
+<p><strong>qualityBitsMask</strong>: <em>Optional parameter</em>. Indicates the mask the quality bits of the values received must comply to consider the values as valid. It is an array of four characters that follow this order :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span>    <span style="color:#a6e22e">qualityBitsMask</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">valid topical substituted blocked</span>
+</span></span></code></pre></div><p>The characters can be &lsquo;0&rsquo; (false), &lsquo;1&rsquo; (true) or &lsquo;*&rsquo; (either).
+If we don&rsquo;t specify this parameter, by default all values received are valid (it is applied a mask with four bits as &lsquo;*&rsquo;).
+If the value doesn&rsquo;t comply with the mask, it is discarded.</p>
+</li>
+<li>
+<p><strong>qualityBitsNotify</strong>: <em>Optional parameter</em>. Indicates if we want to send a notification when a value is discarded by its quality bits. Default value is false.</p>
+</li>
+<li>
 <p><strong>deviceId</strong>: <em>Required parameter</em>. Indicates the information needed to connect with device in the next format:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span>    <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">=</span><span style="color:#e6db74">ipAddress;port;commonAddress</span>
 </span></span></code></pre></div></li>
@@ -113,10 +123,14 @@
 <p><em>es.amplia.oda.datastreams.iec104.cfg</em> will have a similar format to:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">initialPollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">qualityBitsMask</span><span style="color:#f92672">=</span><span style="color:#e6db74">1100</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">qualityBitsNotify</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
 </span></span></code></pre></div><p>It is possible to define N devices with the format:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">initialPollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">1000</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">pollingTime</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">qualityBitsMask</span><span style="color:#f92672">=</span><span style="color:#e6db74">1100</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">qualityBitsNotify</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj1</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;1</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj2</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.1;2404;2</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">devicejj3</span><span style="color:#f92672">=</span><span style="color:#e6db74">127.0.0.2;2404;1</span>
@@ -143,12 +157,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1741019296" defer></script>
-        <script src="../../../js/lunr.min.js?1741019296" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1741019296" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1741019296" defer></script>
-        <script src="../../../js/lunr.en.min.js?1741019296" defer></script>
-        <script src="../../../js/search.js?1741019296" defer></script>
+        <script src="../../../js/auto-complete.js?1752748544" defer></script>
+        <script src="../../../js/lunr.min.js?1752748544" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1752748544" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1752748544" defer></script>
+        <script src="../../../js/lunr.en.min.js?1752748544" defer></script>
+        <script src="../../../js/search.js?1752748544" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -270,9 +284,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1741019296" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1741019296" defer></script>
-    <script src="../../../js/featherlight.min.js?1741019296" defer></script>
-    <script src="../../../js/theme.js?1741019296" defer></script>
+    <script src="../../../js/clipboard.min.js?1752748544" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1752748544" defer></script>
+    <script src="../../../js/featherlight.min.js?1752748544" defer></script>
+    <script src="../../../js/theme.js?1752748544" defer></script>
   </body>
 </html>
