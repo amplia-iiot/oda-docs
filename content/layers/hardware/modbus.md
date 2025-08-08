@@ -23,7 +23,7 @@ To configure ModBus Hardware module, a file named _es.amplia.oda.hardware.modbus
 * __connections__: _Required data for UDP and TCP_. Indicates the devices and the data needed to connect with them alongside other needed info like the manufacturer.
 Allows multiple devices from different manufacturers with the format : deviceId1,ipAddress1,port1,manufacturer1;deviceId2,ipAddress2,port2,manufacturer2;etc
 * __timeout__: _Required data for UDP and TCP_. Time in seconds that the modbus hardware will wait until do a timeout if the master slave doesn't respond.
-* __reconnect__: _Required data for TCP_. If reconnect = true, every time we request a value from a device, a new conenction is created. If reconnect = false it will mantain the same connection for all the session. If connection is lost, the next time we request a value it will create a new connection.
+* __newConnPerRequest__: _Required data for TCP_. Indicates if we want to mantain a single tcp connection trought all the session (value = false) or we want to open and close a tcp connection per each modbus request (value = true). Default value is false. If we mantains a single connection and connection is lost, the next time we request a value it will create a new connection.
 * __ports__: _Required data for serial_. Indicates the name of the serial port (tty) and the deviceId and manufacturer associated. Allows multiple devices with the format : portName1,deviceId1,manufacturer1;portName2,deviceId2,manufacturer2;etc
 * __baudRate__: _Required data for serial_. Baud Rate of the connection. 9600, 38400 or 115200.
 * __flowControlIn__: _Required data for serial_. Flow Control of the input of connection.
@@ -46,7 +46,7 @@ connections=deviceId,localhost,30,manufacturer
 ```properties
 type=TCP
 timeout=30
-reconnect=true
+newConnPerRequest=false
 connections=deviceId,localhost,30,manufacturer
 ```
 

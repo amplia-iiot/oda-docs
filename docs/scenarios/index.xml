@@ -62,7 +62,7 @@ initialPollingTime=10000 pollingTime=10000 iec104DeviceId=127.0.0.1;2404;1 The p
       <guid>https://amplia-iiot.github.io/oda-docs/scenarios/readmodbusblock/index.html</guid>
       <description>Read N Modbus registers in a single request ODA allows to read data from a Modbus device using these bundles:
 es.amplia.oda.datastreams.modbus es.amplia.oda.hardware.modbus The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with the device:
-type=TCP timeout=3000 reconnect=false connections=SSAA51,127.0.0.1,5803,Saci; In this example we are configuring a TCP connection with a 3000 miliseconds response timeout with a single connection with device for all the session (it won&amp;rsquo;t create a new connection every time we retrieve a value) to a device called SSAA51 in IP Address 127.</description>
+type=TCP timeout=3000 newConnPerRequest=false connections=SSAA51,127.0.0.1,5803,Saci; In this example we are configuring a TCP connection with a 3000 miliseconds response timeout with a single connection with device for all the session (it won&amp;rsquo;t create a new connection every time we retrieve a value) to a device called SSAA51 in IP Address 127.</description>
     </item>
     <item>
       <title>Read data from OPCUA devices</title>

@@ -15,7 +15,7 @@ The bundle es.amplia.oda.hardware.modbus defines the data needed to connect with
 ```properties
 type=TCP
 timeout=3000
-reconnect=false
+newConnPerRequest=false
 connections=SSAA51,127.0.0.1,5803,Saci;
 ```
 
