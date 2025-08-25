@@ -45,8 +45,8 @@ path=scripts
 
 # List of datastreamId and script to execute for this datastreamId
 # <datastreamId>=<path_to_script>;<data_type>
-# <data_type> can be STRING, LONG, INTEGER, BOOLEAN, FLOAT, DOUBLE. If is not specified STRING type will be used
-device.clock=scripts/obtainClock.sh
+# <data_type> can be STRING, LONG, INTEGER, BOOLEAN, FLOAT, DOUBLE, JSON. If is not specified STRING type will be used
+device.clock=scripts/obtainClock.sh;JSON
 device.upTime=scripts/obtainUptime.sh;LONG
 device.cpu.total=scripts/obtainCpuTotal.sh;INTEGER
 device.cpu.status=scripts/obtainCpuStatus.sh;
