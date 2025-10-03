@@ -88,5 +88,15 @@ To access source code click here.
 Dependencies This module requires the following modules:
 Commons: Provide the OPC UA APIs, exceptions and types and the basic APIs to register the service. Scada Tables: Provide the information of the data to read from the OPC UA server (address, datastreamID, deviceId).</description>
     </item>
+    <item>
+      <title>SNMP</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/hardware/snmp/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/hardware/snmp/index.html</guid>
+      <description>SNMP Implementation of the library snmp4j to give an access to devices connected through snmp. This is the hardware module that give support to SNMP Datastreams.
+To access source code click here.
+Dependencies This module requires the following modules:
+Commons: Provide the SNMP APIs, exceptions and types and the basic APIs to register the service. Configuration To configure SNMP Hardware module, a file named es.amplia.oda.hardware.snmp.cfg must be created with the next parameters for each device that you want to register:</description>
+    </item>
   </channel>
 </rss>

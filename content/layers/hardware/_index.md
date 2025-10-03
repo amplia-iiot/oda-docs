@@ -182,3 +182,16 @@ public interface OpcUaConnection {
     void disconnect() throws OpcUaException;
 }
 ```
+
+##### [SNMP](snmp)
+
+The [SNMP](snmp) module abstracts the communication with [SNMP](snmp) devices.
+
+```java
+public interface SnmpClient {
+    String getDeviceId();
+    Object getValue(String OID);
+    void setValue(String OID, String dataType, String newValue);
+    void disconnect();
+}
+```

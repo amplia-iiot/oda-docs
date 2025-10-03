@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Simulator :: ODA Documentation Site</title>
+    <title>SNMP :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../../css/fontawesome-all.min.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1759499095" rel="stylesheet"></noscript>
     <link href="../../../css/featherlight.min.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1759499095" rel="stylesheet"></noscript>
@@ -41,17 +41,17 @@
     </script>
     <script src="../../../js/jquery.min.js?1759499095" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../../layers/datastreams/simulator/index.html">
+  <body class="mobile-support html" data-url="../../../layers/hardware/snmp/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../../layers/datastreams/snmp/index.html" title="SNMP (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../../layers/statemanager/index.html" title="State Manager (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../../layers/datastreams/opcua/index.html" title="OPC UA (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../../layers/hardware/opcua/index.html" title="OPC UA (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -61,8 +61,8 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/datastreams/index.html"><span itemprop="name">Datastreams</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Simulator</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/hardware/index.html"><span itemprop="name">Hardware</span></a><meta itemprop="position" content="3"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">SNMP</span><meta itemprop="position" content="4"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -71,7 +71,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#simulator">Simulator</a></li>
+        <li><a href="#snmp">SNMP</a></li>
       </ul>
     </li>
   </ul>
@@ -85,37 +85,45 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="simulator">Simulator</h1>
+<h1 id="snmp">SNMP</h1>
 
-<h3 id="simulator">Simulator</h3>
-<p>This Datastream module enable to register datastreams with a constant value or a random value between two numbers specified by parameters.</p>
-<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/simulator">To access source code click here</a>.</p>
+<h3 id="snmp">SNMP</h3>
+<p>Implementation of the library snmp4j to give an access to devices connected through snmp.
+This is the hardware module that give support to SNMP Datastreams.</p>
+<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-hardware/snmp">To access source code click here</a>.</p>
 <h4 id="dependencies">Dependencies</h4>
-<p><em>This module have no dependencies</em></p>
+<p>This module requires the following modules:</p>
+<ul>
+<li><strong><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Commons</a></strong>: Provide the SNMP APIs, exceptions and types and the basic APIs to register the service.</li>
+</ul>
 <h4 id="configuration">Configuration</h4>
-<p>To configure ADC Datastream module, a file named <em>es.amplia.oda.datastreams.simulator.cfg</em> must be created with the next parameters
-for each input channel that you want to register:</p>
-<p>In case of want to register a constant value:</p>
+<p>To configure SNMP Hardware module, a file named <em>es.amplia.oda.hardware.snmp.cfg</em> must be created with the next parameters for each device that you want to register:</p>
 <ul>
-<li><strong>datastreamId</strong>: <em>Required parameter</em>. Identifier of the datastream.</li>
-<li><strong>deviceId</strong>: <em>void string (&quot;&quot;) by default</em>. Identifier of the device that contents this datastream.</li>
-<li><strong>feed</strong>: <em>null by default</em>. Identifier of the feed used in the datastreams generated.</li>
-<li><strong>dataType</strong>: <em>Required data</em>. Allowed values are: <em>string, int, integer, float, double, number</em>. Is th data-type of the datastream.</li>
-<li><strong>constantValue</strong>: <em>Required data</em>. Value that always will return this datastream.</li>
+<li><strong>deviceId</strong>: <em>Required data</em>. DeviceId associated to this conecction</li>
+<li><strong>ip</strong>: <em>Required data</em>. Ip Address where the device is installed.</li>
+<li><strong>port</strong>: <em>Required data</em>. Port where device is listening for requests.</li>
+<li><strong>listenPort</strong>: <em>Required data</em>. Port where we listen for events sent by devices (like SNMP Traps).</li>
+<li><strong>version</strong>: <em>Required data</em>. Indicates the version of SNMP protocol used to connect with device. Possible values are : <em>1, 2, 3</em>.</li>
 </ul>
-<p>In case of want a random numeric integer value:</p>
+<p>For version 1 and 2 of SNMP we must also define this parameters:</p>
 <ul>
-<li><strong>datastreamId</strong>: <em>Required parameter</em>. Identifier of the datastream.</li>
-<li><strong>deviceId</strong>: <em>void string (&quot;&quot;) by default</em>. Identifier of the device that contents this datastream.</li>
-<li><strong>feed</strong>: <em>null by default</em>. Identifier of the feed used in the datastreams generated.</li>
-<li><strong>minValue</strong>: <em>Required data</em>. Minimum value that the datastream can returns.</li>
-<li><strong>maxValue</strong>: <em>Required data</em>. Maximum value that the datastream can returns.</li>
-<li><strong>maxDiff</strong>: <em>Required data</em>. Percentage of the range that the value can change compared to the last. 100 if it doesn&rsquo;t matter how much changes</li>
+<li><strong>community</strong>: <em>Required data for version 1 and 2</em>. Name of the community</li>
 </ul>
-<p><em>es.amplia.oda.datastreams.simulator.cfg</em> will have a similar format to:</p>
-<pre tabindex="0"><code>constantValue;testDevice;testFeed=string,this is a test value
-randomValue=0,100,10
-</code></pre>
+<p>For version 3 we must also define this parameters:</p>
+<ul>
+<li><strong>contextName</strong>: <em>Required data for version 3</em>. Name assigned to the MIB of the device</li>
+<li><strong>securityName</strong>: <em>Required data for version 3</em>. Username</li>
+<li><strong>authPassphrase</strong>: <em>Required data for version 3</em>. Key used for authentication</li>
+<li><strong>privPassphrase</strong>: <em>Required data for version 3</em>. Password used for privacy</li>
+<li><strong>authProtocol</strong>: <em>Required data for version 3</em>. Protocol used for authentication. Possible values are: <em>MD5, SHA</em></li>
+<li><strong>privProtocol</strong>: <em>Required data for version 3</em>. Protocol used for privacy. Possible values are: <em>DES, 3DES, AES128, AES192, AES256</em></li>
+</ul>
+<!-- raw HTML omitted -->
+<p><em>es.amplia.oda.hardware.snmp.cfg</em> will have a similar format to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:1, community:public</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1162, listenPort:1163, version:2, community:public</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV3</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:3, contextName: public, securityName:simulator, authPassphrase:auctoritas, privPassphrase:privatus, authProtocol: MD5, privProtocol:DES</span>
+</span></span></code></pre></div>
             <footer class="footline">
             </footer>
           </article>
@@ -165,7 +173,7 @@ randomValue=0,100,10
           <li data-nav-id="/layers/connectors/iec104/index.html" class="dd-item"><a href="../../../layers/connectors/iec104/index.html">IEC 104</a></li>
           <li data-nav-id="/layers/connectors/mqtt/index.html" class="dd-item"><a href="../../../layers/connectors/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/connectors/websocket/index.html" class="dd-item"><a href="../../../layers/connectors/websocket/index.html">WebSocket</a></li></ul></li>
-          <li data-nav-id="/layers/datastreams/index.html" class="dd-item parent"><input type="checkbox" id="section-025a6e55ef5e9824f41182a7ce94ee33" aria-controls="subsections-025a6e55ef5e9824f41182a7ce94ee33" class="toggle" checked><label class="a11y-only toggle" for="section-025a6e55ef5e9824f41182a7ce94ee33" >Submenu Datastreams</label><a href="../../../layers/datastreams/index.html">Datastreams</a><ul id="subsections-025a6e55ef5e9824f41182a7ce94ee33">
+          <li data-nav-id="/layers/datastreams/index.html" class="dd-item"><input type="checkbox" id="section-025a6e55ef5e9824f41182a7ce94ee33" aria-controls="subsections-025a6e55ef5e9824f41182a7ce94ee33" class="toggle"><label class="a11y-only toggle" for="section-025a6e55ef5e9824f41182a7ce94ee33" >Submenu Datastreams</label><a href="../../../layers/datastreams/index.html">Datastreams</a><ul id="subsections-025a6e55ef5e9824f41182a7ce94ee33">
           <li data-nav-id="/layers/datastreams/adc/index.html" class="dd-item"><a href="../../../layers/datastreams/adc/index.html">ADC</a></li>
           <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
           <li data-nav-id="/layers/datastreams/gpio/index.html" class="dd-item"><a href="../../../layers/datastreams/gpio/index.html">GPIO</a></li>
@@ -174,9 +182,9 @@ randomValue=0,100,10
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../../layers/datastreams/modbus/index.html">MODBUS</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item"><a href="../../../layers/datastreams/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item"><a href="../../../layers/datastreams/opcua/index.html">OPC UA</a></li>
-          <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item active"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li>
+          <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li>
           <li data-nav-id="/layers/datastreams/snmp/index.html" class="dd-item"><a href="../../../layers/datastreams/snmp/index.html">SNMP</a></li></ul></li>
-          <li data-nav-id="/layers/hardware/index.html" class="dd-item"><input type="checkbox" id="section-69bbec3c54c56771782e00f916de6e3a" aria-controls="subsections-69bbec3c54c56771782e00f916de6e3a" class="toggle"><label class="a11y-only toggle" for="section-69bbec3c54c56771782e00f916de6e3a" >Submenu Hardware</label><a href="../../../layers/hardware/index.html">Hardware</a><ul id="subsections-69bbec3c54c56771782e00f916de6e3a">
+          <li data-nav-id="/layers/hardware/index.html" class="dd-item parent"><input type="checkbox" id="section-69bbec3c54c56771782e00f916de6e3a" aria-controls="subsections-69bbec3c54c56771782e00f916de6e3a" class="toggle" checked><label class="a11y-only toggle" for="section-69bbec3c54c56771782e00f916de6e3a" >Submenu Hardware</label><a href="../../../layers/hardware/index.html">Hardware</a><ul id="subsections-69bbec3c54c56771782e00f916de6e3a">
           <li data-nav-id="/layers/hardware/atserver/index.html" class="dd-item"><a href="../../../layers/hardware/atserver/index.html">AT Server</a></li>
           <li data-nav-id="/layers/hardware/comms/index.html" class="dd-item"><a href="../../../layers/hardware/comms/index.html">Comms</a></li>
           <li data-nav-id="/layers/hardware/diozero/index.html" class="dd-item"><a href="../../../layers/hardware/diozero/index.html">DIOZero</a></li>
@@ -185,7 +193,7 @@ randomValue=0,100,10
           <li data-nav-id="/layers/hardware/jdkdio/index.html" class="dd-item"><a href="../../../layers/hardware/jdkdio/index.html">JDK DIO</a></li>
           <li data-nav-id="/layers/hardware/modbus/index.html" class="dd-item"><a href="../../../layers/hardware/modbus/index.html">ModBus</a></li>
           <li data-nav-id="/layers/hardware/opcua/index.html" class="dd-item"><a href="../../../layers/hardware/opcua/index.html">OPC UA</a></li>
-          <li data-nav-id="/layers/hardware/snmp/index.html" class="dd-item"><a href="../../../layers/hardware/snmp/index.html">SNMP</a></li></ul></li>
+          <li data-nav-id="/layers/hardware/snmp/index.html" class="dd-item active"><a href="../../../layers/hardware/snmp/index.html">SNMP</a></li></ul></li>
           <li data-nav-id="/layers/statemanager/index.html" class="dd-item"><input type="checkbox" id="section-ff327409b7d0c6a7879713135ddaf838" aria-controls="subsections-ff327409b7d0c6a7879713135ddaf838" class="toggle"><label class="a11y-only toggle" for="section-ff327409b7d0c6a7879713135ddaf838" >Submenu State Manager</label><a href="../../../layers/statemanager/index.html">State Manager</a><ul id="subsections-ff327409b7d0c6a7879713135ddaf838">
           <li data-nav-id="/layers/statemanager/inmemory/index.html" class="dd-item"><a href="../../../layers/statemanager/inmemory/index.html">In Memory State Manager</a></li>
           <li data-nav-id="/layers/statemanager/realtime/index.html" class="dd-item"><a href="../../../layers/statemanager/realtime/index.html">Real Time State Manager</a></li></ul></li>
@@ -241,7 +249,7 @@ randomValue=0,100,10
                 <div class="select-style">
                   <label class="a11y-only" for="select-language">Language</label>
                   <select id="select-language" onchange="location = baseUri + this.value;">
-                    <option lang="en" id="en" value="/layers/datastreams/simulator/index.html" selected></option>
+                    <option lang="en" id="en" value="/layers/hardware/snmp/index.html" selected></option>
                   </select>
                 </div>
                 <div class="select-clear"></div>

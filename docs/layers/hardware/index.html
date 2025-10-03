@@ -10,19 +10,19 @@
     <title>Hardware :: ODA Documentation Site</title>
     <link href="../../layers/hardware/index.xml" rel="alternate" type="application/rss+xml" title="Hardware :: ODA Documentation Site">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1756114790" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1756114790" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1756114790" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1756114790" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1756114790" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1756114790" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1756114790" rel="stylesheet">
-    <link href="../../css/nucleus.css?1756114790" rel="stylesheet">
-    <link href="../../css/fonts.css?1756114790" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1756114790" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1756114790" rel="stylesheet">
-    <link href="../../css/theme-oda.css?1756114790" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1756114790" rel="stylesheet">
-    <link href="../../css/variant.css?1756114790" rel="stylesheet">
-    <link href="../../css/print.css?1756114790" rel="stylesheet" media="print">
-    <script src="../../js/url.js?1756114790"></script>
-    <script src="../../js/variant.js?1756114790"></script>
+    <link href="../../css/fontawesome-all.min.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1759499095" rel="stylesheet"></noscript>
+    <link href="../../css/featherlight.min.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1759499095" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1759499095" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1759499095" rel="stylesheet">
+    <link href="../../css/nucleus.css?1759499095" rel="stylesheet">
+    <link href="../../css/fonts.css?1759499095" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1759499095" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1759499095" rel="stylesheet">
+    <link href="../../css/theme-oda.css?1759499095" rel="stylesheet" id="variant-style">
+    <link href="../../css/ie.css?1759499095" rel="stylesheet">
+    <link href="../../css/variant.css?1759499095" rel="stylesheet">
+    <link href="../../css/print.css?1759499095" rel="stylesheet" media="print">
+    <script src="../../js/url.js?1759499095"></script>
+    <script src="../../js/variant.js?1759499095"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -40,7 +40,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../js/jquery.min.js?1756114790" defer></script>
+    <script src="../../js/jquery.min.js?1759499095" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../layers/hardware/index.html">
     <div id="body" class="default-animation">
@@ -52,7 +52,7 @@
             <a class="nav nav-next" href="../../layers/hardware/atserver/index.html" title="AT Server (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../layers/datastreams/simulator/index.html" title="Simulator (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../layers/datastreams/snmp/index.html" title="SNMP (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -215,6 +215,14 @@
 </span></span><span style="display:flex;"><span>    Object<span style="color:#f92672">[]</span> <span style="color:#a6e22e">method</span>(String objectId, String methodId, Object<span style="color:#f92672">[]</span> params) <span style="color:#66d9ef">throws</span> OpcUaException;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">disconnect</span>() <span style="color:#66d9ef">throws</span> OpcUaException;
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="snmpsnmp"><a href="snmp">SNMP</a></h5>
+<p>The <a href="snmp">SNMP</a> module abstracts the communication with <a href="snmp">SNMP</a> devices.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">SnmpClient</span> {
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">getDeviceId</span>();
+</span></span><span style="display:flex;"><span>    Object <span style="color:#a6e22e">getValue</span>(String OID);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValue</span>(String OID, String dataType, String newValue);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">disconnect</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
             <footer class="footline">
             </footer>
@@ -238,12 +246,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1756114790" defer></script>
-        <script src="../../js/lunr.min.js?1756114790" defer></script>
-        <script src="../../js/lunr.stemmer.support.min.js?1756114790" defer></script>
-        <script src="../../js/lunr.multi.min.js?1756114790" defer></script>
-        <script src="../../js/lunr.en.min.js?1756114790" defer></script>
-        <script src="../../js/search.js?1756114790" defer></script>
+        <script src="../../js/auto-complete.js?1759499095" defer></script>
+        <script src="../../js/lunr.min.js?1759499095" defer></script>
+        <script src="../../js/lunr.stemmer.support.min.js?1759499095" defer></script>
+        <script src="../../js/lunr.multi.min.js?1759499095" defer></script>
+        <script src="../../js/lunr.en.min.js?1759499095" defer></script>
+        <script src="../../js/search.js?1759499095" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -274,7 +282,8 @@
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../layers/datastreams/modbus/index.html">MODBUS</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item"><a href="../../layers/datastreams/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item"><a href="../../layers/datastreams/opcua/index.html">OPC UA</a></li>
-          <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../layers/datastreams/simulator/index.html">Simulator</a></li></ul></li>
+          <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../layers/datastreams/simulator/index.html">Simulator</a></li>
+          <li data-nav-id="/layers/datastreams/snmp/index.html" class="dd-item"><a href="../../layers/datastreams/snmp/index.html">SNMP</a></li></ul></li>
           <li data-nav-id="/layers/hardware/index.html" class="dd-item active parent"><input type="checkbox" id="section-69bbec3c54c56771782e00f916de6e3a" aria-controls="subsections-69bbec3c54c56771782e00f916de6e3a" class="toggle" checked><label class="a11y-only toggle" for="section-69bbec3c54c56771782e00f916de6e3a" >Submenu Hardware</label><a href="../../layers/hardware/index.html">Hardware</a><ul id="subsections-69bbec3c54c56771782e00f916de6e3a">
           <li data-nav-id="/layers/hardware/atserver/index.html" class="dd-item"><a href="../../layers/hardware/atserver/index.html">AT Server</a></li>
           <li data-nav-id="/layers/hardware/comms/index.html" class="dd-item"><a href="../../layers/hardware/comms/index.html">Comms</a></li>
@@ -283,7 +292,8 @@
           <li data-nav-id="/layers/hardware/i2c/index.html" class="dd-item"><a href="../../layers/hardware/i2c/index.html">I2C</a></li>
           <li data-nav-id="/layers/hardware/jdkdio/index.html" class="dd-item"><a href="../../layers/hardware/jdkdio/index.html">JDK DIO</a></li>
           <li data-nav-id="/layers/hardware/modbus/index.html" class="dd-item"><a href="../../layers/hardware/modbus/index.html">ModBus</a></li>
-          <li data-nav-id="/layers/hardware/opcua/index.html" class="dd-item"><a href="../../layers/hardware/opcua/index.html">OPC UA</a></li></ul></li>
+          <li data-nav-id="/layers/hardware/opcua/index.html" class="dd-item"><a href="../../layers/hardware/opcua/index.html">OPC UA</a></li>
+          <li data-nav-id="/layers/hardware/snmp/index.html" class="dd-item"><a href="../../layers/hardware/snmp/index.html">SNMP</a></li></ul></li>
           <li data-nav-id="/layers/statemanager/index.html" class="dd-item"><input type="checkbox" id="section-ff327409b7d0c6a7879713135ddaf838" aria-controls="subsections-ff327409b7d0c6a7879713135ddaf838" class="toggle"><label class="a11y-only toggle" for="section-ff327409b7d0c6a7879713135ddaf838" >Submenu State Manager</label><a href="../../layers/statemanager/index.html">State Manager</a><ul id="subsections-ff327409b7d0c6a7879713135ddaf838">
           <li data-nav-id="/layers/statemanager/inmemory/index.html" class="dd-item"><a href="../../layers/statemanager/inmemory/index.html">In Memory State Manager</a></li>
           <li data-nav-id="/layers/statemanager/realtime/index.html" class="dd-item"><a href="../../layers/statemanager/realtime/index.html">Real Time State Manager</a></li></ul></li>
@@ -366,9 +376,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1756114790" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1756114790" defer></script>
-    <script src="../../js/featherlight.min.js?1756114790" defer></script>
-    <script src="../../js/theme.js?1756114790" defer></script>
+    <script src="../../js/clipboard.min.js?1759499095" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1759499095" defer></script>
+    <script src="../../js/featherlight.min.js?1759499095" defer></script>
+    <script src="../../js/theme.js?1759499095" defer></script>
   </body>
 </html>
