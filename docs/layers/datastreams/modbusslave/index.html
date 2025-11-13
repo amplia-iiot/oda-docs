@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>Device Info :: ODA Documentation Site</title>
+    <title>MODBUS SLAVE :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../../css/fontawesome-all.min.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1763048541" rel="stylesheet"></noscript>
     <link href="../../../css/featherlight.min.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1763048541" rel="stylesheet"></noscript>
@@ -41,17 +41,17 @@
     </script>
     <script src="../../../js/jquery.min.js?1763048541" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../../layers/datastreams/deviceinfo/index.html">
+  <body class="mobile-support html" data-url="../../../layers/datastreams/modbusslave/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../../layers/datastreams/gpio/index.html" title="GPIO (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../../layers/datastreams/mqtt/index.html" title="MQTT (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../../layers/datastreams/adc/index.html" title="ADC (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../../layers/datastreams/modbus/index.html" title="MODBUS (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -62,7 +62,7 @@
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/datastreams/index.html"><span itemprop="name">Datastreams</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Device Info</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">MODBUS SLAVE</span><meta itemprop="position" content="4"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -71,7 +71,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#device-info">Device Info</a></li>
+        <li><a href="#modbus-slave">MODBUS SLAVE</a></li>
       </ul>
     </li>
   </ul>
@@ -85,67 +85,57 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="device-info">Device Info</h1>
+<h1 id="modbus-slave">MODBUS SLAVE</h1>
 
-<h3 id="device-info">Device Info</h3>
-<p>This Datastream module enable to register the datastreams to provide the information of the device. This means that each device will have its own module Device Info.</p>
-<p>There are this devices info modules for now:</p>
-<ul>
-<li><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/deviceinfo"><strong>x86_64 System devices</strong></a>: Devices with a x86_64 Linux system</li>
-<li><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/deviceinfofx30"><strong>FX30</strong></a>: <a href="https://source.sierrawireless.com/devices/fx-series/fx30/#sthash.N8DdzEYE.dpbs">Sierra Wireles FX30/FX30S</a> devices</li>
-<li><a href="https://github.com/amplia-iiot/oda/tree/develop/oda-datastreams/deviceinfoowa450"><strong>OWA450</strong></a>: <a href="https://www.owasys.com/en/products/owa450">Owasys OWA450</a> devices</li>
-</ul>
+<h3 id="modbus-slave">MODBUS SLAVE</h3>
+<p>This Datastream module enable to register ODA as a Modbus Slave to receive Modbus requests.</p>
+<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-datastreams/modbusslave">To access source code click here</a>.</p>
 <h4 id="dependencies">Dependencies</h4>
-<p><em>This module have no dependencies.</em></p>
+<p><em>This module have no dependencies</em></p>
 <h4 id="configuration">Configuration</h4>
-<p>To configure Device Info module, a file named <em>es.amplia.oda.datastreams.deviceinfo.cfg</em> (or <em>deviceinfofx30</em>, or <em>deviceinfoowa450</em>)
-must be created with the next parameters for each input channel that you want to register:</p>
+<p>To configure ModBus Datastream Slave module, a file named <em>es.amplia.oda.datastreams.modbusslave.cfg</em> must be created with the next parameters:</p>
+<p>For each connection:</p>
+<ul>
+<li><strong>deviceId</strong>: <em>Required parameter</em>. The device identifier name that identifies the connection.</li>
+<li><strong>type</strong>: <em>Required parameter</em>. Indicates the type of connection used. At the moment only TCP type is supported.</li>
+<li><strong>ip</strong>: <em>Required parameter</em>. Ip Address where we are going to listen for modbus requests.</li>
+<li><strong>port</strong>: <em>Required parameter</em>. Port where we are going to listen for modbus requests.</li>
+<li><strong>slaveAddress</strong>: <em>Required parameter</em>. Direction of the device in modbus.</li>
+</ul>
+<p>For each received modbus request that we want to translate to events:</p>
 <ul>
 <li>
-<p><strong>deviceId</strong>: (null if not specified). Identifier of the device. This parameter is used by the third-system (OpenGate,
-Scada&hellip;) to identify where the data arrive from.</p>
+<p><strong>dataAddress</strong>: <em>Required parameter</em>. Modbus direction of the signal received.</p>
 </li>
 <li>
-<p><strong>apiKey</strong>: (Required parameter). API Key (like a pass) to access to the third-system.</p>
+<p><strong>deviceId</strong>: <em>Required parameter</em>. The identifier of the device the signals comes from.</p>
 </li>
 <li>
-<p><strong>source</strong>: (Required parameter). Directory where the bundles (.jar&rsquo;s) are installed.</p>
+<p><strong>datastream</strong>: <em>Required parameter</em>. Identifier that will be asigned to the modbus value received.</p>
 </li>
 <li>
-<p><strong>path</strong>: (Required parameter). Directory where the script of the Device Info are installed. These files will be executed on runtime to collect the information.</p>
+<p><strong>feed</strong>: <em>Optional parameter</em>. Feed that will be assigned to the modbus value received. Null if not set.</p>
 </li>
 <li>
-<p><strong>scripts</strong>: List of scripts to execute to get information about device and its datastreamId associated with the format:</p>
-<pre><code>  &lt;datastreamId&gt;=&lt;path_to_script&gt;;&lt;data_type&gt;
-</code></pre>
+<p><strong>dataType</strong>: <em>Required parameter</em>. Java type of the data recollected from the modbus direction.</p>
+<p>Allowed values are: <strong>Boolean, Short, Int, Long, Float, Double</strong></p>
 </li>
 </ul>
-<p><em>es.amplia.oda.datastreams.deviceinfo*.cfg</em> will have a similar format to:</p>
-<pre tabindex="0"><code># Device identifier. If not provided the serial number is used
-deviceId=testDevice
-# API Key to connect to OpenGate
-apiKey=testApiKey
-# Directory to get the scripts
-source=deploy
-# Directory to extract the scripts
-path=scripts
-
-# List of datastreamId and script to execute for this datastreamId
-# &lt;datastreamId&gt;=&lt;path_to_script&gt;;&lt;data_type&gt;
-# &lt;data_type&gt; can be STRING, LONG, INTEGER, BOOLEAN, FLOAT, DOUBLE, JSON. If is not specified STRING type will be used
-device.clock=scripts/obtainClock.sh;JSON
-device.upTime=scripts/obtainUptime.sh;LONG
-device.cpu.total=scripts/obtainCpuTotal.sh;INTEGER
-device.cpu.status=scripts/obtainCpuStatus.sh;
-device.cpu.usage=scripts/obtainCpuUsage.sh;INTEGER
-device.ram.total=scripts/obtainRamTotal.sh;LONG
-device.ram.usage=scripts/obtainRamUsage.sh;INTEGER
-device.storage.disk.total=scripts/obtainDiskTotal.sh;LONG
-device.storage.disk.usage=scripts/obtainDiskUsage.sh;INTEGER
-device.temperature.status=scripts/obtainTemperatureStatus.sh
-device.temperature.value=scripts/obtainTemperatureValue.sh;INTEGER
-device.serialNumber=scripts/obtainSerialNumber.sh
-</code></pre>
+<p><em>es.amplia.oda.datastreams.modbusslave.cfg</em> will have a similar format to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">type:TCP,ip:127.0.0.1,port:5020,slaveAddress:1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># translations</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">500,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:shortValue,feed:feed1,dataType:Short</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">27,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:booleanValue,feed:feed1,dataType:Boolean</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">257,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue1,feed:feed1,dataType:Short</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">258,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue2,feed:feed1,dataType:Short</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">259,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue3,feed:feed1,dataType:Short</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">165,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:booleanValues,feed:feed1,dataType:Boolean</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">364,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:floatValue,feed:feed1,dataType:Float</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">384,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:doubleValue,feed:feed1,dataType:Double</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">415,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:longValue,feed:feed1,dataType:Long</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">634,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:intValue,feed:feed1,dataType:Int</span>
+</span></span></code></pre></div>
             <footer class="footline">
             </footer>
           </article>
@@ -197,12 +187,12 @@ device.serialNumber=scripts/obtainSerialNumber.sh
           <li data-nav-id="/layers/connectors/websocket/index.html" class="dd-item"><a href="../../../layers/connectors/websocket/index.html">WebSocket</a></li></ul></li>
           <li data-nav-id="/layers/datastreams/index.html" class="dd-item parent"><input type="checkbox" id="section-025a6e55ef5e9824f41182a7ce94ee33" aria-controls="subsections-025a6e55ef5e9824f41182a7ce94ee33" class="toggle" checked><label class="a11y-only toggle" for="section-025a6e55ef5e9824f41182a7ce94ee33" >Submenu Datastreams</label><a href="../../../layers/datastreams/index.html">Datastreams</a><ul id="subsections-025a6e55ef5e9824f41182a7ce94ee33">
           <li data-nav-id="/layers/datastreams/adc/index.html" class="dd-item"><a href="../../../layers/datastreams/adc/index.html">ADC</a></li>
-          <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item active"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
+          <li data-nav-id="/layers/datastreams/deviceinfo/index.html" class="dd-item"><a href="../../../layers/datastreams/deviceinfo/index.html">Device Info</a></li>
           <li data-nav-id="/layers/datastreams/gpio/index.html" class="dd-item"><a href="../../../layers/datastreams/gpio/index.html">GPIO</a></li>
           <li data-nav-id="/layers/datastreams/i2c/index.html" class="dd-item"><a href="../../../layers/datastreams/i2c/index.html">I2C</a></li>
           <li data-nav-id="/layers/datastreams/iec104/index.html" class="dd-item"><a href="../../../layers/datastreams/iec104/index.html">IEC104</a></li>
           <li data-nav-id="/layers/datastreams/modbus/index.html" class="dd-item"><a href="../../../layers/datastreams/modbus/index.html">MODBUS</a></li>
-          <li data-nav-id="/layers/datastreams/modbusslave/index.html" class="dd-item"><a href="../../../layers/datastreams/modbusslave/index.html">MODBUS SLAVE</a></li>
+          <li data-nav-id="/layers/datastreams/modbusslave/index.html" class="dd-item active"><a href="../../../layers/datastreams/modbusslave/index.html">MODBUS SLAVE</a></li>
           <li data-nav-id="/layers/datastreams/mqtt/index.html" class="dd-item"><a href="../../../layers/datastreams/mqtt/index.html">MQTT</a></li>
           <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item"><a href="../../../layers/datastreams/opcua/index.html">OPC UA</a></li>
           <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li>
@@ -272,7 +262,7 @@ device.serialNumber=scripts/obtainSerialNumber.sh
                 <div class="select-style">
                   <label class="a11y-only" for="select-language">Language</label>
                   <select id="select-language" onchange="location = baseUri + this.value;">
-                    <option lang="en" id="en" value="/layers/datastreams/deviceinfo/index.html" selected></option>
+                    <option lang="en" id="en" value="/layers/datastreams/modbusslave/index.html" selected></option>
                   </select>
                 </div>
                 <div class="select-clear"></div>

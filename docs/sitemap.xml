@@ -184,6 +184,9 @@
     <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/modbus/index.html</loc>
   </url>
   <url>
+    <loc>https://amplia-iiot.github.io/oda-docs/layers/datastreams/modbusslave/index.html</loc>
+  </url>
+  <url>
     <loc>https://amplia-iiot.github.io/oda-docs/layers/connectors/mqtt/index.html</loc>
   </url>
   <url>
