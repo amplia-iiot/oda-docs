@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>SNMP :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1763048541" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1763048541" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1763048541" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1763048541" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1763048541" rel="stylesheet">
-    <link href="../../../css/fonts.css?1763048541" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1763048541" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1763048541" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1763048541" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1763048541" rel="stylesheet">
-    <link href="../../../css/variant.css?1763048541" rel="stylesheet">
-    <link href="../../../css/print.css?1763048541" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1763048541"></script>
-    <script src="../../../js/variant.js?1763048541"></script>
+    <link href="../../../css/fontawesome-all.min.css?1763987919" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1763987919" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1763987919" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1763987919" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1763987919" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1763987919" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1763987919" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1763987919" rel="stylesheet">
+    <link href="../../../css/fonts.css?1763987919" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1763987919" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1763987919" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1763987919" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1763987919" rel="stylesheet">
+    <link href="../../../css/variant.css?1763987919" rel="stylesheet">
+    <link href="../../../css/print.css?1763987919" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1763987919"></script>
+    <script src="../../../js/variant.js?1763987919"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1763048541" defer></script>
+    <script src="../../../js/jquery.min.js?1763987919" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/hardware/snmp/index.html">
     <div id="body" class="default-animation">
@@ -102,7 +102,6 @@ This is the hardware module that give support to SNMP Datastreams.</p>
 <li><strong>deviceId</strong>: <em>Required data</em>. DeviceId associated to this conecction</li>
 <li><strong>ip</strong>: <em>Required data</em>. Ip Address where the device is installed.</li>
 <li><strong>port</strong>: <em>Required data</em>. Port where device is listening for requests.</li>
-<li><strong>listenPort</strong>: <em>Required data</em>. Port where we listen for events sent by devices (like SNMP Traps).</li>
 <li><strong>version</strong>: <em>Required data</em>. Indicates the version of SNMP protocol used to connect with device. Possible values are : <em>1, 2, 3</em>.</li>
 </ul>
 <p>For version 1 and 2 of SNMP we must also define this parameters:</p>
@@ -118,9 +117,13 @@ This is the hardware module that give support to SNMP Datastreams.</p>
 <li><strong>authProtocol</strong>: <em>Required data for version 3</em>. Protocol used for authentication. Possible values are: <em>MD5, SHA</em></li>
 <li><strong>privProtocol</strong>: <em>Required data for version 3</em>. Protocol used for privacy. Possible values are: <em>DES, 3DES, AES128, AES192, AES256</em></li>
 </ul>
-<!-- raw HTML omitted -->
+<p>To listen for traps that devices send, we define the port where we will be listening:</p>
+<ul>
+<li><strong>trapListenPort</strong>: <em>Required data</em>. Port where we listen for events sent by devices (like SNMP Traps).</li>
+</ul>
 <p><em>es.amplia.oda.hardware.snmp.cfg</em> will have a similar format to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:1, community:public</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">trapListenPort</span><span style="color:#f92672">=</span><span style="color:#e6db74">162</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:1, community:public</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1162, listenPort:1163, version:2, community:public</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV3</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:3, contextName: public, securityName:simulator, authPassphrase:auctoritas, privPassphrase:privatus, authProtocol: MD5, privProtocol:DES</span>
 </span></span></code></pre></div>
@@ -146,12 +149,12 @@ This is the hardware module that give support to SNMP Datastreams.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1763048541" defer></script>
-        <script src="../../../js/lunr.min.js?1763048541" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1763048541" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1763048541" defer></script>
-        <script src="../../../js/lunr.en.min.js?1763048541" defer></script>
-        <script src="../../../js/search.js?1763048541" defer></script>
+        <script src="../../../js/auto-complete.js?1763987919" defer></script>
+        <script src="../../../js/lunr.min.js?1763987919" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1763987919" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1763987919" defer></script>
+        <script src="../../../js/lunr.en.min.js?1763987919" defer></script>
+        <script src="../../../js/search.js?1763987919" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -277,9 +280,9 @@ This is the hardware module that give support to SNMP Datastreams.</p>
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1763048541" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1763048541" defer></script>
-    <script src="../../../js/featherlight.min.js?1763048541" defer></script>
-    <script src="../../../js/theme.js?1763048541" defer></script>
+    <script src="../../../js/clipboard.min.js?1763987919" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1763987919" defer></script>
+    <script src="../../../js/featherlight.min.js?1763987919" defer></script>
+    <script src="../../../js/theme.js?1763987919" defer></script>
   </body>
 </html>
