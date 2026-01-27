@@ -24,9 +24,23 @@ To configure SNMP Datastream module, a file named _es.amplia.oda.datastreams.snm
 * __oid__: _Required parameter_. OID of the variable in device MIB.
 * __deviceId__: _Required parameter_. The device identifier name that stores the OID. It also indicates the data needed to connect with device (defined in snmp hardware configuration file).
 * __dataType__: _Required parameter_. Type of the data stored in the OID.
+
+  Possible values:
+  * OID
+  * INTEGER
+  * STRING
+  * GAUGE
+  * COUNTER32
+  * COUNTER64
+  * TIMETICK
+  * OPAQUE
+  * IP
+
 * __datastreamId__: _Required parameter_. The identifier name of the datastream.
 * __feed__: _null if not present_. Feed to associate to the datastreamId.
-* __eventPublishType__: _Optional parameter_. Indicates how we want to publish the events snmp received (traps). It can take two values:
+* __eventPublishType__: _Optional parameter_. Indicates how we want to publish the events snmp received (traps). 
+
+  It can take two values:
 
   * dispatcher - events will be publish immediatelly as soon as it is received.
   * statemanager - events will be passed to the state manager (rules can be applied) and will be published as other events (through collector and dispatcher).
