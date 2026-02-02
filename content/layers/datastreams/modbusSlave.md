@@ -32,8 +32,8 @@ For each received modbus request that we want to translate to events:
 * __feed__: _Optional parameter_. Feed that will be assigned to the modbus value received. Null if not set.
 * __dataType__: _Required parameter_. Java type of the data recollected from the modbus direction. 
 
-    Allowed values are: __Boolean, Short, Int, Long, Float, Double__
-    
+    Allowed values are: __Boolean, Short, Int, Long, Float, Double, List__
+
 
 _es.amplia.oda.datastreams.modbusslave.cfg_ will have a similar format to:
 
@@ -43,12 +43,44 @@ deviceId1=type:TCP,ip:127.0.0.1,port:5020,slaveAddress:1
 # translations
 500,deviceId1=datastream:shortValue,feed:feed1,dataType:Short
 27,deviceId1=datastream:booleanValue,feed:feed1,dataType:Boolean
-257,deviceId1=datastream:registerValue1,feed:feed1,dataType:Short
-258,deviceId1=datastream:registerValue2,feed:feed1,dataType:Short
-259,deviceId1=datastream:registerValue3,feed:feed1,dataType:Short
-165,deviceId1=datastream:booleanValues,feed:feed1,dataType:Boolean
 364,deviceId1=datastream:floatValue,feed:feed1,dataType:Float
 384,deviceId1=datastream:doubleValue,feed:feed1,dataType:Double
 415,deviceId1=datastream:longValue,feed:feed1,dataType:Long
 634,deviceId1=datastream:intValue,feed:feed1,dataType:Int
+478-520,deviceId1=datastream:registerBlock,dataType:List
 ```
+
+#### Blocks retrieval
+
+In case we want to retrieve blocks of modbus data received without any conversion we can define a range of address. In case the modbus address of the request received is in that range, the data in the request will be assigned to the datastream indicated. 
+
+* Example:
+
+  * We define a range of modbus address:   
+
+        478-520,deviceId1=datastream:registerBlock,dataType:List
+
+  * We receive a modbus request from address 492 with the data of 50 registers
+
+  * As address 492 is inside the range defined (between 478 and 520), the 50 registers received will be converted to a byte array and an event with the datastreamId 'registerBlock' and the byte array as value will be created.
+
+  * It doesn't matter that the final modbus address (492 + 50 registers = 542) is outside the range defined, __the range only applies to the starting address of the request received__.
+
+* The data passed to the event will be all the data received in the request.
+
+* We can define N blocks with different datastreamIds as long as they don't overlap:
+
+    ```properties
+    478-520,deviceId1=datastream:registerBlock,dataType:List
+    500-600,deviceId1=datastream:registerBlock2,dataType:List
+    490-580,deviceId1=datastream:registerBlock3,dataType:List
+    510-570,deviceId1=datastream:registerBlock4,dataType:List
+    ```
+    In this case an error will be registered as address range 510-570 is already covered by range 500-600 and entry 510-570 won't be registered.
+
+ * We can define a range as thin as a single address:
+
+    ```properties
+    700-700,deviceId1=datastream:registerBlock5,dataType:List
+    ```
+    

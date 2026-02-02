@@ -9,19 +9,19 @@
     <meta name="author" content="amplía)))&#39; Development Team">
     <title>MODBUS SLAVE :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../../css/fontawesome-all.min.css?1769531494" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1769531494" rel="stylesheet"></noscript>
-    <link href="../../../css/featherlight.min.css?1769531494" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1769531494" rel="stylesheet"></noscript>
-    <link href="../../../css/auto-complete.css?1769531494" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1769531494" rel="stylesheet"></noscript>
-    <link href="../../../css/perfect-scrollbar.min.css?1769531494" rel="stylesheet">
-    <link href="../../../css/nucleus.css?1769531494" rel="stylesheet">
-    <link href="../../../css/fonts.css?1769531494" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1769531494" rel="stylesheet"></noscript>
-    <link href="../../../css/theme.css?1769531494" rel="stylesheet">
-    <link href="../../../css/theme-oda.css?1769531494" rel="stylesheet" id="variant-style">
-    <link href="../../../css/ie.css?1769531494" rel="stylesheet">
-    <link href="../../../css/variant.css?1769531494" rel="stylesheet">
-    <link href="../../../css/print.css?1769531494" rel="stylesheet" media="print">
-    <script src="../../../js/url.js?1769531494"></script>
-    <script src="../../../js/variant.js?1769531494"></script>
+    <link href="../../../css/fontawesome-all.min.css?1770027974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1770027974" rel="stylesheet"></noscript>
+    <link href="../../../css/featherlight.min.css?1770027974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1770027974" rel="stylesheet"></noscript>
+    <link href="../../../css/auto-complete.css?1770027974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1770027974" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1770027974" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1770027974" rel="stylesheet">
+    <link href="../../../css/fonts.css?1770027974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1770027974" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1770027974" rel="stylesheet">
+    <link href="../../../css/theme-oda.css?1770027974" rel="stylesheet" id="variant-style">
+    <link href="../../../css/ie.css?1770027974" rel="stylesheet">
+    <link href="../../../css/variant.css?1770027974" rel="stylesheet">
+    <link href="../../../css/print.css?1770027974" rel="stylesheet" media="print">
+    <script src="../../../js/url.js?1770027974"></script>
+    <script src="../../../js/variant.js?1770027974"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -39,7 +39,7 @@
       var baseUriFull='https:\/\/amplia-iiot.github.io\/oda-docs/';
       window.variants && variants.init( [ 'oda' ] );
     </script>
-    <script src="../../../js/jquery.min.js?1769531494" defer></script>
+    <script src="../../../js/jquery.min.js?1770027974" defer></script>
   </head>
   <body class="mobile-support html" data-url="../../../layers/datastreams/modbusslave/index.html">
     <div id="body" class="default-animation">
@@ -118,7 +118,7 @@
 </li>
 <li>
 <p><strong>dataType</strong>: <em>Required parameter</em>. Java type of the data recollected from the modbus direction.</p>
-<p>Allowed values are: <strong>Boolean, Short, Int, Long, Float, Double</strong></p>
+<p>Allowed values are: <strong>Boolean, Short, Int, Long, Float, Double, List</strong></p>
 </li>
 </ul>
 <p><em>es.amplia.oda.datastreams.modbusslave.cfg</em> will have a similar format to:</p>
@@ -127,15 +127,50 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># translations</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">500,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:shortValue,feed:feed1,dataType:Short</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">27,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:booleanValue,feed:feed1,dataType:Boolean</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">257,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue1,feed:feed1,dataType:Short</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">258,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue2,feed:feed1,dataType:Short</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">259,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerValue3,feed:feed1,dataType:Short</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">165,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:booleanValues,feed:feed1,dataType:Boolean</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">364,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:floatValue,feed:feed1,dataType:Float</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">384,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:doubleValue,feed:feed1,dataType:Double</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">415,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:longValue,feed:feed1,dataType:Long</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">634,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:intValue,feed:feed1,dataType:Int</span>
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">478-520,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock,dataType:List</span>
+</span></span></code></pre></div><h4 id="blocks-retrieval">Blocks retrieval</h4>
+<p>In case we want to retrieve blocks of modbus data received without any conversion we can define a range of address. In case the modbus address of the request received is in that range, the data in the request will be assigned to the datastream indicated.</p>
+<ul>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>We define a range of modbus address:</p>
+<pre><code>478-520,deviceId1=datastream:registerBlock,dataType:List
+</code></pre>
+</li>
+<li>
+<p>We receive a modbus request from address 492 with the data of 50 registers</p>
+</li>
+<li>
+<p>As address 492 is inside the range defined (between 478 and 520), the 50 registers received will be converted to a byte array and an event with the datastreamId &lsquo;registerBlock&rsquo; and the byte array as value will be created.</p>
+</li>
+<li>
+<p>It doesn&rsquo;t matter that the final modbus address (492 + 50 registers = 542) is outside the range defined, <strong>the range only applies to the starting address of the request received</strong>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The data passed to the event will be all the data received in the request.</p>
+</li>
+<li>
+<p>We can define N blocks with different datastreamIds as long as they don&rsquo;t overlap:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">478-520,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock,dataType:List</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">500-600,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock2,dataType:List</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">490-580,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock3,dataType:List</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">510-570,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock4,dataType:List</span>
+</span></span></code></pre></div><p>In this case an error will be registered as address range 510-570 is already covered by range 500-600 and entry 510-570 won&rsquo;t be registered.</p>
+</li>
+<li>
+<p>We can define a range as thin as a single address:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">700-700,deviceId1</span><span style="color:#f92672">=</span><span style="color:#e6db74">datastream:registerBlock5,dataType:List</span>
+</span></span></code></pre></div></li>
+</ul>
+
             <footer class="footline">
             </footer>
           </article>
@@ -158,12 +193,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../../js/auto-complete.js?1769531494" defer></script>
-        <script src="../../../js/lunr.min.js?1769531494" defer></script>
-        <script src="../../../js/lunr.stemmer.support.min.js?1769531494" defer></script>
-        <script src="../../../js/lunr.multi.min.js?1769531494" defer></script>
-        <script src="../../../js/lunr.en.min.js?1769531494" defer></script>
-        <script src="../../../js/search.js?1769531494" defer></script>
+        <script src="../../../js/auto-complete.js?1770027974" defer></script>
+        <script src="../../../js/lunr.min.js?1770027974" defer></script>
+        <script src="../../../js/lunr.stemmer.support.min.js?1770027974" defer></script>
+        <script src="../../../js/lunr.multi.min.js?1770027974" defer></script>
+        <script src="../../../js/lunr.en.min.js?1770027974" defer></script>
+        <script src="../../../js/search.js?1770027974" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -289,9 +324,9 @@
         </div>
       </div>
     </aside>
-    <script src="../../../js/clipboard.min.js?1769531494" defer></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1769531494" defer></script>
-    <script src="../../../js/featherlight.min.js?1769531494" defer></script>
-    <script src="../../../js/theme.js?1769531494" defer></script>
+    <script src="../../../js/clipboard.min.js?1770027974" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1770027974" defer></script>
+    <script src="../../../js/featherlight.min.js?1770027974" defer></script>
+    <script src="../../../js/theme.js?1770027974" defer></script>
   </body>
 </html>
