@@ -7,7 +7,7 @@
     <meta name="generator" content="Relearn 5.8.1+tip">
     <meta name="description" content="ODA Documentation Site">
     <meta name="author" content="amplía)))&#39; Development Team">
-    <title>SNMP :: ODA Documentation Site</title>
+    <title>Javascript Operations :: ODA Documentation Site</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="../../../css/fontawesome-all.min.css?1770898821" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1770898821" rel="stylesheet"></noscript>
     <link href="../../../css/featherlight.min.css?1770898821" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/featherlight.min.css?1770898821" rel="stylesheet"></noscript>
@@ -41,17 +41,17 @@
     </script>
     <script src="../../../js/jquery.min.js?1770898821" defer></script>
   </head>
-  <body class="mobile-support html" data-url="../../../layers/hardware/snmp/index.html">
+  <body class="mobile-support html" data-url="../../../layers/operations/javascript/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="../../../layers/statemanager/index.html" title="State Manager (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <a class="nav nav-next" href="../../../layers/operations/refreshinfo/index.html" title="Refresh Info (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="../../../layers/hardware/opcua/index.html" title="OPC UA (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="../../../layers/operations/getdeviceparameters/index.html" title="Get Device Parameters (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -61,8 +61,8 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../index.html"><span itemprop="name">ODA official documentation</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/index.html"><span itemprop="name">Layers</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/hardware/index.html"><span itemprop="name">Hardware</span></a><meta itemprop="position" content="3"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">SNMP</span><meta itemprop="position" content="4"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../layers/operations/index.html"><span itemprop="name">Operations</span></a><meta itemprop="position" content="3"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Javascript Operations</span><meta itemprop="position" content="4"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -71,7 +71,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#snmp">SNMP</a></li>
+        <li><a href="#javascript-operations">Javascript operations</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#osgi-context-ctx">Osgi context (ctx)</a></li>
       </ul>
     </li>
   </ul>
@@ -85,48 +87,89 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="snmp">SNMP</h1>
+<h1 id="javascript-operations">Javascript Operations</h1>
 
-<h3 id="snmp">SNMP</h3>
-<p>Implementation of the library snmp4j to give an access to devices connected through snmp.
-This is the hardware module that give support to SNMP Datastreams.</p>
-<p><a href="https://github.com/amplia-iiot/oda/tree/master/oda-hardware/snmp">To access source code click here</a>.</p>
+<h3 id="javascript-operations">Javascript operations</h3>
+<p>The bundle es.amplia.oda.operation.nashorn allows to execute operations in javascript using the nashorn javascript motor.</p>
 <h4 id="dependencies">Dependencies</h4>
-<p>This module requires the following modules:</p>
 <ul>
-<li><strong><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Commons</a></strong>: Provide the SNMP APIs, exceptions and types and the basic APIs to register the service.</li>
+<li><a href="https://amplia-iiot.github.io/oda-docs/infrastructure/core/">Commons</a>: Required to provide the commons utils.</li>
+<li><a href="https://amplia-iiot.github.io/oda-docs/layers/eventdispatcher/events/">Events</a>: Required to provide the events API.</li>
+<li><a href="https://amplia-iiot.github.io/oda-docs/layers/operations/">Operation API</a>: Provides the api of the operation and the enums of the result code.</li>
 </ul>
 <h4 id="configuration">Configuration</h4>
-<p>To configure SNMP Hardware module, a file named <em>es.amplia.oda.hardware.snmp.cfg</em> must be created with the next parameters for each device that you want to register:</p>
+<p>To configure Javascript Operations module, a file named <em>es.amplia.oda.operation.nashorn.cfg</em> must be created with the next parameters:</p>
 <ul>
-<li><strong>deviceId</strong>: <em>Required data</em>. DeviceId associated to this conecction</li>
-<li><strong>ip</strong>: <em>Required data</em>. Ip Address where the device is installed.</li>
-<li><strong>port</strong>: <em>Required data</em>. Port where device is listening for requests.</li>
-<li><strong>version</strong>: <em>Required data</em>. Indicates the version of SNMP protocol used to connect with device. Possible values are : <em>1, 2, 3</em>.</li>
+<li><strong>path</strong>: <em>Required parameter</em>. Path from the main directory of the ODA to the directory where the javascript files with the operations are stored.</li>
+<li><strong>utilsPath</strong>: <em>Required parameter</em>. Path from the main directory of the ODA to the directory where javascript files with utils for operations are stored.</li>
 </ul>
-<p>For version 1 and 2 of SNMP we must also define this parameters:</p>
+<p><em>es.amplia.oda.operation.nashorn.cfg</em> will have a similar format to:</p>
+<pre tabindex="0"><code>path=jsOperations/
+utilsPath=jslib/
+</code></pre><h3 id="how-it-works">How it works</h3>
+<p>Using this bundle we can define operations using nashorn javascript motor.</p>
+<p><strong>The name of the file must be the name of the operation</strong></p>
+<p>When the operation is received, the operation dispatcher of ODA will search for an operation with the name indicated between the ones registered in OSGI context, if it doesn&rsquo;t find any operation that matches, it will search in the javascripts registered in the path indicated by this bundle configuration.</p>
+<p>The javascript operation must implement the method execute that is the entry point of the operation:</p>
+<pre tabindex="0"><code>function execute(deviceId, operationId, params, ctx)
+</code></pre><p>The parameters passed to the method execute are:</p>
 <ul>
-<li><strong>community</strong>: <em>Required data for version 1 and 2</em>. Name of the community</li>
+<li>deviceId - the deviceId for the operation</li>
+<li>operationId - the operation id (needed to send partial responses)</li>
+<li>params - the parameters needed for the operation</li>
+<li>ctx - a reference to the osgi context - this allows to log messages and get access to bundles registered in the osgi framework and its methods</li>
 </ul>
-<p>For version 3 we must also define this parameters:</p>
-<ul>
-<li><strong>contextName</strong>: <em>Required data for version 3</em>. Name assigned to the MIB of the device</li>
-<li><strong>securityName</strong>: <em>Required data for version 3</em>. Username</li>
-<li><strong>authPassphrase</strong>: <em>Required data for version 3</em>. Key used for authentication</li>
-<li><strong>privPassphrase</strong>: <em>Required data for version 3</em>. Password used for privacy</li>
-<li><strong>authProtocol</strong>: <em>Required data for version 3</em>. Protocol used for authentication. Possible values are: <em>MD5, SHA</em></li>
-<li><strong>privProtocol</strong>: <em>Required data for version 3</em>. Protocol used for privacy. Possible values are: <em>DES, 3DES, AES128, AES192, AES256</em></li>
-</ul>
-<p>To listen for traps that devices send, we define the port where we will be listening:</p>
-<ul>
-<li><strong>trapListenPort</strong>: <em>Required data</em>. Port where we listen for events sent by devices (like SNMP Traps).</li>
-</ul>
-<p><em>es.amplia.oda.hardware.snmp.cfg</em> will have a similar format to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">trapListenPort</span><span style="color:#f92672">=</span><span style="color:#e6db74">162</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:1, community:public</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1162, listenPort:1163, version:2, community:public</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">testSnmpDeviceV3</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ip:127.0.0.1, port:1160, listenPort:1161, version:3, contextName: public, securityName:simulator, authPassphrase:auctoritas, privPassphrase:privatus, authProtocol: MD5, privProtocol:DES</span>
-</span></span></code></pre></div>
+<p>The operation returns an operation result object (like a Java operation).</p>
+<p>There are some javascript methods to use in javascript operations defined in file operUtils.js located in folder resources inside bundle &lsquo;oda-ruleengine api&rsquo;.</p>
+<p>When we change externally the javascript of any of the operations inside <em>path</em> folder or any of the utils javascripts stored in <em>utilsPath</em>, all javascript operations are reloaded inside ODA to reflect the new changes.</p>
+<h3 id="osgi-context-ctx">Osgi context (ctx)</h3>
+<p>The operations javascript engine includes a reference to the osgi context to allow to do some things inside javascript operations.</p>
+<p>This context is defined in class <a href="https://github.com/amplia-iiot/oda/blob/master/oda-core/commons/src/main/java/es/amplia/oda/core/commons/utils/OsgiContext.java">OsgiContext</a> in package package es.amplia.oda.core.commons.utils inside bundle oda-core.commons</p>
+<h4 id="retrieve-a-bundle-instance-registered-in-osgi-framework">Retrieve a bundle instance registered in OSGI framework</h4>
+<p>Example getting an http client from osgi context:</p>
+<pre tabindex="0"><code>function getHttpClientInsecure(ctx) {
+    // get http client factory from OSGI
+    var factoryBundle = ctx.getBundle(&#34;es.amplia.oda.core.commons.http.HttpClientFactory&#34;);
+    if (factoryBundle == null) {
+        ctx.logError(&#34;No HTTP Client Factory bundle retrieved from OSGI&#34;);
+        return null;
+    }
+
+    // Create client insecure
+    return factoryBundle.createHttpClient(true);
+}
+</code></pre><p>Once we have a reference to the bundle instance we can call its method like inside Java.</p>
+<h4 id="retrieve-datastreamgetterdatastreamsetter">Retrieve datastreamGetter/datastreamSetter</h4>
+<p>Ctx class has methos to retrieve a datastreamGetter or datastreamSetter registeres in OSGI Context directly</p>
+<pre tabindex="0"><code>public List&lt;DatastreamsGetter&gt; getGetters(String device, String datastreamId) {
+    return datastreamsGettersFinder.getGettersOfDevice(device).stream().filter(getter -&gt; getter.getDatastreamIdSatisfied().equals(datastreamId)).collect(Collectors.toList());
+}
+</code></pre><pre tabindex="0"><code>public List&lt;DatastreamsSetter&gt; getSetters(String device, String datastreamId) {
+    return new ArrayList&lt;&gt;(datastreamsSettersFinder.getSettersSatisfying(device, Collections.singleton(datastreamId)).getSetters().values());
+}
+</code></pre><p>Once we have retrieved these we can directly call in javascript to methods get or set</p>
+<pre tabindex="0"><code>var modbusGetter = ctx.getGetter(&#34;modbusEmulator&#34;, &#34;modbusWrite&#34;);
+var newValue = modbusGetter.get(&#34;modbusEmulator&#34;);
+</code></pre><h4 id="publishing-datapoints">Publishing datapoints</h4>
+<p>We can publish datapoints using context method publish (to publish events immediately) or using method collect (to pass events to state manager as it came from the poller).</p>
+<p>We create an ODA event using this function included in operUtils.js file:</p>
+<pre tabindex="0"><code>function createOdaEvent(deviceId, datastreamId, feed, at, value){
+	var event = {};
+	event.datastreamId = datastreamId;
+	event.deviceId = deviceId;
+	event.path = null;
+	event.feed = feed;
+	event.at = at;
+	event.value = value;
+	return event;
+}
+</code></pre><p>We publish the datapoint created with this context function:</p>
+<pre tabindex="0"><code>ctx.publish([createOdaEvent(deviceId, &#34;device.software&#34;, null, null, responseParsed[&#34;firmwareVersion&#34;])]);
+</code></pre><h4 id="logging">Logging</h4>
+<p>OsgiContext class also includes methods to log into different log levels as it if was java</p>
+<pre tabindex="0"><code>public void logInfo(String msg, Object...objects) { LOGGER.info(msg, objects);}
+</code></pre><pre tabindex="0"><code>ctx.logError(&#34;Returned response code {}&#34;, responseStatusCode);
+</code></pre>
             <footer class="footline">
             </footer>
           </article>
@@ -188,7 +231,7 @@ This is the hardware module that give support to SNMP Datastreams.</p>
           <li data-nav-id="/layers/datastreams/opcua/index.html" class="dd-item"><a href="../../../layers/datastreams/opcua/index.html">OPC UA</a></li>
           <li data-nav-id="/layers/datastreams/simulator/index.html" class="dd-item"><a href="../../../layers/datastreams/simulator/index.html">Simulator</a></li>
           <li data-nav-id="/layers/datastreams/snmp/index.html" class="dd-item"><a href="../../../layers/datastreams/snmp/index.html">SNMP</a></li></ul></li>
-          <li data-nav-id="/layers/hardware/index.html" class="dd-item parent"><input type="checkbox" id="section-69bbec3c54c56771782e00f916de6e3a" aria-controls="subsections-69bbec3c54c56771782e00f916de6e3a" class="toggle" checked><label class="a11y-only toggle" for="section-69bbec3c54c56771782e00f916de6e3a" >Submenu Hardware</label><a href="../../../layers/hardware/index.html">Hardware</a><ul id="subsections-69bbec3c54c56771782e00f916de6e3a">
+          <li data-nav-id="/layers/hardware/index.html" class="dd-item"><input type="checkbox" id="section-69bbec3c54c56771782e00f916de6e3a" aria-controls="subsections-69bbec3c54c56771782e00f916de6e3a" class="toggle"><label class="a11y-only toggle" for="section-69bbec3c54c56771782e00f916de6e3a" >Submenu Hardware</label><a href="../../../layers/hardware/index.html">Hardware</a><ul id="subsections-69bbec3c54c56771782e00f916de6e3a">
           <li data-nav-id="/layers/hardware/atserver/index.html" class="dd-item"><a href="../../../layers/hardware/atserver/index.html">AT Server</a></li>
           <li data-nav-id="/layers/hardware/comms/index.html" class="dd-item"><a href="../../../layers/hardware/comms/index.html">Comms</a></li>
           <li data-nav-id="/layers/hardware/diozero/index.html" class="dd-item"><a href="../../../layers/hardware/diozero/index.html">DIOZero</a></li>
@@ -197,17 +240,17 @@ This is the hardware module that give support to SNMP Datastreams.</p>
           <li data-nav-id="/layers/hardware/jdkdio/index.html" class="dd-item"><a href="../../../layers/hardware/jdkdio/index.html">JDK DIO</a></li>
           <li data-nav-id="/layers/hardware/modbus/index.html" class="dd-item"><a href="../../../layers/hardware/modbus/index.html">ModBus</a></li>
           <li data-nav-id="/layers/hardware/opcua/index.html" class="dd-item"><a href="../../../layers/hardware/opcua/index.html">OPC UA</a></li>
-          <li data-nav-id="/layers/hardware/snmp/index.html" class="dd-item active"><a href="../../../layers/hardware/snmp/index.html">SNMP</a></li></ul></li>
+          <li data-nav-id="/layers/hardware/snmp/index.html" class="dd-item"><a href="../../../layers/hardware/snmp/index.html">SNMP</a></li></ul></li>
           <li data-nav-id="/layers/statemanager/index.html" class="dd-item"><input type="checkbox" id="section-ff327409b7d0c6a7879713135ddaf838" aria-controls="subsections-ff327409b7d0c6a7879713135ddaf838" class="toggle"><label class="a11y-only toggle" for="section-ff327409b7d0c6a7879713135ddaf838" >Submenu State Manager</label><a href="../../../layers/statemanager/index.html">State Manager</a><ul id="subsections-ff327409b7d0c6a7879713135ddaf838">
           <li data-nav-id="/layers/statemanager/inmemory/index.html" class="dd-item"><a href="../../../layers/statemanager/inmemory/index.html">In Memory State Manager</a></li>
           <li data-nav-id="/layers/statemanager/realtime/index.html" class="dd-item"><a href="../../../layers/statemanager/realtime/index.html">Real Time State Manager</a></li></ul></li>
           <li data-nav-id="/layers/ruleengine/index.html" class="dd-item"><input type="checkbox" id="section-63cfc7449c00e0021b36647e1b54fac9" aria-controls="subsections-63cfc7449c00e0021b36647e1b54fac9" class="toggle"><label class="a11y-only toggle" for="section-63cfc7449c00e0021b36647e1b54fac9" >Submenu Rule Engine</label><a href="../../../layers/ruleengine/index.html">Rule Engine</a><ul id="subsections-63cfc7449c00e0021b36647e1b54fac9">
           <li data-nav-id="/layers/ruleengine/nashorn/index.html" class="dd-item"><a href="../../../layers/ruleengine/nashorn/index.html">Nashorn</a></li>
           <li data-nav-id="/layers/ruleengine/utils/index.html" class="dd-item"><a href="../../../layers/ruleengine/utils/index.html">Utils</a></li></ul></li>
-          <li data-nav-id="/layers/operations/index.html" class="dd-item"><input type="checkbox" id="section-0e149a8dbbce14368ce0fe137866b0ef" aria-controls="subsections-0e149a8dbbce14368ce0fe137866b0ef" class="toggle"><label class="a11y-only toggle" for="section-0e149a8dbbce14368ce0fe137866b0ef" >Submenu Operations</label><a href="../../../layers/operations/index.html">Operations</a><ul id="subsections-0e149a8dbbce14368ce0fe137866b0ef">
+          <li data-nav-id="/layers/operations/index.html" class="dd-item parent"><input type="checkbox" id="section-0e149a8dbbce14368ce0fe137866b0ef" aria-controls="subsections-0e149a8dbbce14368ce0fe137866b0ef" class="toggle" checked><label class="a11y-only toggle" for="section-0e149a8dbbce14368ce0fe137866b0ef" >Submenu Operations</label><a href="../../../layers/operations/index.html">Operations</a><ul id="subsections-0e149a8dbbce14368ce0fe137866b0ef">
           <li data-nav-id="/layers/operations/discover/index.html" class="dd-item"><a href="../../../layers/operations/discover/index.html">Discover</a></li>
           <li data-nav-id="/layers/operations/getdeviceparameters/index.html" class="dd-item"><a href="../../../layers/operations/getdeviceparameters/index.html">Get Device Parameters</a></li>
-          <li data-nav-id="/layers/operations/javascript/index.html" class="dd-item"><a href="../../../layers/operations/javascript/index.html">Javascript Operations</a></li>
+          <li data-nav-id="/layers/operations/javascript/index.html" class="dd-item active"><a href="../../../layers/operations/javascript/index.html">Javascript Operations</a></li>
           <li data-nav-id="/layers/operations/refreshinfo/index.html" class="dd-item"><a href="../../../layers/operations/refreshinfo/index.html">Refresh Info</a></li>
           <li data-nav-id="/layers/operations/setclock/index.html" class="dd-item"><a href="../../../layers/operations/setclock/index.html">Set Clock</a></li>
           <li data-nav-id="/layers/operations/setdeviceparameters/index.html" class="dd-item"><a href="../../../layers/operations/setdeviceparameters/index.html">Set Device Parameters</a></li>
@@ -254,7 +297,7 @@ This is the hardware module that give support to SNMP Datastreams.</p>
                 <div class="select-style">
                   <label class="a11y-only" for="select-language">Language</label>
                   <select id="select-language" onchange="location = baseUri + this.value;">
-                    <option lang="en" id="en" value="/layers/hardware/snmp/index.html" selected></option>
+                    <option lang="en" id="en" value="/layers/operations/javascript/index.html" selected></option>
                   </select>
                 </div>
                 <div class="select-clear"></div>

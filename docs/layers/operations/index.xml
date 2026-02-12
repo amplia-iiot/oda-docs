@@ -25,6 +25,15 @@ The value getted by the operation will be passed to the state manager, which han
 Dependencies Operation API: Provides the api of the operation and the enums of the result code. State Manager: Provides the API of the State Manager that will handle the returned value by the operation.</description>
     </item>
     <item>
+      <title>Javascript Operations</title>
+      <link>https://amplia-iiot.github.io/oda-docs/layers/operations/javascript/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://amplia-iiot.github.io/oda-docs/layers/operations/javascript/index.html</guid>
+      <description>Javascript operations The bundle es.amplia.oda.operation.nashorn allows to execute operations in javascript using the nashorn javascript motor.
+Dependencies Commons: Required to provide the commons utils. Events: Required to provide the events API. Operation API: Provides the api of the operation and the enums of the result code. Configuration To configure Javascript Operations module, a file named es.amplia.oda.operation.nashorn.cfg must be created with the next parameters:
+path: Required parameter. Path from the main directory of the ODA to the directory where the javascript files with the operations are stored.</description>
+    </item>
+    <item>
       <title>Refresh Info</title>
       <link>https://amplia-iiot.github.io/oda-docs/layers/operations/refreshinfo/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

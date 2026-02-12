@@ -67,3 +67,7 @@ The JSON message that the third platform will send to ODA to do a custom operati
     }
 }
 ```
+
+#### [Javascript Operations](javascript)
+
+Nashorn engine allows us to define custom operations using javascript
